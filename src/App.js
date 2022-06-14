@@ -5,6 +5,8 @@ import HeaderSection from "./components/HeaderSection/HeaderSection";
 import FooterSection from "./components/FooterSection/FooterSection";
 import WareHousePage from "./pages/WareHousePage/WareHousePage";
 
+import WarehouseAdd from "./components/WarehouseComponents/WarehouseAdd/WarehouseAdd";
+
 class App extends React.Component {
   render() {
     return (
@@ -14,9 +16,7 @@ class App extends React.Component {
           <Route to="/" exact component={WareHousePage}></Route>
           {/* <Route to="/inventory" component={InventoryPage}></Route> */}
           {/* Left this in from FAM-2 PR, can remove anytime*/}
-          <div className="App">
-            <h1>This is a font test</h1>
-          </div>
+          <Route to="/warehouse/add" exact component={WarehouseAdd} />
         </Switch>
         <FooterSection />
       </BrowserRouter>

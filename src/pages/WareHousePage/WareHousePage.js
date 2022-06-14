@@ -1,5 +1,7 @@
 import React from "react";
 import WarehouseList from "../../components/WarehouseComponents/WarehouseList/WarehouseList";
+import WarehouseAdd from "../../components/WarehouseComponents/WarehouseAdd/WarehouseAdd";
+
 import axios from "axios";
 
 class WareHousePage extends React.Component {
@@ -25,10 +27,12 @@ class WareHousePage extends React.Component {
       <div>
         {warehouseList && (
           <WarehouseList warehouseList={this.state.warehouseList} />
+        <WarehouseAdd />
         )}
       </div>
     );
   }
-}
 
-export default WareHousePage;
+
+
+
