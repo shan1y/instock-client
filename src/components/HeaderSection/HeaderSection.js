@@ -12,7 +12,7 @@ function HeaderSection () {
             </div>
             <div className="nav__directory">
                 <Link className="nav__links nav__links--active">Warehouses</Link>
-                <Link className="nav__links">Inventory</Link>
+                <Link className="nav__links nav__links--tablet">Inventory</Link>
             </div>
             </nav>
         </header>
