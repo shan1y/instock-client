@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./WarehouseList.scss";
-import chevron from "../../assets/Icons/chevron_right-24px.svg";
+import chevron from "../../../assets/Icons/chevron_right-24px.svg";
 class WarehouseList extends Component {
   render() {
     return (
