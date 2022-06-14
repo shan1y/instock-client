@@ -1,4 +1,4 @@
-import "App.scss";
+import "./App.scss";
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import HeaderSection from "./components/HeaderSection/HeaderSection";
@@ -12,12 +12,8 @@ class App extends React.Component {
       <BrowserRouter>
         <HeaderSection />
         <Switch>
-          <Route to="/" exact component={WareHousePage}></Route>
-          <Route to="/inventory" component={InventoryPage}></Route>
-          {/* Left this in from FAM-2 PR, can remove anytime*/}
-          <div className="App">
-            <h1>This is a font test</h1>
-          </div>
+          {/* <Route to="/" exact component={WareHousePage}></Route>
+          <Route to="/inventory" component={InventoryPage}></Route> */}
         </Switch>
         <FooterSection />
       </BrowserRouter>

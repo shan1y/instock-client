@@ -3,3 +3,45 @@
 @use "../../styles/partials/colours" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
+
+.nav {
+  max-width: 80rem;
+  width: 100%;
+  background-color: #232940;
+  padding: 2rem 1rem 5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__logo-div {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    width: 100%;
+  }
+  &__logo {
+    text-align: center;
+  }
+  &__directory {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__links {
+    text-decoration: none;
+    text-align: center;
+    color: #bdc5d5;
+    font-size: 11px;
+    line-height: 22px;
+    margin: 0;
+    width: 45%;
+    padding: 0.25rem 2rem;
+    display: flex;
+    justify-content: center;
+    &--active {
+      background-color: $instock-black;
+      color: $white;
+      border-radius: 1rem;
+      width: 55%;
+    }
+  }
+}
