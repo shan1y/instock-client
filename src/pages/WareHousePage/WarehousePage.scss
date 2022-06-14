@@ -1,0 +1,34 @@
+@use "../../styles/partials/typography" as *;
+
+li {
+  list-style: none;
+}
+
+.warehouseCard {
+  &__content-list {
+    display: flex;
+  }
+
+  &__link-item {
+    display: flex;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button--delete {
+    background-color: transparent;
+    border: none;
+    &::before {
+      content: url("../../assets/Icons/delete_outline-24px.svg");
+    }
+  }
+
+  &__button--edit {
+    &::before {
+      content: url("../../assets/Icons/edit-24px.svg");
+    }
+  }
+}

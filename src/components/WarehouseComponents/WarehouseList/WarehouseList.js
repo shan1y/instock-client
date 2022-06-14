@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./WHList.scss";
+import "./WarehouseList.scss";
 import chevron from "../../assets/Icons/chevron_right-24px.svg";
-class WHList extends Component {
+class WarehouseList extends Component {
   render() {
     return (
       <div>
@@ -10,8 +10,10 @@ class WHList extends Component {
             <ul className="warehouseCard__sub-list">
               <li className="warehouseCard__list-details">
                 <h4 className="warehouseCard__list-title">Warehouse</h4>
-                <div className="warehouseCard__link">Miami</div>
-                <img src={chevron} />
+                <div className="warehouseCard__link-item">
+                  <div className="warehouseCard__link">Miami</div>
+                  <img src={chevron} />
+                </div>
               </li>
               <li className="warehouseCard__list-details">
                 <h4 className="warehouseCard__list-title">Address</h4>
@@ -47,4 +49,4 @@ class WHList extends Component {
   }
 }
 
-export default WHList;
+export default WarehouseList;
