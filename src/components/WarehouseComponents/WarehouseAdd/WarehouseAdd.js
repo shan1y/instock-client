@@ -30,11 +30,11 @@ class WarehouseAdd extends Component {
             </label>
 
             <label>
-              Position
+              Street Address
               <input
                 type="text"
-                name="position"
-                placeholder="Position"
+                name="address"
+                placeholder="Street Address"
                 //   value={this.state.warehouseName}
                 //   onChange={this.handleChange}
               />
@@ -45,7 +45,7 @@ class WarehouseAdd extends Component {
               <input
                 type="text"
                 name="city"
-
+                placeholder="Street Address"
                 //   value={this.state.warehouseName}
                 //   onChange={this.handleChange}
               />
