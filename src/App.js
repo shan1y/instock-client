@@ -11,10 +11,11 @@ class React extends React.Component {
         <Switch>
           <Route to="/" exact component={WareHousePage}></Route>
           <Route to="/inventory" component={InventoryPage}></Route>
+          <div className="App">
+      <h1>This is a font test</h1>
+    </div>
         </Switch>
       </BrowserRouter>
     );
   }
 }
-
-export default App;
