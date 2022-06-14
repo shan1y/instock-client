@@ -8,7 +8,7 @@ function HeaderSection () {
         <header>
             <nav className="nav">
             <div className="nav__logo-div">
-                <img className="nav__logo" src={InStockLogo}></img>
+                <img className="nav__logo" src={InStockLogo} alt="InStock Logo"></img>
             </div>
             <div className="nav__directory">
                 <Link className="nav__links nav__links--active">Warehouses</Link>
