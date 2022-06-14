@@ -27,12 +27,11 @@ class WareHousePage extends React.Component {
       <div>
         {warehouseList && (
           <WarehouseList warehouseList={this.state.warehouseList} />
-        <WarehouseAdd />
         )}
+        <WarehouseAdd />
       </div>
     );
   }
+}
 
-
-
-
+export default WareHousePage;
