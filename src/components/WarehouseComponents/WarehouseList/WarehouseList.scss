@@ -6,16 +6,31 @@ li {
 }
 
 .warehouseCard {
+  border-top: 1px solid $cloud;
+  border-bottom: 1px solid $cloud;
+  padding: 1rem;
   &__content-list {
     display: flex;
+    justify-content: space-between;
+    gap: 1rem;
   }
 
   &__list-title {
     text-transform: uppercase;
+    color: $header-colour;
+  }
+
+  &__list-details {
+    padding: 0.5rem 0 0.5rem 0;
+  }
+
+  &__sub-list {
+    padding-right: 1rem;
   }
 
   &__link {
     color: $button-colour;
+    font-weight: 600;
   }
 
   &__link-item {
