@@ -1,4 +1,4 @@
-import "FooterSection.scss";
+import "./FooterSection.scss";
 
 function FooterSection() {
   return <></>;

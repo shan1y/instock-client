@@ -1,4 +1,4 @@
-import "HeaderSection.scss";
+import "./HeaderSection.scss";
 import InStockLogo from "../../assets/Logo/InStock-Logo.svg";
 
 
