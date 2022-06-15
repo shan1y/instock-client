@@ -6,9 +6,11 @@ import backArrow from "../../../assets/Icons/arrow_back-24px.svg";
 import errorIcon from "../../../assets/Icons/error-24px.svg";
 import axios from "axios";
 
+// NUMBER VALIDATION
 const numberRegex =
   /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
 
+// EMAIL VALIDATION
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 class WarehouseAdd extends Component {
@@ -21,11 +23,10 @@ class WarehouseAdd extends Component {
     position: "",
     phone: "",
     email: "",
-    phoneError: "",
-    emailError: "",
-    isFormSubmitted: "",
+    // isFormSubmitted: false,
   };
 
+  // HANDLING FIELD INPUT CHANGES
   handleChange(event) {
     const { name, value } = event.target;
 
@@ -36,157 +37,156 @@ class WarehouseAdd extends Component {
     return;
   }
 
-  handleWarehouseName = (event) => {
-    const inputValue = event.target.value;
+  // handleWarehouseName = (event) => {
+  //   const inputValue = event.target.value;
 
-    if (inputValue.trim() === "") {
-      this.setState({ warehouseNameCheck: true });
-    } else {
-      this.setState({ warehouseNameCheck: false });
-    }
-  };
+  //   if (inputValue.trim() === "") {
+  //     this.setState({ warehouseNameCheck: true });
+  //   } else {
+  //     this.setState({ warehouseNameCheck: false });
+  //   }
+  // };
 
-  handleAddress = (event) => {
-    const inputValue = event.target.value;
-    if (inputValue.trim() === "") {
-      this.setState({ addressCheck: true });
-    } else {
-      this.setState({ addressCheck: false });
-    }
-  };
+  // handleAddress = (event) => {
+  //   const inputValue = event.target.value;
+  //   if (inputValue.trim() === "") {
+  //     this.setState({ addressCheck: true });
+  //   } else {
+  //     this.setState({ addressCheck: false });
+  //   }
+  // };
 
-  handleCity = (event) => {
-    const inputValue = event.target.value;
+  // handleCity = (event) => {
+  //   const inputValue = event.target.value;
 
-    if (inputValue.trim() === "") {
-      this.setState({ cityCheck: true });
-    } else {
-      this.setState({ cityCheck: false });
-    }
-  };
+  //   if (inputValue.trim() === "") {
+  //     this.setState({ cityCheck: true });
+  //   } else {
+  //     this.setState({ cityCheck: false });
+  //   }
+  // };
 
-  handleCountry = (event) => {
-    const inputValue = event.target.value;
+  // handleCountry = (event) => {
+  //   const inputValue = event.target.value;
 
-    if (inputValue.trim() === "") {
-      this.setState({ countryCheck: true });
-    } else {
-      this.setState({ countryCheck: false });
-    }
-  };
+  //   if (inputValue.trim() === "") {
+  //     this.setState({ countryCheck: true });
+  //   } else {
+  //     this.setState({ countryCheck: false });
+  //   }
+  // };
 
-  handleContactName = (event) => {
-    const inputValue = event.target.value;
+  // handleContactName = (event) => {
+  //   const inputValue = event.target.value;
 
-    if (inputValue.trim() === "") {
-      this.setState({ contactNameCheck: true });
-    } else {
-      this.setState({ contactNameCheck: false });
-    }
-  };
+  //   if (inputValue.trim() === "") {
+  //     this.setState({ contactNameCheck: true });
+  //   } else {
+  //     this.setState({ contactNameCheck: false });
+  //   }
+  // };
 
-  handlePosition = (event) => {
-    const inputValue = event.target.value;
+  // handlePosition = (event) => {
+  //   const inputValue = event.target.value;
 
-    if (inputValue.trim() === "") {
-      this.setState({ positionCheck: true });
-    } else {
-      this.setState({ positionCheck: false });
-    }
-  };
+  //   if (inputValue.trim() === "") {
+  //     this.setState({ positionCheck: true });
+  //   } else {
+  //     this.setState({ positionCheck: false });
+  //   }
+  // };
 
-  handlePhoneNumber = (event) => {
-    const inputValue = event.target.value;
-    const numberRegex =
-      /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
-    if (inputValue.trim() === "") {
-      this.setState({ numberCheck: true });
-    } else if (!numberRegex.test(inputValue)) {
-      this.setState({ numberCheck: true });
-    } else {
-      this.setState({ numberCheck: false });
-    }
-  };
+  // handlePhoneNumber = (event) => {
+  //   const inputValue = event.target.value;
+  //   const numberRegex =
+  //     /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+  //   if (inputValue.trim() === "") {
+  //     this.setState({ numberCheck: true });
+  //   } else if (!numberRegex.test(inputValue)) {
+  //     this.setState({ numberCheck: true });
+  //   } else {
+  //     this.setState({ numberCheck: false });
+  //   }
+  // };
 
-  handleEmail = (event) => {
-    const inputValue = event.target.value;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (inputValue.trim() === "") {
-      this.setState({ emailCheck: true });
-    } else if (!emailRegex.test(inputValue)) {
-      this.setState({ emailCheck: true });
-    } else {
-      this.setState({ emailCheck: false });
-    }
-  };
+  // handleEmail = (event) => {
+  //   const inputValue = event.target.value;
+  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //   if (inputValue.trim() === "") {
+  //     this.setState({ emailCheck: true });
+  //   } else if (!emailRegex.test(inputValue)) {
+  //     this.setState({ emailCheck: true });
+  //   } else {
+  //     this.setState({ emailCheck: false });
+  //   }
+  // };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  // handleSubmit = (event) => {
+  //   event.preventDefault();
 
-    if (event.target.warehouseName.value.trim() === "") {
-      this.setState({ warehouseNameCheck: true });
-    }
-    if (event.target.address.value.trim() === "") {
-      this.setState({ addressCheck: true });
-    }
+  //   if (event.target.warehouseName.value.trim() === "") {
+  //     this.setState({ warehouseNameCheck: true });
+  //   }
+  //   if (event.target.address.value.trim() === "") {
+  //     this.setState({ addressCheck: true });
+  //   }
 
-    if (event.target.city.value.trim() === "") {
-      this.setState({ cityCheck: true });
-    }
+  //   if (event.target.city.value.trim() === "") {
+  //     this.setState({ cityCheck: true });
+  //   }
 
-    if (event.target.country.value.trim() === "") {
-      this.setState({ countryCheck: true });
-    }
+  //   if (event.target.country.value.trim() === "") {
+  //     this.setState({ countryCheck: true });
+  //   }
 
-    if (event.target.contactName.value.trim() === "") {
-      this.setState({ contactNameCheck: true });
-    }
+  //   if (event.target.contactName.value.trim() === "") {
+  //     this.setState({ contactNameCheck: true });
+  //   }
 
-    if (event.target.position.value.trim() === "") {
-      this.setState({ positionCheck: true });
-    }
+  //   if (event.target.position.value.trim() === "") {
+  //     this.setState({ positionCheck: true });
+  //   }
 
-    if (event.target.phone.value.trim() === "") {
-      this.setState({ numberCheck: true });
-    }
+  //   if (event.target.phone.value.trim() === "") {
+  //     this.setState({ numberCheck: true });
+  //   }
 
-    if (event.target.email.value.trim() === "") {
-      this.setState({ emailCheck: true });
-    }
+  //   if (event.target.email.value.trim() === "") {
+  //     this.setState({ emailCheck: true });
+  //   }
 
-    if (
-      !this.state.warehouseNameCheck &&
-      !this.state.addressCheck &&
-      !this.state.cityCheck &&
-      !this.state.numberCheck &&
-      !this.state.positionCheck &&
-      !this.state.emailCheck &&
-      !this.state.countryCheck &&
-      event.target.warehouseName.value &&
-      event.target.address.value &&
-      event.target.city.value &&
-      event.target.country.value &&
-      event.target.position.value &&
-      event.target.phone.value &&
-      event.target.email.value
-    ) {
-      axios
-        .post("http://localhost:8080/warehouse", {
-          warehouseName: event.target.warehouseName.value,
-          address: event.target.address.value,
-          city: event.target.city.value,
-          country: event.target.country.value,
-          contactName: event.target.contactName.value,
-          position: event.target.position.value,
-          phone: event.target.phone.value,
-          email: event.target.email.value,
-        })
-        .catch((error) => console.log(error));
-      this.props.history.push("/warehouse");
-    }
+  //   if (
+  //     !this.state.warehouseNameCheck &&
+  //     !this.state.addressCheck &&
+  //     !this.state.cityCheck &&
+  //     !this.state.numberCheck &&
+  //     !this.state.positionCheck &&
+  //     !this.state.emailCheck &&
+  //     !this.state.countryCheck &&
+  //     event.target.warehouseName.value &&
+  //     event.target.address.value &&
+  //     event.target.city.value &&
+  //     event.target.country.value &&
+  //     event.target.position.value &&
+  //     event.target.phone.value &&
+  //     event.target.email.value
+  //   ) {
+  //     axios
+  //       .post("http://localhost:8080/warehouse", {
+  //         warehouseName: event.target.warehouseName.value,
+  //         address: event.target.address.value,
+  //         city: event.target.city.value,
+  //         country: event.target.country.value,
+  //         contactName: event.target.contactName.value,
+  //         position: event.target.position.value,
+  //         phone: event.target.phone.value,
+  //         email: event.target.email.value,
+  //       })
+  //       .catch((error) => console.log(error));
+  //     this.props.history.push("/warehouse");
+  //   }
 
-    // CREATING POST REQUEST TO API
-  };
+  // };
 
   render() {
     return (
@@ -211,7 +211,8 @@ class WarehouseAdd extends Component {
                 type="text"
                 name="warehouseName"
                 placeholder="Warehouse Name"
-                onChange={this.handleWarehouseName}
+                value={this.state.warehouseName}
+                onChange={this.handleChange}
               />
             </label>
             {this.state.warehouseNameCheck && (
@@ -227,7 +228,7 @@ class WarehouseAdd extends Component {
                 type="text"
                 name="address"
                 placeholder="Street Address"
-                onChange={this.handleAddress}
+                onChange={this.handleChange}
               />
             </label>
             {this.state.addressCheck && (
@@ -243,7 +244,7 @@ class WarehouseAdd extends Component {
                 type="text"
                 name="city"
                 placeholder="City"
-                onChange={this.handleCity}
+                onChange={this.handleChange}
               />
             </label>
             {this.state.cityCheck && (
@@ -259,7 +260,7 @@ class WarehouseAdd extends Component {
                 type="text"
                 name="country"
                 placeholder="Country"
-                onChange={this.handleCountry}
+                onChange={this.handleChange}
               />
             </label>
             {this.state.countryCheck && (
@@ -278,7 +279,7 @@ class WarehouseAdd extends Component {
                 type="text"
                 name="contactName"
                 placeholder="Contact Name"
-                onChange={this.handleContactName}
+                onChange={this.handleChange}
               />
             </label>
             {this.state.contactNameCheck && (
@@ -294,7 +295,7 @@ class WarehouseAdd extends Component {
                 type="text"
                 name="position"
                 placeholder="Position"
-                onChange={this.handlePosition}
+                onChange={this.handleChange}
               />
             </label>
             {this.state.positionCheck && (
@@ -310,7 +311,7 @@ class WarehouseAdd extends Component {
                 name="phone"
                 type="number"
                 placeholder="Phone Number"
-                onChange={this.handlePhoneNumber}
+                onChange={this.handleChange}
               />
             </label>
             {this.state.numberCheck && (
@@ -326,7 +327,7 @@ class WarehouseAdd extends Component {
                 type="email"
                 name="email"
                 placeholder="Email"
-                onChange={this.handleEmail}
+                onChange={this.handleChange}
               />
             </label>
             {this.state.emailCheck && (
