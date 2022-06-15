@@ -11,8 +11,8 @@ function HeaderSection () {
                 <img className="nav__logo" src={InStockLogo} alt="InStock Logo"></img>
             </div>
             <div className="nav__directory">
-                <Link className="nav__links nav__links--active">Warehouses</Link>
-                <Link className="nav__links nav__links--tablet">Inventory</Link>
+                <Link to="" className="nav__links nav__links--active">Warehouses</Link>
+                <Link to=""className="nav__links nav__links--tablet">Inventory</Link>
             </div>
             </nav>
         </header>

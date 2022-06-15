@@ -1,0 +1,63 @@
+@use "../../../styles/partials/typography" as *;
+@use "../../../styles/partials/colours" as *;
+
+li {
+  list-style: none;
+}
+
+.InventoryCard {
+  border-top: 1px solid $cloud;
+  border-bottom: 1px solid $cloud;
+  padding: 1rem;
+  &__content-list {
+    display: flex;
+    justify-content: flex-start;
+    gap: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  &__list-title {
+    text-transform: uppercase;
+    color: $header-colour;
+  }
+
+  &__list-details {
+    padding: 0.5rem 0 0.5rem 0;
+  }
+
+  &__sub-list {
+    // margin-right: 2rem;
+  }
+
+  &__link {
+    color: $button-colour;
+    font-weight: 600;
+  }
+
+  &__link-item {
+    display: flex;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button--delete {
+    background-color: transparent;
+    border: none;
+    &::before {
+      content: url("../../../assets/Icons/delete_outline-24px.svg");
+    }
+  }
+
+  &__button--edit {
+    &::before {
+      content: url("../../../assets/Icons/edit-24px.svg");
+    }
+  }
+}
+
+.InventoryFilter {
+    display: none;
+}
