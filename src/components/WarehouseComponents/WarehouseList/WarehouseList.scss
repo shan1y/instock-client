@@ -1,14 +1,69 @@
 @use "../../../styles/partials/typography" as *;
 @use "../../../styles/partials/colours" as *;
+@use "../../../styles/partials/mixins" as *;
 
 li {
   list-style: none;
+}
+
+.sorter {
+  display: none;
+  @include tablet {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background-color: $light-grey;
+    padding: 1rem;
+  }
+
+  &__item {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    width: 6rem;
+    align-items: center;
+    display: flex;
+    &--address {
+      width: 7rem;
+    }
+
+    &--contact-name {
+      width: 8rem;
+    }
+
+    &--contact {
+      width: 10rem;
+    }
+  }
+
+  &__button {
+    background-color: transparent;
+    border: none;
+    line-height: 100%;
+    &::before {
+      content: url("../../../assets/Icons/sort-24px.svg");
+    }
+  }
 }
 
 .warehouseCard {
   border-top: 1px solid $cloud;
   border-bottom: 1px solid $cloud;
   padding: 1rem;
+
+  @include tablet {
+    display: none;
+  }
+  &--tablet {
+    display: none;
+    @include tablet {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 1rem;
+    }
+  }
+
   &__content-list {
     display: flex;
     justify-content: space-between;
@@ -31,15 +86,43 @@ li {
   &__link {
     color: $button-colour;
     font-weight: 600;
+
+    &--tablet {
+      @include tablet {
+        width: 6rem;
+        color: $button-colour;
+        display: flex;
+        align-items: center;
+      }
+    }
   }
 
   &__link-item {
     display: flex;
   }
 
+  &__info {
+    @include tablet {
+      width: 6rem;
+    }
+    &--contact {
+      width: 10rem;
+    }
+
+    &--name {
+      width: 8rem;
+    }
+  }
+
   &__buttons {
     display: flex;
     justify-content: space-between;
+
+    &--tablet {
+      justify-content: unset;
+      width: 6rem;
+      gap: 1rem;
+    }
   }
 
   &__button--delete {
@@ -55,4 +138,9 @@ li {
       content: url("../../../assets/Icons/edit-24px.svg");
     }
   }
+}
+
+.warehouseCard__address--tablet {
+  width: 7rem;
+  justify-content: flex-start;
 }
