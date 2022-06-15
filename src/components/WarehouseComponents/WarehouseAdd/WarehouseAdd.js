@@ -6,17 +6,35 @@ import backArrow from "../../../assets/Icons/arrow_back-24px.svg";
 import errorIcon from "../../../assets/Icons/error-24px.svg";
 import axios from "axios";
 
+const numberRegex =
+  /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 class WarehouseAdd extends Component {
   state = {
-    warehouseNameCheck: false,
-    addressCheck: false,
-    cityCheck: false,
-    countryCheck: false,
-    contactNameCheck: false,
-    positionCheck: false,
-    numberCheck: false,
-    emailCheck: false,
+    warehouseName: "",
+    address: "",
+    city: "",
+    country: "",
+    contactName: "",
+    position: "",
+    phone: "",
+    email: "",
+    phoneError: "",
+    emailError: "",
+    isFormSubmitted: "",
   };
+
+  handleChange(event) {
+    const { name, value } = event.target;
+
+    this.setState({
+      [name]: value,
+    });
+
+    return;
+  }
 
   handleWarehouseName = (event) => {
     const inputValue = event.target.value;
@@ -290,6 +308,7 @@ class WarehouseAdd extends Component {
               Phone Number
               <input
                 name="phone"
+                type="number"
                 placeholder="Phone Number"
                 onChange={this.handlePhoneNumber}
               />
