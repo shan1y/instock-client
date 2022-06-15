@@ -1,0 +1,35 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colours" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.search {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    &__title {
+        margin-bottom: 1rem;
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    &__input {
+        margin-bottom: 1rem;
+        border-radius: 1rem;
+        border: 1px solid $cloud;
+        padding: 0.25rem 1rem;
+        // &::placeholder {
+        //     padding: 1rem;
+        // }
+    }
+    &__button {
+        margin-bottom: 1rem;
+        border-radius: 1rem;
+        border: none;
+        padding: 0.5rem 1rem;  
+        background-color: $button-colour;
+        color: $white;
+    }
+}

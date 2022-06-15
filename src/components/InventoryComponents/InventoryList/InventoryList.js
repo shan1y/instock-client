@@ -1,10 +1,13 @@
 import "./InventoryList.scss";
 import chevron from "../../../assets/Icons/chevron_right-24px.svg";
+import SearchHeader from "../../SearchHeader/SearchHeader";
 
 function InventoryList({ inventoryList, updateStatus }) {
   return (
-    // <div className="InventoryCard" key={warehouse.id}>
     <>
+
+      <div>
+        <SearchHeader />
       <div className="InventoryFilter">
         <div className="InventoryFilter__subsection">
           <div className="InventoryFilter__labels">
@@ -109,7 +112,9 @@ function InventoryList({ inventoryList, updateStatus }) {
             </div>
           </div>
         );
-      })}
+      })};
+
+      </div>
     </>
   );
 }
