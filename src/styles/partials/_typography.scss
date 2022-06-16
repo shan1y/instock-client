@@ -29,7 +29,8 @@ h3 {
   }
 }
 
-h4 {
+h4,
+label {
   font-size: 11px;
   line-height: 16px;
   font-weight: 600;
@@ -57,7 +58,9 @@ h4 {
   }
 }
 
-.body-small {
+.body-small,
+::placeholder,
+button {
   font-size: 11px;
   line-height: 16px;
   @include tablet {

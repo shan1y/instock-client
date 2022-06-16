@@ -13,10 +13,10 @@ class App extends React.Component {
       <BrowserRouter>
         <HeaderSection />
         <Switch>
-          <Route to="/" exact component={WareHousePage}></Route>
+          <Route path="/" exact component={WareHousePage}></Route>
           {/* <Route to="/inventory" component={InventoryPage}></Route> */}
           {/* Left this in from FAM-2 PR, can remove anytime*/}
-          <Route to="/warehouse/add" exact component={WarehouseAdd} />
+          <Route path="/warehouse/add" component={WarehouseAdd} />
         </Switch>
         <FooterSection />
       </BrowserRouter>
