@@ -9,29 +9,40 @@ class InventoryPage extends React.Component {
     // inStock: true
   };
 
-  
-componentDidMount() {
-    axios.get("http://localhost:8080/inventory").then((response) => {
-    this.setState({
-        inventory: response.data
-    })
-    }).catch((error) => {
-        console.log("Request failed")
-    })
-}
+  componentDidMount() {
+    axios
+      .get("http://localhost:8080/inventory")
+      .then((response) => {
+        this.setState({
+          inventory: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("Request failed");
+      });
+  }
 
   // Toggle status function
   statusToggle = (qty) => {
-    if ((qty === 0)) {
+    if (qty === 0) {
       // this.setState({
       //     inStock: false
       // })
       return "Out of Stock";
-    } else {return "In Stock"}
+    } else {
+      return "In Stock";
+    }
   };
 
   render() {
-    return <InventoryList updateStatus={this.statusToggle} inventoryList={this.state.inventory}/>;
+    return (
+      <div className="InventoryList__body">
+        <InventoryList
+          updateStatus={this.statusToggle}
+          inventoryList={this.state.inventory}
+        />
+      </div>
+    )
   }
 }
 

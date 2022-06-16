@@ -1,10 +1,10 @@
 import "./SearchHeader.scss";
 
-function SearchHeader() {
+function SearchHeader({ title }) {
     const nameChange = name => name;
   return <>
   <div className="search">
-    <h1 className="search__title">{nameChange("Inventory")}</h1>
+    <h1 className="search__title">{nameChange(title)}</h1>
     <form className="search__form form">
         <label className="form__label" htmlFor="search"></label>
         <input className="form__input" placeholder="Search..." name="search"></input>

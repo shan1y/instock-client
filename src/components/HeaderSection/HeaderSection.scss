@@ -15,10 +15,10 @@
   @include tablet {
     flex-direction: row;
     justify-content: space-between;
-    padding: 2rem 2rem 5rem 2rem;
+    padding: 2rem 2rem 5.5rem 2rem;
   }
   @include desktop {
-    padding: 2rem 5rem 7rem 5rem;
+    padding: 2rem 7rem 7rem 7rem;
   }
   &__logo-div {
     margin-bottom: 1.5rem;
