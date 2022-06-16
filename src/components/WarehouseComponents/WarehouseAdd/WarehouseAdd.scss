@@ -87,3 +87,21 @@
     margin-left: 1rem;
   }
 }
+
+.error {
+  display: flex;
+  align-items: center;
+  height: 1.25rem;
+  margin-bottom: 0.2rem;
+
+  &__icon {
+    width: 0.9rem;
+    height: 0.9rem;
+    margin-right: 0.2rem;
+  }
+
+  &__text {
+    color: $delete-icon-colour;
+    font-size: 11px;
+  }
+}
