@@ -1,0 +1,89 @@
+@use "../../../styles/partials/colours" as *;
+
+.new-warehouse {
+  padding: 1rem;
+
+  &__container {
+    background-color: $white;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    border-radius: 3px;
+    transform: translateY(-4.5rem);
+  }
+
+  &__header {
+    padding: 1.5rem;
+    display: flex;
+    border-bottom: 1px solid $cloud;
+  }
+
+  &__title {
+    margin-left: 0.5rem;
+  }
+
+  &__link {
+    padding-top: 0.3rem;
+  }
+
+  &__back-icon {
+    height: 1.25rem;
+  }
+}
+
+.new-warehouse-form {
+  &__title {
+    padding-bottom: 1rem;
+  }
+
+  &__container {
+    padding: 1rem;
+  }
+
+  &__input {
+    height: 2.2rem;
+    width: 100%;
+    outline: none;
+    padding: 0 1rem;
+    margin: 4px 0;
+    border-radius: 20px;
+    border: 1px solid $cloud;
+    margin-bottom: 0.5rem;
+
+    &:focus {
+      border: 1px $button-colour solid;
+    }
+  }
+
+  &__right {
+    border-top: 1px solid $cloud;
+  }
+}
+
+.buttons {
+  background-color: $light-grey;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.button {
+  width: 50%;
+  height: 2rem;
+  border-radius: 20px;
+  border: 1px solid $cloud;
+  background-color: $white;
+  color: $graphite;
+
+  &--special {
+    color: $white;
+    background-color: $button-colour;
+    margin-left: 1rem;
+  }
+}

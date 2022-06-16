@@ -173,155 +173,207 @@ class WarehouseAdd extends Component {
   render() {
     return (
       <section className="new-warehouse">
-        <div className="new-warehouse__header">
-          <Link to="/warehouse">
-            <img
-              src={backArrow}
-              alt="Back Arrow to return to warehouse page"
-              className="new-warehouse__back-icon"
-            />
-          </Link>
-          <h1 className="new-warehouse__title">Add New Warehouse</h1>
+        <div className="new-warehouse__container">
+          <div className="new-warehouse__header">
+            <Link className="new-warehouse__link" to="/warehouse">
+              <img
+                src={backArrow}
+                alt="Back Arrow to return to warehouse page"
+                className="new-warehouse__back-icon"
+              />
+            </Link>
+            <h2 className="new-warehouse__title">Add New Warehouse</h2>
+          </div>
+
+          <form className="new-warehouse-form" onSubmit={this.handleSubmit}>
+            <div className="new-warehouse-form__left">
+              <div className="new-warehouse-form__container">
+                <h3 className="new-warehouse-form__title">Warehouse Details</h3>
+                <label className="new-warehouse-form__label">
+                  Warehouse Name
+                  <input
+                    type="text"
+                    name="warehouseName"
+                    placeholder="Warehouse Name"
+                    className="new-warehouse-form__input"
+                    onChange={this.handleWarehouseName}
+                  />
+                </label>
+                {this.state.warehouseNameCheck && (
+                  <div className="error">
+                    <img
+                      src={errorIcon}
+                      alt="Error Icon"
+                      className="error__icon"
+                    />
+                    <p className="error__text">This field is required</p>
+                  </div>
+                )}
+
+                <label className="new-warehouse-form__label">
+                  Street Address
+                  <input
+                    type="text"
+                    name="address"
+                    placeholder="Street Address"
+                    className="new-warehouse-form__input"
+                    onChange={this.handleAddress}
+                  />
+                </label>
+                {this.state.addressCheck && (
+                  <div className="error">
+                    <img
+                      src={errorIcon}
+                      alt="Error Icon"
+                      className="error__icon"
+                    />
+                    <p className="error__text">This field is required</p>
+                  </div>
+                )}
+
+                <label className="new-warehouse-form__label">
+                  City
+                  <input
+                    type="text"
+                    name="city"
+                    placeholder="City"
+                    className="new-warehouse-form__input"
+                    onChange={this.handleCity}
+                  />
+                </label>
+                {this.state.cityCheck && (
+                  <div className="error">
+                    <img
+                      src={errorIcon}
+                      alt="Error Icon"
+                      className="error__icon"
+                    />
+                    <p className="error__text">This field is required</p>
+                  </div>
+                )}
+
+                <label className="new-warehouse-form__label">
+                  Country
+                  <input
+                    type="text"
+                    name="country"
+                    placeholder="Country"
+                    className="new-warehouse-form__input"
+                    onChange={this.handleCountry}
+                  />
+                </label>
+                {this.state.countryCheck && (
+                  <div className="error">
+                    <img
+                      src={errorIcon}
+                      alt="Error Icon"
+                      className="error__icon"
+                    />
+                    <p className="error__text">This field is required</p>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="new-warehouse-form__right">
+              <div className="new-warehouse-form__container">
+                <h3 className="new-warehouse-form__title">Contact Details</h3>
+                <label className="new-warehouse-form__label">
+                  Contact Name
+                  <input
+                    type="text"
+                    name="contactName"
+                    placeholder="Contact Name"
+                    className="new-warehouse-form__input"
+                    onChange={this.handleContactName}
+                  />
+                </label>
+                {this.state.contactNameCheck && (
+                  <div className="error">
+                    <img
+                      src={errorIcon}
+                      alt="Error Icon"
+                      className="error__icon"
+                    />
+                    <p className="error__text">This field is required</p>
+                  </div>
+                )}
+
+                <label className="new-warehouse-form__label">
+                  Position
+                  <input
+                    type="text"
+                    name="position"
+                    placeholder="Position"
+                    className="new-warehouse-form__input"
+                    onChange={this.handlePosition}
+                  />
+                </label>
+                {this.state.positionCheck && (
+                  <div className="error">
+                    <img
+                      src={errorIcon}
+                      alt="Error Icon"
+                      className="error__icon"
+                    />
+                    <p className="error__text">This field is required</p>
+                  </div>
+                )}
+
+                <label className="new-warehouse-form__label">
+                  Phone Number
+                  <input
+                    name="phone"
+                    placeholder="Phone Number"
+                    className="new-warehouse-form__input"
+                    onChange={this.handlePhoneNumber}
+                  />
+                </label>
+                {this.state.numberCheck && (
+                  <div className="error">
+                    <img
+                      src={errorIcon}
+                      alt="Error Icon"
+                      className="error__icon"
+                    />
+                    <p className="error__text">This field is required</p>
+                  </div>
+                )}
+
+                <label className="new-warehouse-form__label">
+                  Email
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    className="new-warehouse-form__input"
+                    onChange={this.handleEmail}
+                  />
+                </label>
+                {this.state.emailCheck && (
+                  <div className="error">
+                    <img
+                      src={errorIcon}
+                      alt="Error Icon"
+                      className="error__icon"
+                    />
+                    <p className="error__text">This field is required</p>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="buttons">
+              <div className="buttons__container">
+                <button className="button">Cancel</button>
+
+                <button className="button button--special" type="submit">
+                  + Add Warehouse
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
-
-        <form className="new-warehouse-form" onSubmit={this.handleSubmit}>
-          <div>
-            <h2>Warehouse Details</h2>
-            <label>
-              Warehouse Name
-              <input
-                type="text"
-                name="warehouseName"
-                placeholder="Warehouse Name"
-                onChange={this.handleWarehouseName}
-              />
-            </label>
-            {this.state.warehouseNameCheck && (
-              <div className="error">
-                <img src={errorIcon} alt="Error Icon" className="error__icon" />
-                <p className="error__text">Field is Required</p>
-              </div>
-            )}
-
-            <label>
-              Street Address
-              <input
-                type="text"
-                name="address"
-                placeholder="Street Address"
-                onChange={this.handleAddress}
-              />
-            </label>
-            {this.state.addressCheck && (
-              <div className="error">
-                <img src={errorIcon} alt="Error Icon" className="error__icon" />
-                <p className="error__text">Field is Required</p>
-              </div>
-            )}
-
-            <label>
-              City
-              <input
-                type="text"
-                name="city"
-                placeholder="City"
-                onChange={this.handleCity}
-              />
-            </label>
-            {this.state.cityCheck && (
-              <div className="error">
-                <img src={errorIcon} alt="Error Icon" className="error__icon" />
-                <p className="error__text">Field is Required</p>
-              </div>
-            )}
-
-            <label>
-              Country
-              <input
-                type="text"
-                name="country"
-                placeholder="Country"
-                onChange={this.handleCountry}
-              />
-            </label>
-            {this.state.countryCheck && (
-              <div className="error">
-                <img src={errorIcon} alt="Error Icon" className="error__icon" />
-                <p className="error__text">Field is Required</p>
-              </div>
-            )}
-          </div>
-
-          <div>
-            <h2>Contact Details</h2>
-            <label>
-              Contact Name
-              <input
-                type="text"
-                name="contactName"
-                placeholder="Contact Name"
-                onChange={this.handleContactName}
-              />
-            </label>
-            {this.state.contactNameCheck && (
-              <div className="error">
-                <img src={errorIcon} alt="Error Icon" className="error__icon" />
-                <p className="error__text">Field is Required</p>
-              </div>
-            )}
-
-            <label>
-              Position
-              <input
-                type="text"
-                name="position"
-                placeholder="Position"
-                onChange={this.handlePosition}
-              />
-            </label>
-            {this.state.positionCheck && (
-              <div className="error">
-                <img src={errorIcon} alt="Error Icon" className="error__icon" />
-                <p className="error__text">Field is Required</p>
-              </div>
-            )}
-
-            <label>
-              Phone Number
-              <input
-                name="phone"
-                placeholder="Phone Number"
-                onChange={this.handlePhoneNumber}
-              />
-            </label>
-            {this.state.numberCheck && (
-              <div className="error">
-                <img src={errorIcon} alt="Error Icon" className="error__icon" />
-                <p className="error__text">Phone Number is Required</p>
-              </div>
-            )}
-
-            <label>
-              Email
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                onChange={this.handleEmail}
-              />
-            </label>
-            {this.state.emailCheck && (
-              <div className="error">
-                <img src={errorIcon} alt="Error Icon" className="error__icon" />
-                <p className="error__text">Email is Required</p>
-              </div>
-            )}
-          </div>
-
-          <button>Cancel</button>
-
-          <button type="submit">+ Add Warehouse</button>
-        </form>
       </section>
     );
   }
