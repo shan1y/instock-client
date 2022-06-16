@@ -1,7 +1,8 @@
 import React from "react";
 import { Modal, Button, ModalDialog } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./DeleteModal.scss";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 function DeleteModal(props) {
   const handleDelete = () => {

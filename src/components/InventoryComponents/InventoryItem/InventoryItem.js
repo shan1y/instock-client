@@ -74,15 +74,15 @@ class InventoryItem extends Component {
             </div>
 
             <div className="item-detail__right">
-              <div className="item-detail__container">
-                <div>
+              <div className="item-detail__wrapper">
+                <div className="item-detail__container item-detail__description--center ">
                   <h4 className="item-detail__title">STATUS:</h4>
                   <p className="item-detail__description body-small">
                     {this.stockCheck(quantity)}
                   </p>
                 </div>
 
-                <div className="item-detail__container">
+                <div className="item-detail__container item-detail__description--center">
                   <h4 className="item-detail__title">QUANTITY:</h4>
                   <p className="item-detail__description body-small">
                     {quantity}

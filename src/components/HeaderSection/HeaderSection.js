@@ -6,9 +6,9 @@ function HeaderSection() {
   return (
     <header>
       <nav className="nav">
-        <div className="nav__logo-div">
+        <Link to="/" className="nav__logo-div">
           <img className="nav__logo" src={InStockLogo} alt="InStock Logo"></img>
-        </div>
+        </Link>
         <div className="nav__directory">
           <Link to="/" className="nav__links nav__links--active">
             Warehouses
