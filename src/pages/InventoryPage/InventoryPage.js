@@ -1,12 +1,12 @@
 import "./InventoryPage.scss";
 import React from "react";
-import InventoryList from "../../components/InventoryComponents/InventoryList/InventoryList";
 import axios from "axios";
+import InventoryList from "../../components/InventoryComponents/InventoryList/InventoryList";
+
 
 class InventoryPage extends React.Component {
   state = {
     inventory: [],
-    // inStock: true
   };
 
   componentDidMount() {
@@ -25,9 +25,6 @@ class InventoryPage extends React.Component {
   // Toggle status function
   statusToggle = (qty) => {
     if (qty === 0) {
-      // this.setState({
-      //     inStock: false
-      // })
       return "Out of Stock";
     } else {
       return "In Stock";
