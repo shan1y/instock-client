@@ -1,0 +1,38 @@
+@use "../../styles/partials/colours" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+.modal {
+  &-dialog {
+    @include tablet {
+      align-items: center;
+      display: flex;
+      height: 100%;
+    }
+  }
+
+  &-header {
+    border: none;
+  }
+  &-title {
+    font-weight: 700;
+  }
+}
+
+.modal-footer {
+  border: none;
+}
+
+.btn {
+  border-radius: 50px;
+  &-primary {
+    background-color: $delete-icon-colour;
+    border: none;
+    &:hover {
+      background-color: rgb(117, 0, 0);
+    }
+  }
+  &-secondary {
+    background-color: transparent;
+    color: grey;
+  }
+}
