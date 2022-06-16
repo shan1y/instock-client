@@ -8,6 +8,7 @@ import WareHousePage from "./pages/WareHousePage/WareHousePage";
 import WarehouseDetails from "./components/WarehouseComponents/WarehouseDetails/WarehouseDetails";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
 import WarehouseAdd from "./components/WarehouseComponents/WarehouseAdd/WarehouseAdd";
+import InventoryItem from "./components/InventoryComponents/InventoryItem/InventoryItem";
 
 class App extends React.Component {
   render() {
@@ -16,9 +17,12 @@ class App extends React.Component {
         <HeaderSection />
         <Switch>
           <Route path="/" exact component={WareHousePage} />
+          <Route path="/warehouse" exact component={WareHousePage} />
           <Route path="/warehouse/test" component={WarehouseDetails} />
           <Route path="/warehouse/add" component={WarehouseAdd} />
-          <Route to="/inventory" component={InventoryPage}></Route>
+
+          <Route path="/inventory" exact component={InventoryPage} />
+          <Route path="/inventory/:id" component={InventoryItem} />
         </Switch>
         <FooterSection />
       </BrowserRouter>
