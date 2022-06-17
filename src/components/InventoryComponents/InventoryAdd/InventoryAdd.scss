@@ -20,7 +20,7 @@
     transform: translateY(-4.5rem);
 
     @include tablet {
-      transform: translateY(-6rem);
+      transform: translateY(-6.5rem);
     }
   }
 
@@ -30,7 +30,7 @@
     align-items: center;
     padding: 1rem;
     @include tablet {
-      padding: 1.5rem;
+    //   padding: 1.5rem;
     }
   }
 
@@ -41,6 +41,7 @@
     font-weight: 700;
     @include tablet {
       font-size: 2rem;
+      margin-top: 0;
     }
   }
 
