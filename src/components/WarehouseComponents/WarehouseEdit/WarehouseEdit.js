@@ -182,7 +182,7 @@ class WarehouseEdit extends Component {
                 className="new-warehouse__back-icon"
               />
             </Link>
-            <h2 className="new-warehouse__title">Add New Warehouse</h2>
+            <h2 className="new-warehouse__title">Edit Warehouse</h2>
           </div>
 
           <form className="new-warehouse-form" onSubmit={this.handleSubmit}>
