@@ -24,6 +24,7 @@ class WarehouseDetails extends Component {
     warehouseInventory: [],
     isOpen: false,
     activeInventoryId: null,
+    inventory: "inventory",
   };
 
   componentDidMount() {
@@ -55,11 +56,25 @@ class WarehouseDetails extends Component {
   closeModal = () => this.setState({ isOpen: false });
 
   deleteItem = (id) => {
-    axios
-      .delete(`http://localhost:8080/inventory/${id}`)
+    axios.delete(`http://localhost:8080/inventory/${id}`);
 
-      .then((response) => {
-        this.setState({ warehouseInventory: response.data, isOpen: false });
+    axios
+      .get(`http://localhost:8080/warehouse/${this.props.match.params.id}`)
+      .then((warehouseDetails) => {
+        return warehouseDetails.data;
+      })
+      .then((warehouseDetails) => {
+        return axios
+          .get(
+            `http://localhost:8080/warehouse/${this.props.match.params.id}/inventory`
+          )
+          .then((response) => {
+            this.setState({
+              warehouseDetails,
+              warehouseInventory: response.data,
+              isOpen: false,
+            });
+          });
       });
   };
 
@@ -68,9 +83,9 @@ class WarehouseDetails extends Component {
     const { name, position, phone, email } = contact;
 
     const activeInventoryId = this.state.activeInventoryId;
-    // let modalData = this.state.warehouseInventory.find((inventory) => {
-    //   return activeInventoryId === inventory.id;
-    // });
+    let modalData = this.state.warehouseInventory.find((inventory) => {
+      return activeInventoryId === inventory.id;
+    });
     if (this.state.isOpen) {
       document.body.style.overflow = "hidden";
     } else {
@@ -82,13 +97,16 @@ class WarehouseDetails extends Component {
       <>
         {this.state?.warehouseDetails && this.state?.warehouseInventory ? (
           <>
-            <DeleteModal
-              deleteItem={this.deleteItem}
-              closeModal={this.closeModal}
-              isOpen={this.state.isOpen}
-              // warehouseName={modalData.itemName}
-              id={this.state.activeInventoryId}
-            />
+            {this.state.isOpen && (
+              <DeleteModal
+                deleteItem={this.deleteItem}
+                closeModal={this.closeModal}
+                isOpen={this.state.isOpen}
+                title={`Delete ${modalData.itemName} inventory item?`}
+                id={this.state.activeInventoryId}
+                paragraph={`Please confirm that you'd like to delete ${modalData.itemName} from the ${this.state.inventory} list. You won't be able to undo this action.`}
+              />
+            )}
 
             <div className="new-warehouse__header">
               <Link className="new-warehouse__link" to="/warehouse">
@@ -207,6 +225,9 @@ class WarehouseDetails extends Component {
                     </div>
                     <div className="warehouseCard__buttons warehouseCard__buttons--tablet">
                       <button
+                        onClick={() => {
+                          this.openModal(inventory.id);
+                        }}
                         type="button"
                         className="warehouseCard__button--delete"
                       ></button>
