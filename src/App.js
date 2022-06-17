@@ -10,6 +10,7 @@ import WarehouseDetails from "./components/WarehouseComponents/WarehouseDetails/
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
 import WarehouseAdd from "./components/WarehouseComponents/WarehouseAdd/WarehouseAdd";
 import InventoryItem from "./components/InventoryComponents/InventoryItem/InventoryItem";
+import InventoryEdit from "./components/InventoryComponents/InventoryEdit/InventoryEdit";
 
 class App extends React.Component {
   render() {
@@ -24,7 +25,8 @@ class App extends React.Component {
 
           <Route path="/inventory" exact component={InventoryPage} />
           <Route path="/inventory/add" exact component={InventoryAdd} />
-          <Route path="/inventory/:id" component={InventoryItem} />
+          <Route path="/inventory/:id" exact component={InventoryItem} />
+          <Route path="/inventory/edit/:id" exact component={InventoryEdit} />
         </Switch>
         <FooterSection />
       </BrowserRouter>
