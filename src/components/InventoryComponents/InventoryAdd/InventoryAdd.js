@@ -7,14 +7,14 @@ import axios from "axios";
 
 class InventoryAdd extends React.Component {
   state = {
-    inventory: [],
+    warehouses: [],
   };
   componentDidMount() {
     axios
-      .get("http://localhost:8080/inventory")
+      .get("http://localhost:8080/warehouse")
       .then((response) => {
         this.setState({
-          inventory: response.data,
+          warehouses: response.data,
         });
       })
       .catch((error) => {
@@ -24,16 +24,16 @@ class InventoryAdd extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-// console.log(event.target.warehouse.value)
-// console.log(event.target.itemName.value)
-// console.log(event.target.description.value)
-// console.log(event.target.category.value)
-// console.log(event.target.status.value)
-// console.log(event.target.quantity.value)
+    // console.log(event.target.warehouse.value)
+    // console.log(event.target.itemName.value)
+    // console.log(event.target.description.value)
+    // console.log(event.target.category.value)
+    // console.log(event.target.status.value)
+    // console.log(event.target.quantity.value)
 
     axios
       .post("http://localhost:8080/inventory", {
-        warehouse: event.target.warehouse.value,
+        warehouseID: event.target.warehouseID.value,
         itemName: event.target.itemName.value,
         description: event.target.description.value,
         category: event.target.category.value,
@@ -143,19 +143,17 @@ class InventoryAdd extends React.Component {
                     <label className="new-item-form__label">
                       Warehouse
                       <select
-                        // name="warehouse"
+                        name="warehouseID"
                         placeholder="Please select"
                         className="new-item-form__input new-item-form__input--select"
                       >
-                        {this.state.inventory.map((warehouse) => {
+                        {this.state.warehouses.map((warehouse) => {
                           return (
                             <option
-                            name="warehouse"
-                              value={warehouse.warehouseID}
-                        
+                              value={warehouse.id}
                               key={warehouse.id}
                             >
-                              {warehouse.warehouseName}
+                              {warehouse.name}
                             </option>
                           );
                         })}
@@ -167,7 +165,9 @@ class InventoryAdd extends React.Component {
 
               <div className="buttons">
                 <div className="buttons__container">
-                  <Link to="/inventory" className="button button--cancel">Cancel</Link>
+                  <Link to="/inventory" className="button button--cancel">
+                    Cancel
+                  </Link>
                   <button className="button button--special" type="submit">
                     + Add Item
                   </button>
