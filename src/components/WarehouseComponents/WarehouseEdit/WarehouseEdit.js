@@ -167,7 +167,7 @@ class WarehouseEdit extends Component {
       this.props.history.push("/warehouse");
     }
   };
-  // CREATING POST REQUEST TO API
+
 
   render() {
     return (
