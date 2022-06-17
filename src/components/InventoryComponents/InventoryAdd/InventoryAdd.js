@@ -2,7 +2,7 @@ import "./InventoryAdd.scss";
 import React from "react";
 import { Link } from "react-router-dom";
 import backArrow from "../../../assets/Icons/arrow_back-24px.svg";
-import errorIcon from "../../../assets/Icons/error-24px.svg";
+// import errorIcon from "../../../assets/Icons/error-24px.svg";
 import axios from "axios";
 
 class InventoryAdd extends React.Component {
@@ -55,7 +55,7 @@ class InventoryAdd extends React.Component {
               <h2 className="new-item__title">Add New Inventory Item</h2>
             </div>
 
-            <form className="new-item-form">
+            <form onSubmit={this.handleSubmit} className="new-item-form">
               <div className="new-item-form__wrapper">
                 <div className="new-item-form__left">
                   <div className="new-item-form__container">
@@ -158,8 +158,7 @@ class InventoryAdd extends React.Component {
 
               <div className="buttons">
                 <div className="buttons__container">
-                  <button className="button">Cancel</button>
-
+                  <Link to="/inventory" className="button button--cancel">Cancel</Link>
                   <button className="button button--special" type="submit">
                     + Add Item
                   </button>

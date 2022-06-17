@@ -203,7 +203,9 @@
   border: 1px solid $cloud;
   background-color: $white;
   color: $graphite;
-
+  &--cancel{
+text-decoration: none;
+  }
   &--special {
     color: $white;
     background-color: $button-colour;
