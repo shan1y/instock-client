@@ -1,13 +1,48 @@
 @use "../../styles/partials/colours" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
+
 .modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow-y: hidden;
+  @include tablet {
+    display: flex;
+    justify-content: center;
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  }
   &-dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    height: calc(100% + 7rem);
+    transform: translateY(-15%);
+    position: absolute;
     @include tablet {
-      align-items: center;
-      display: flex;
-      height: 100%;
+      height: unset;
+      width: 80%;
     }
+  }
+
+  &-content {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   &-header {
@@ -15,24 +50,73 @@
   }
   &-title {
     font-weight: 700;
+    padding-bottom: 1rem;
   }
 }
 
 .modal-footer {
   border: none;
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  @include tablet {
+    padding: 2rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
 }
 
 .btn {
+  width: 80%;
   border-radius: 50px;
+  padding: 0 16px;
+  height: 36px;
+  @include tablet {
+    width: unset;
+  }
   &-primary {
     background-color: $delete-icon-colour;
     border: none;
+    color: white;
+
+    cursor: pointer;
     &:hover {
-      background-color: rgb(117, 0, 0);
+      background-color: $instock-black;
+    }
+    @include tablet {
+      padding: 0 2rem;
     }
   }
   &-secondary {
+    border-radius: 20px;
+    border: 1px solid #bdc5d5;
+    background-color: #fff;
+    color: $slate;
+    cursor: pointer;
+    &:hover {
+      background-color: $slate;
+      color: white;
+    }
+    @include tablet {
+      padding: 0 2rem;
+    }
+  }
+
+  &-close {
+    padding-bottom: 1rem;
     background-color: transparent;
-    color: grey;
+    border: none;
+    color: $instock-black;
+    font-size: 2.5rem;
+    position: absolute;
+    top: 5%;
+    right: 4%;
+    &:hover,
+    &close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
   }
 }
