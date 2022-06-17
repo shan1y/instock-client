@@ -6,7 +6,9 @@ class WareHousePage extends React.Component {
   render() {
     return (
       <div>
-        <WarehouseList />
+        <div className="InventoryList__body">
+          <WarehouseList />
+        </div>
       </div>
     );
   }
