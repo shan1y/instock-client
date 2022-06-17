@@ -372,7 +372,7 @@ class WarehouseEdit extends Component {
                 <button className="button">Cancel</button>
 
                 <button className="button button--special" type="submit">
-                  + Add Warehouse
+                  Save
                 </button>
               </div>
             </div>
