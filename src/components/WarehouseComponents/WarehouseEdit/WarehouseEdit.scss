@@ -46,9 +46,6 @@
 .new-warehouse-form {
   &__title {
     padding-bottom: 1rem;
-    @include tablet {
-      font-size: 1.25rem;
-    }
   }
 
   &__container {
@@ -123,7 +120,6 @@
     @include tablet {
       width: 35%;
       padding-right: 1rem;
-      justify-content: flex-end;
     }
 
     @include desktop {
@@ -139,9 +135,6 @@
   border: 1px solid $cloud;
   background-color: $white;
   color: $graphite;
-  @include tablet {
-    width: 30%;
-  }
 
   &--special {
     color: $white;
@@ -149,7 +142,7 @@
     margin-left: 1rem;
 
     @include tablet {
-      width: 30%;
+      width: 100%;
     }
   }
 }
