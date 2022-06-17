@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import HeaderSection from "./components/HeaderSection/HeaderSection";
 import FooterSection from "./components/FooterSection/FooterSection";
+import InventoryAdd from "./components/InventoryComponents/InventoryAdd/InventoryAdd";
 import WareHousePage from "./pages/WareHousePage/WareHousePage";
 import WarehouseDetails from "./components/WarehouseComponents/WarehouseDetails/WarehouseDetails";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
@@ -22,6 +23,7 @@ class App extends React.Component {
           <Route path="/warehouse/add" component={WarehouseAdd} />
 
           <Route path="/inventory" exact component={InventoryPage} />
+          <Route path="/inventory/add" exact component={InventoryAdd} />
           <Route path="/inventory/:id" component={InventoryItem} />
         </Switch>
         <FooterSection />
