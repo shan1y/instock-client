@@ -67,17 +67,19 @@ class WarehouseDetails extends Component {
             </div>
             <div>
               <h4>WAREHOUSE ADDRESS</h4>
-              <p>33 Pear Street SW, Washington, USA</p>
+              <p>
+                {address}, {city}, {country}
+              </p>
             </div>
             <div>
               <h4>Contact NAME:</h4>
-              <p>Graeme Lyon</p>
-              <p>Warehouse Manager</p>
+              <p>{name}</p>
+              <p>{position}</p>
             </div>
             <div>
               <h4>CONTACT INFORMATION:</h4>
-              <p>+1 (647) 504-0911</p>
-              <p>glyon@instock.com</p>
+              <p>{phone}</p>
+              <p>{email}</p>
             </div>
             <ul className="sorter">
               <li className="sorter__item">
@@ -96,10 +98,10 @@ class WarehouseDetails extends Component {
                 Actions<button className="sorter__button"></button>
               </li>
             </ul>
-            {this.state.warehouseInventory.map((inventory) => {
+            {this.state.warehouseInventory.map((inventory, index) => {
               return (
-                <div>
-                  <div className="warehouseCard" key={inventory.id}>
+                <div key={inventory.id}>
+                  <div className="warehouseCard">
                     <ul className="warehouseCard__content-list">
                       <ul className="warehouseCard__sub-list">
                         <li className="warehouseCard__list-details">
