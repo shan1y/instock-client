@@ -3,8 +3,10 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import HeaderSection from "./components/HeaderSection/HeaderSection";
 import FooterSection from "./components/FooterSection/FooterSection";
+import InventoryAdd from "./components/InventoryComponents/InventoryAdd/InventoryAdd";
 import WareHousePage from "./pages/WareHousePage/WareHousePage";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
+
 
 import WarehouseAdd from "./components/WarehouseComponents/WarehouseAdd/WarehouseAdd";
 
@@ -15,9 +17,9 @@ class App extends React.Component {
         <HeaderSection />
         <Switch>
           <Route path="/" exact component={WareHousePage}></Route>
-          <Route to="/inventory" component={InventoryPage}></Route>
-          {/* Left this in from FAM-2 PR, can remove anytime*/}
           <Route path="/warehouse/add" component={WarehouseAdd} />
+          <Route path="/inventory" exact component={InventoryPage}></Route>
+          <Route path="/inventory/add" component={InventoryAdd}></Route>
         </Switch>
         <FooterSection />
       </BrowserRouter>
