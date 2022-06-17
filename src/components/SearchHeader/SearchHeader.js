@@ -1,7 +1,12 @@
 import "./SearchHeader.scss";
 
 function SearchHeader({ title }) {
-  return <>
+
+  
+
+
+  return ( 
+    <>
   <div className="search">
     <h1 className="search__title">{(title)}</h1>
     <form className="search__form form">
@@ -10,7 +15,9 @@ function SearchHeader({ title }) {
         <button className="form__button">+ Add New Item</button>
     </form>
   </div>
-  </>;
+  </>
+);
+
 }
 
 export default SearchHeader;
