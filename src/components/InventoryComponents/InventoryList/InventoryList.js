@@ -7,7 +7,7 @@ function InventoryList({ inventoryList, updateStatus }) {
   return (
     <>
       <div>
-        <SearchHeader title={"Inventory"} />
+        <SearchHeader title={"Inventory"} urlPath={"/inventory"}/>
         <div className="InventoryFilter">
           <div className="InventoryFilter__subsection InventoryFilter__subsection--width">
             <div className="InventoryFilter__tablet">
@@ -109,7 +109,6 @@ function InventoryList({ inventoryList, updateStatus }) {
                     <h4 className="InventoryCard__list-title">Status</h4>
                     <p className="InventoryCard__info body-medium">
                       {updateStatus(item.quantity)}
-                      {/* {item.status} */}
                     </p>
                   </li>
                   <li className="InventoryCard__list-details InventoryCard__list-details--margin4">
