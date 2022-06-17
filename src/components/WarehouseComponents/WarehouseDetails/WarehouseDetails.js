@@ -6,7 +6,36 @@ import chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import backArrow from "../../../assets/Icons/arrow_back-24px.svg";
 
 class WarehouseDetails extends Component {
+  state = {
+    warehouseDetails: [],
+    warehouseInventory: [],
+  };
+
+  componentDidMount() {
+    axios
+      .get(`http://localhost:8080/warehouse/${this.props.match.params.id}`)
+      .then((warehouseDetails) => {
+        return warehouseDetails;
+      })
+      .then((warehouseDetails) => {
+        return axios
+          .get(
+            `http://localhost:8080/warehouse/${this.props.match.params.id}/inventory`
+          )
+          .then((response) => {
+            this.setState({
+              warehouseDetails: warehouseDetails,
+              warehouseInventory: response.data,
+            });
+          });
+      });
+  }
+
+  stockCheck = (stock) => (stock === 0 ? "OUT OF STOCK" : "IN STOCK");
+
   render() {
+    console.log(this.state.warehouseDetails);
+    console.log(this.state.warehouseInventory);
     return (
       <>
         <div className="new-warehouse__header">

@@ -20,14 +20,11 @@ class App extends React.Component {
           <Route path="/" exact component={WareHousePage} />
           <Route path="/warehouse" exact component={WareHousePage} />
           <Route path="/warehouse/add" exact component={WarehouseAdd} />
+          <Route path="/warehouse/:id/inventory" component={WarehouseDetails} />
 
           <Route path="/inventory" exact component={InventoryPage} />
           <Route path="/inventory/add" exact component={InventoryAdd} />
           <Route path="/inventory/:id" exact component={InventoryItem} />
-          <Route
-            path="/inventory/warehouse/test"
-            component={WarehouseDetails}
-          />
         </Switch>
         <FooterSection />
       </BrowserRouter>
