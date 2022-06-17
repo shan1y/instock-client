@@ -18,12 +18,11 @@ class InventoryEdit extends React.Component {
         return response.data;
       })
       .then((inventoryData) => {
-        return axios.get("http://localhost:8080/warehouse");
-      })
-      .then((response) => {
-        this.setState({
-          inventory: inventoryData,
-          warehouseList: response.data,
+        return axios.get("http://localhost:8080/warehouse").then((response) => {
+          this.setState({
+            inventory: inventoryData,
+            warehouseList: response.data,
+          });
         });
       })
       .catch((error) => {
