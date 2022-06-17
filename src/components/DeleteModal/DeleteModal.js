@@ -1,7 +1,8 @@
 import React from "react";
 import { Modal, Button, ModalDialog } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./DeleteModal.scss";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 function DeleteModal(props) {
   const handleDelete = () => {
@@ -11,39 +12,51 @@ function DeleteModal(props) {
   };
 
   return (
-    <div>
-      <Modal show={true}>
-        <Modal.Header
-          closeButton
-          onClick={() => {
-            props.closeModal();
-          }}
+    <div className="modal">
+      <div className="modal-dialog">
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          onClick={() => props.closeModal()}
         >
-          <Modal.Title>Delete {props.warehouseName} Warehouse</Modal.Title>
-        </Modal.Header>
-
-        <Modal.Body>
-          <p>
-            Please confirm that you'd like to delete the {props.warehouseName}{" "}
-            warehouse from the list of warehouses. You won't be able to undo
-            this action.
-          </p>
-        </Modal.Body>
-
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => props.closeModal()}>
-            Cancel
-          </Button>
-          <Button
-            variant="primary"
-            onClick={() => {
-              handleDelete();
-            }}
-          >
-            Delete
-          </Button>
-        </Modal.Footer>
-      </Modal>
+          &times;
+        </button>
+        <div className="modal-content">
+          <div className="modal-content--mobile">
+            <div className="modal-header">
+              <h1 className="modal-title">
+                Delete {props.warehouseName} Warehouse?
+              </h1>
+            </div>
+            <div className="modal-body">
+              <p className="body-large">
+                Please confirm that you'd like to delete the{" "}
+                {props.warehouseName} warehouse from the list of warehouses. You
+                won't be able to undo this action.
+              </p>
+            </div>
+          </div>
+          <div className="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onClick={() => props.closeModal()}
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onClick={() => {
+                handleDelete();
+              }}
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

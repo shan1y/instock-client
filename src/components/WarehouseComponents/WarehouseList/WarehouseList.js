@@ -44,6 +44,11 @@ class WarehouseList extends React.Component {
     let modalData = this.state.warehouseList.find((warehouse) => {
       return activeWarehouseId === warehouse.id;
     });
+    if (this.state.isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
 
     return (
       <>
