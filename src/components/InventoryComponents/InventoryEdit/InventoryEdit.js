@@ -35,10 +35,10 @@ class InventoryEdit extends React.Component {
   };
 
   render() {
-    console.log(this.state.inventory);
+    console.log(this.state.warehouseList);
     return (
       <>
-        {this.state.inventory && (
+        {this.state.inventory && this.state.warehouseList && (
           <section className="new-item">
             <div className="new-item__container">
               <div className="new-item__header">
@@ -144,16 +144,13 @@ class InventoryEdit extends React.Component {
                           placeholder="Please select"
                           className="new-item-form__input"
                         >
-                          {/* {this.state.inventory.map((warehouse) => {
+                          {this.state.warehouseList.map((warehouse) => {
                             return (
-                              <option
-                                value={warehouse.warehouseName}
-                                key={warehouse.id}
-                              >
-                                {warehouse.warehouseName}
+                              <option value={warehouse.name} key={warehouse.id}>
+                                {warehouse.name}
                               </option>
                             );
-                          })} */}
+                          })}
                         </select>
                       </label>
                     </div>

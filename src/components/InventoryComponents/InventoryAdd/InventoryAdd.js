@@ -7,14 +7,14 @@ import axios from "axios";
 
 class InventoryAdd extends React.Component {
   state = {
-    inventory: [],
+    warehouses: [],
   };
   componentDidMount() {
     axios
-      .get("http://localhost:8080/inventory")
+      .get("http://localhost:8080/warehouse")
       .then((response) => {
         this.setState({
-          inventory: response.data,
+          warehouses: response.data,
         });
       })
       .catch((error) => {
@@ -24,18 +24,24 @@ class InventoryAdd extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    // console.log(event.target.warehouse.value)
+    // console.log(event.target.itemName.value)
+    // console.log(event.target.description.value)
+    // console.log(event.target.category.value)
+    // console.log(event.target.status.value)
+    // console.log(event.target.quantity.value)
 
     axios
       .post("http://localhost:8080/inventory", {
-        warehouseName: event.target.warehouse.value,
+        warehouseID: event.target.warehouseID.value,
         itemName: event.target.itemName.value,
-        description: event.target.desciprtion.value,
+        description: event.target.description.value,
         category: event.target.category.value,
-        status: event.target.inStock.value || event.target.outOfStock.value,
+        status: event.target.status.value,
         quantity: event.target.quantity.value,
       })
       .catch((error) => console.log(error));
-    this.props.history.push("/warehouse");
+    // this.props.history.push("/inventory");
   };
 
   render() {
@@ -86,7 +92,8 @@ class InventoryAdd extends React.Component {
                         type="text"
                         name="category"
                         placeholder="Please select"
-                        className="new-item-form__input"
+                        className="new-item-form__input new-item-form__input--select"
+                        id="category"
                       >
                         <option value="Electronics">Electronics</option>
                         <option value="Apparel">Apparel</option>
@@ -108,7 +115,7 @@ class InventoryAdd extends React.Component {
                           type="radio"
                           name="status"
                           className="new-item-form__radio-button"
-                          value="inStock"
+                          value="In Stock"
                         />
                         <p className="new-item-form__radio-text">In Stock</p>
                       </div>
@@ -117,7 +124,7 @@ class InventoryAdd extends React.Component {
                           type="radio"
                           name="status"
                           className="new-item-form__radio-button"
-                          value="outOfStock"
+                          value="Out of Stock"
                         />
                         <p className="new-item-form__radio-text">
                           Out of Stock
@@ -136,17 +143,17 @@ class InventoryAdd extends React.Component {
                     <label className="new-item-form__label">
                       Warehouse
                       <select
-                        name="warehouse"
+                        name="warehouseID"
                         placeholder="Please select"
-                        className="new-item-form__input"
+                        className="new-item-form__input new-item-form__input--select"
                       >
-                        {this.state.inventory.map((warehouse) => {
+                        {this.state.warehouses.map((warehouse) => {
                           return (
                             <option
-                              value={warehouse.warehouseName}
+                              value={warehouse.id}
                               key={warehouse.id}
                             >
-                              {warehouse.warehouseName}
+                              {warehouse.name}
                             </option>
                           );
                         })}
@@ -158,7 +165,9 @@ class InventoryAdd extends React.Component {
 
               <div className="buttons">
                 <div className="buttons__container">
-                  <Link to="/inventory" className="button button--cancel">Cancel</Link>
+                  <Link to="/inventory" className="button button--cancel">
+                    Cancel
+                  </Link>
                   <button className="button button--special" type="submit">
                     + Add Item
                   </button>

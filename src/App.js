@@ -11,6 +11,7 @@ import InventoryPage from "./pages/InventoryPage/InventoryPage";
 import WarehouseAdd from "./components/WarehouseComponents/WarehouseAdd/WarehouseAdd";
 import InventoryItem from "./components/InventoryComponents/InventoryItem/InventoryItem";
 import InventoryEdit from "./components/InventoryComponents/InventoryEdit/InventoryEdit";
+import WarehouseEdit from "./components/WarehouseComponents/WarehouseEdit/WarehouseEdit";
 
 class App extends React.Component {
   render() {
