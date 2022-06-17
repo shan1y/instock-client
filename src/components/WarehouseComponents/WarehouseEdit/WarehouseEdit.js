@@ -1,4 +1,4 @@
-import "./WarehouseEdit.scss";
+import "./WarehouseAdd.scss";
 import { Component } from "react";
 import { Link } from "react-router-dom";
 
@@ -6,7 +6,7 @@ import backArrow from "../../../assets/Icons/arrow_back-24px.svg";
 import errorIcon from "../../../assets/Icons/error-24px.svg";
 import axios from "axios";
 
-class WarehouseEdit extends Component {
+class WarehouseAdd extends Component {
   state = {
     warehouseNameCheck: false,
     addressCheck: false,
@@ -166,8 +166,9 @@ class WarehouseEdit extends Component {
         .catch((error) => console.log(error));
       this.props.history.push("/warehouse");
     }
+
+    // CREATING POST REQUEST TO API
   };
-  // CREATING POST REQUEST TO API
 
   render() {
     return (
@@ -181,7 +182,7 @@ class WarehouseEdit extends Component {
                 className="new-warehouse__back-icon"
               />
             </Link>
-            <h2 className="new-warehouse__title">Edit Warehouse</h2>
+            <h2 className="new-warehouse__title">Add New Warehouse</h2>
           </div>
 
           <form className="new-warehouse-form" onSubmit={this.handleSubmit}>
@@ -371,7 +372,7 @@ class WarehouseEdit extends Component {
                 <button className="button">Cancel</button>
 
                 <button className="button button--special" type="submit">
-                  Save
+                  + Add Warehouse
                 </button>
               </div>
             </div>
@@ -382,4 +383,4 @@ class WarehouseEdit extends Component {
   }
 }
 
-export default WarehouseEdit;
+export default WarehouseAdd;
