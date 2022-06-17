@@ -8,14 +8,22 @@ import axios from "axios";
 class InventoryEdit extends React.Component {
   state = {
     inventory: null,
+    warehouseList: [],
   };
 
   componentDidMount() {
     axios
       .get(`http://localhost:8080/inventory/${this.props.match.params.id}`)
       .then((response) => {
+        return response.data;
+      })
+      .then((inventoryData) => {
+        return axios.get("http://localhost:8080/warehouse");
+      })
+      .then((response) => {
         this.setState({
-          inventory: response.data,
+          inventory: inventoryData,
+          warehouseList: response.data,
         });
       })
       .catch((error) => {
