@@ -80,7 +80,7 @@ class WarehouseList extends React.Component {
             Actions<button className="sorter__button"></button>
           </li>
         </ul>
-        {this.state.warehouseList.map((warehouse, index) => {
+        {this.state.warehouseList.map((warehouse) => {
           return (
             <>
               <div className="warehouseCard" key={warehouse.id}>
