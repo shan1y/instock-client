@@ -6,17 +6,25 @@ import errorIcon from "../../../assets/Icons/error-24px.svg";
 import axios from "axios";
 
 class InventoryAdd extends React.Component {
+  // state = {
+  //     inventory: [],
+  //   };
+  // componentDidMount() {
+  //     axios
+  //       .get("http://localhost:8080/inventory")
+  //       .then((response) => {
+  //         this.setState({
+  //           inventory: response.data,
+  //         });
+  //       })
+  //       .catch((error) => {
+  //         console.log("Request failed");
+  //       });
+  //   }
+
   render() {
     return (
       <>
-        {/* <div className="inventoryAdd__header"></div>
-        <section className="inventoryAdd">
-          <div className="inventoryAdd__content">
-            <div className="inventoryAdd__details"></div>
-            <div className="inventoryAdd__availability"></div>
-          </div>
-          <div></div>
-        </section> */}
         <section className="new-item">
           <div className="new-item__container">
             <div className="new-item__header">
@@ -58,12 +66,18 @@ class InventoryAdd extends React.Component {
 
                     <label className="new-item-form__label">
                       Category
-                      <input
+                      <select
                         type="text"
-                        name="catergory"
+                        name="category"
                         placeholder="Please select"
                         className="new-item-form__input"
-                      />
+                      >
+                        <option value="Electronics">Electronics</option>
+                        <option value="Gear">Gear</option>
+                        <option value="Apparel">Apparel</option>
+                        <option value="Accessories">Accessories</option>
+                        <option value="Health">Health</option>
+                      </select>
                     </label>
                   </div>
                 </div>
@@ -71,46 +85,43 @@ class InventoryAdd extends React.Component {
                 <div className="new-item-form__right">
                   <div className="new-item-form__container">
                     <h3 className="new-item-form__title">Item Availability</h3>
-                    <label className="new-item-form__label">
-                      Status
-                      </label>
-                      <div className="new-item-form__radio">
-                        <div className="new-item-form__radio-container">
-                          <input
-                            type="radio"
-                            name="status"
-                            className="new-item-form__radio-button"
-                          />
-                          <p className="new-item-form__radio-text">In Stock</p>
-                        </div>
-                        <div className="new-item-form__radio-container">
-                          <input
-                            type="radio"
-                            name="status"
-                            className="new-item-form__radio-button"
-                          />
-                          <p className="new-item-form__radio-text">Out of Stock</p>
-                        </div>
+                    <label className="new-item-form__label">Status</label>
+                    <div className="new-item-form__radio">
+                      <div className="new-item-form__radio-container">
+                        <input
+                          type="radio"
+                          name="InStock"
+                          className="new-item-form__radio-button"
+                        />
+                        <p className="new-item-form__radio-text">In Stock</p>
                       </div>
-              
+                      <div className="new-item-form__radio-container">
+                        <input
+                          type="radio"
+                          name="outOfStock"
+                          className="new-item-form__radio-button"
+                        />
+                        <p className="new-item-form__radio-text">
+                          Out of Stock
+                        </p>
+                      </div>
+                    </div>
 
-                    <label className="new-item-form__label">
-                      Quantity
-                      <input
-                        type="text"
-                        name="position"
-                        placeholder="0"
-                        className="new-item-form__input"
-                      />
-                    </label>
+                    <label className="new-item-form__label">Quantity</label>
+                    <input
+                      type="text"
+                      name="quantity"
+                      placeholder="0"
+                      className="new-item-form__input new-item-form__input--width"
+                    />
 
                     <label className="new-item-form__label">
                       Warehouse
-                      <input
-                        name="phone"
+                      <select
+                        name="warehouse"
                         placeholder="Please select"
                         className="new-item-form__input"
-                      />
+                      ></select>
                     </label>
                   </div>
                 </div>
