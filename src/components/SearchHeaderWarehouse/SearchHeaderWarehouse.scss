@@ -23,6 +23,9 @@
   &__title {
     margin-bottom: 1rem;
   }
+  &__link {
+    text-decoration: none;
+  }
 }
 
 .form {
@@ -46,7 +49,7 @@
     margin-bottom: 1rem;
     border-radius: 1rem;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.7rem 1rem;
     background-color: $button-colour;
     color: $white;
     @include tablet {

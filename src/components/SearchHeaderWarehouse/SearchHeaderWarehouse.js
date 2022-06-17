@@ -1,4 +1,5 @@
 import "./SearchHeaderWarehouse.scss";
+import { Link } from "react-router-dom";
 
 function SearchHeaderWarehouse({ title }) {
   const nameChange = (name) => name;
@@ -13,7 +14,9 @@ function SearchHeaderWarehouse({ title }) {
             placeholder="Search..."
             name="search"
           ></input>
-          <button className="form__button">+ Add New Item</button>
+          <Link className="search__link" to="/warehouse/add">
+            <button className="form__button">+ Add New Item</button>
+          </Link>
         </form>
       </div>
     </>
