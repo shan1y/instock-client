@@ -152,22 +152,19 @@ class WarehouseEdit extends Component {
       event.target.phone.value &&
       event.target.email.value
     ) {
-      axios
-        .post("http://localhost:8080/warehouse", {
-          warehouseName: event.target.warehouseName.value,
-          address: event.target.address.value,
-          city: event.target.city.value,
-          country: event.target.country.value,
-          contactName: event.target.contactName.value,
-          position: event.target.position.value,
-          phone: event.target.phone.value,
-          email: event.target.email.value,
-        })
+      axios.put(`http://localhost:8080/warehouse/${this.props.match.params}`, {
+        warehouseName: event.target.warehouseName.value,
+        address: event.target.address.value,
+        city: event.target.city.value,
+        country: event.target.country.value,
+        contactName: event.target.contactName.value,
+        position: event.target.position.value,
+        phone: event.target.phone.value,
+        email: event.target.email.value,
+      })
         .catch((error) => console.log(error));
       this.props.history.push("/warehouse");
     }
-
-    // CREATING POST REQUEST TO API
   };
 
   render() {
