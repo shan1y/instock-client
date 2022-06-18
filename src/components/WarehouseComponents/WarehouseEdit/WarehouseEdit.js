@@ -152,17 +152,16 @@ class WarehouseEdit extends Component {
       event.target.phone.value &&
       event.target.email.value
     ) {
-      axios.put(`http://localhost:8080/warehouse/${this.props.match.params}`, {
+      axios.put(`http://localhost:8080/warehouse/${this.props.match.params}/edit`, {
+        id: this.props.match.params.id,
         warehouseName: event.target.warehouseName.value,
         address: event.target.address.value,
         city: event.target.city.value,
         country: event.target.country.value,
-        contact: {
-          contactName: event.target.contactName.value,
-          position: event.target.position.value,
-          phone: event.target.phone.value,
-          email: event.target.email.value,
-        },
+        contactName: event.target.contactName.value,
+        position: event.target.position.value,
+        phone: event.target.phone.value,
+        email: event.target.email.value
       });
       //   .catch((error) => console.log(error));
       // this.props.history.push("/warehouse");
@@ -175,6 +174,7 @@ class WarehouseEdit extends Component {
     console.log(event.target.position.value);
     console.log(event.target.phone.value);
     console.log(event.target.email.value);
+    console.log(this.props.match.params.id);
   };
 
   render() {
