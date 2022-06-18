@@ -3,7 +3,6 @@ import { Modal, Button, ModalDialog } from "react-bootstrap";
 import { propTypes } from "react-bootstrap/esm/Image";
 
 import "./DeleteModal.scss";
-// import "bootstrap/dist/css/bootstrap.min.css";
 
 function DeleteModal({
   deleteItem,
