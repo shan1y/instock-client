@@ -2,11 +2,36 @@ import "./InventoryList.scss";
 import chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import SearchHeader from "../../SearchHeader/SearchHeader";
 import sortIcon from "../../../assets/Icons/sort-24px.svg";
-import { Link } from "react-router-dom";
 
-function InventoryList({ inventoryList, updateStatus }) {
+import DeleteModal from "../../DeleteModal/DeleteModal";
+
+function InventoryList({
+  inventoryList,
+  updateStatus,
+  openModal,
+  closeModal,
+  deleteItem,
+  activeInventoryId,
+  isOpen,
+}) {
+  console.log(inventoryList);
+  let modalData = inventoryList.find((inventory) => {
+    return activeInventoryId === inventory.id;
+  });
+
   return (
     <>
+      {isOpen && (
+        <DeleteModal
+          title={`Delete ${modalData.itemName} inventory item?`}
+          paragraph={`Please confirm that you'd like to delete ${modalData.itemName} from the inventory list. You won't be able to undo this action`}
+          deleteItem={deleteItem}
+          closeModal={closeModal}
+          isOpen={isOpen}
+          warehouseName={modalData.name}
+          id={activeInventoryId}
+        />
+      )}
       <div>
         <SearchHeader title={"Inventory"} urlPath={"/inventory"} />
         <div className="InventoryFilter">
@@ -128,12 +153,13 @@ function InventoryList({ inventoryList, updateStatus }) {
               </ul>
               <div className="InventoryCard__buttons">
                 <button
+                  onClick={() => {
+                    openModal(item.id);
+                  }}
                   type="button"
                   className="InventoryCard__button--delete"
                 ></button>
-                <Link to={`inventory/edit/${item.id}`}>
-                  <div className="InventoryCard__button--edit"></div>
-                </Link>
+                <div className="InventoryCard__button--edit"></div>
               </div>
             </div>
           );
