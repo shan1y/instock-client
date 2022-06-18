@@ -50,6 +50,7 @@ class WarehouseDetails extends Component {
 
   openModal = (id) => {
     this.setState({ isOpen: true, activeInventoryId: id });
+    window.scrollTo(0, 0);
   };
 
   closeModal = () => this.setState({ isOpen: false });
