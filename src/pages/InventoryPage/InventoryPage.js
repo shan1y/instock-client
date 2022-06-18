@@ -35,7 +35,7 @@ class InventoryPage extends React.Component {
 
   openModal = (id) => {
     this.setState({ isOpen: true, activeInventoryId: id });
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   };
 
   closeModal = () => this.setState({ isOpen: false });
@@ -47,6 +47,11 @@ class InventoryPage extends React.Component {
   };
 
   render() {
+    if (this.state.isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
     return (
       <div className="InventoryList__body">
         <InventoryList
