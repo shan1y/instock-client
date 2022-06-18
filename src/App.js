@@ -29,7 +29,7 @@ class App extends React.Component {
           <Route path="/inventory" exact component={InventoryPage} />
           <Route path="/inventory/add" exact component={InventoryAdd} />
           <Route path="/inventory/:id" exact component={InventoryItem} />
-          <Route path="/inventory/edit/:id" exact component={InventoryEdit} />
+          <Route path="/inventory/:id/edit" exact component={InventoryEdit} />
         </Switch>
         <FooterSection />
       </BrowserRouter>
