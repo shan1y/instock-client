@@ -112,6 +112,7 @@
   }
   &__radio-button {
     margin-right: 0.5rem;
+    cursor: pointer;
     @include tablet {
       margin-right: 1rem;
     }
@@ -119,12 +120,15 @@
   &__input {
     width: 100%;
     outline: none;
-    padding: 1rem;
+    padding: 0;
+    padding-left: 15px;
     border: 1px solid $cloud;
     margin: 4px 0;
     margin-bottom: 0.5rem;
     height: 2rem;
     border-radius: 20px;
+    resize: none;
+    overflow: hidden;
     @include tablet {
       height: 2.2rem;
     }
@@ -203,6 +207,7 @@
   border: 1px solid $cloud;
   background-color: $white;
   color: $graphite;
+  cursor: pointer;
   &--cancel {
     text-decoration: none;
   }
