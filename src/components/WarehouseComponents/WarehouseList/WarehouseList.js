@@ -16,7 +16,6 @@ class WarehouseList extends React.Component {
     axios
       .get("http://localhost:8080/warehouse")
       .then((response) => {
-        console.log(response.data);
         return response.data;
       })
       .then((warehouseData) => {
@@ -27,8 +26,6 @@ class WarehouseList extends React.Component {
   }
 
   openModal = (id) => {
-    console.log(id);
-    // console.log(id);
     this.setState({ isOpen: true, activeWarehouseId: id });
   };
 
@@ -169,6 +166,7 @@ class WarehouseList extends React.Component {
                     className="warehouseCard__button--delete"
                   ></button>
                   <div className="warehouseCard__button--edit"></div>
+                  {/* <Link to={`/${this.props.match.params.id}/edit`} className="warehouseCard__button--edit"></Link> */}
                 </div>
               </div>
             </>
