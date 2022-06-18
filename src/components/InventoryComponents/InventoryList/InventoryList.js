@@ -24,7 +24,7 @@ function InventoryList({
       {isOpen && (
         <DeleteModal
           title={`Delete ${modalData.itemName} inventory item?`}
-          paragraph={`Please confirm that you'd like to delete ${modalData.itemName} from the inventory list. You won't be able to undo this action`}
+          paragraph={`Please confirm that you'd like to delete ${modalData.itemName} from the inventory list. You won't be able to undo this action.`}
           deleteItem={deleteItem}
           closeModal={closeModal}
           isOpen={isOpen}

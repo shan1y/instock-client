@@ -3,7 +3,7 @@
 @use "../../styles/partials/mixins" as *;
 
 .modal {
-  position: absolute; /* Stay in place */
+  position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   padding-top: 100px; /* Location of the box */
   inset: 0;
@@ -11,6 +11,9 @@
   height: 100vh; /* Full height */
   overflow-y: hidden;
   @include tablet {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
     overflow: hidden; /* Enable scroll if needed */
@@ -32,8 +35,13 @@
     transform: translateY(-15%);
     position: absolute;
     @include tablet {
+      transform: translateY(25.5%);
       height: unset;
       width: 80%;
+      max-width: 50rem;
+    }
+    @include desktop {
+      transform: translateY(32.5%);
     }
   }
 
@@ -109,8 +117,8 @@
     color: $instock-black;
     font-size: 2.5rem;
     position: absolute;
-    top: 5%;
-    right: 4%;
+    top: 6%;
+    right: 1%;
     &:hover,
     &close:focus {
       color: #000;
