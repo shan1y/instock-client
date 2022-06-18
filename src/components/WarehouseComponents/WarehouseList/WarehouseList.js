@@ -27,12 +27,15 @@ class WarehouseList extends React.Component {
   }
 
   openModal = (id) => {
+    console.log(id);
+    // console.log(id);
     this.setState({ isOpen: true, activeWarehouseId: id });
   };
 
   closeModal = () => this.setState({ isOpen: false });
 
   deleteItem = (id) => {
+    console.log(id);
     axios.delete(`http://localhost:8080/warehouse/${id}`).then((response) => {
       this.setState({ warehouseList: response.data, isOpen: false });
     });
@@ -43,21 +46,22 @@ class WarehouseList extends React.Component {
     let modalData = this.state.warehouseList.find((warehouse) => {
       return activeWarehouseId === warehouse.id;
     });
-    if (this.state.isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+
+    // if (this.state.isOpen) {
+    //   document.body.style.overflow = "hidden";
+    // } else {
+    //   document.body.style.overflow = "unset";
+    // }
 
     return (
       <>
-        {this.state.isOpen && (
+        {this.state.isOpen && this.state.activeWarehouseId && (
           <DeleteModal
             deleteItem={this.deleteItem}
             closeModal={this.closeModal}
-            isOpen={this.state.isOpen}
-            warehouseName={modalData.name}
-            id={this.state.activeWarehouseId}
+            title={`Delete ${modalData.name} Warehouse?`}
+            paragraph={`Please confirm that you'd like to delete the ${modalData.name} warehouse from the warehouse list. You won't be able to undo this action.`}
+            id={activeWarehouseId}
           />
         )}
         <SearchHeaderWarehouse title={"Warehouse"} />
