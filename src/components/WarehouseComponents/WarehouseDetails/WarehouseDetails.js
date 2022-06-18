@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import backArrow from "../../../assets/Icons/arrow_back-24px.svg";
+import DeleteModal from "../../DeleteModal/DeleteModal";
 
 class WarehouseDetails extends Component {
   state = {
@@ -21,6 +22,8 @@ class WarehouseDetails extends Component {
       },
     },
     warehouseInventory: [],
+    isOpen: false,
+    activeInventoryId: null,
   };
 
   componentDidMount() {
@@ -45,16 +48,66 @@ class WarehouseDetails extends Component {
 
   stockCheck = (stock) => (stock === 0 ? "OUT OF STOCK" : "IN STOCK");
 
+  openModal = (id) => {
+    this.setState({ isOpen: true, activeInventoryId: id });
+    window.scrollTo(0, 0);
+  };
+
+  closeModal = () => this.setState({ isOpen: false });
+
+  deleteItem = (id) => {
+    axios.delete(`http://localhost:8080/inventory/${id}`);
+
+    axios
+      .get(`http://localhost:8080/warehouse/${this.props.match.params.id}`)
+      .then((warehouseDetails) => {
+        return warehouseDetails.data;
+      })
+      .then((warehouseDetails) => {
+        return axios
+          .get(
+            `http://localhost:8080/warehouse/${this.props.match.params.id}/inventory`
+          )
+          .then((response) => {
+            this.setState({
+              warehouseDetails,
+              warehouseInventory: response.data,
+              isOpen: false,
+            });
+          });
+      });
+  };
+
   render() {
     const { city, address, country, contact } = this.state.warehouseDetails;
     const { name, position, phone, email } = contact;
 
+    const activeInventoryId = this.state.activeInventoryId;
+    let modalData = this.state.warehouseInventory.find((inventory) => {
+      return activeInventoryId === inventory.id;
+    });
+    if (this.state.isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
     console.log(this.state.warehouseInventory);
 
     return (
       <>
-        {this.state?.warehouseDetails ? (
+        {this.state?.warehouseDetails && this.state?.warehouseInventory ? (
           <>
+            {this.state.isOpen && (
+              <DeleteModal
+                deleteItem={this.deleteItem}
+                closeModal={this.closeModal}
+                isOpen={this.state.isOpen}
+                title={`Delete ${modalData.itemName} inventory item?`}
+                id={this.state.activeInventoryId}
+                paragraph={`Please confirm that you'd like to delete ${modalData.itemName} from the inventory list. You won't be able to undo this action.`}
+              />
+            )}
+
             <div className="new-warehouse__header">
               <Link className="new-warehouse__link" to="/warehouse">
                 <img
@@ -172,6 +225,9 @@ class WarehouseDetails extends Component {
                     </div>
                     <div className="warehouseCard__buttons warehouseCard__buttons--tablet">
                       <button
+                        onClick={() => {
+                          this.openModal(inventory.id);
+                        }}
                         type="button"
                         className="warehouseCard__button--delete"
                       ></button>

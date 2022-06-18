@@ -32,12 +32,10 @@ class WarehouseList extends React.Component {
 
   closeModal = () => this.setState({ isOpen: false });
 
-  deleteItem = (index) => {
-    axios
-      .delete(`http://localhost:8080/warehouse/${index}`)
-      .then((response) => {
-        this.setState({ warehouseList: response.data, isOpen: false });
-      });
+  deleteItem = (id) => {
+    axios.delete(`http://localhost:8080/warehouse/${id}`).then((response) => {
+      this.setState({ warehouseList: response.data, isOpen: false });
+    });
   };
 
   render() {
