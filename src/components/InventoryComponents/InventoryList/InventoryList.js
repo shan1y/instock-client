@@ -2,6 +2,7 @@ import "./InventoryList.scss";
 import chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import SearchHeader from "../../SearchHeader/SearchHeader";
 import sortIcon from "../../../assets/Icons/sort-24px.svg";
+import { Link } from "react-router-dom";
 
 import DeleteModal from "../../DeleteModal/DeleteModal";
 
@@ -157,7 +158,9 @@ function InventoryList({
                   type="button"
                   className="InventoryCard__button--delete"
                 ></button>
-                <div className="InventoryCard__button--edit"></div>
+                <Link to={`inventory/edit/${item.id}`}>
+                  <div className="InventoryCard__button--edit"></div>
+                </Link>
               </div>
             </div>
           );
