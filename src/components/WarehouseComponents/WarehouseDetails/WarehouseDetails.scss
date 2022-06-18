@@ -5,6 +5,14 @@
   padding: 1rem;
   background-color: $light-grey;
 
+  @include tablet {
+    padding: 2rem;
+  }
+
+  @include desktop {
+    padding: 0rem 8rem;
+  }
+
   &__container {
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
     border-radius: 3px;
@@ -12,7 +20,11 @@
     transform: translateY(-4.5rem);
 
     @include tablet {
-      transform: translateY(-6rem);
+      transform: translateY(-7rem);
+    }
+
+    @include desktop {
+      transform: translateY(-5rem);
     }
   }
 
@@ -44,6 +56,12 @@
 .warehouse-info {
   padding: 1rem;
 
+  @include tablet {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__title {
     color: $slate;
   }
@@ -58,10 +76,19 @@
 
   &__wrapper {
     display: flex;
+
+    @include tablet {
+      width: 60%;
+    }
   }
 
   &__left {
     width: 50%;
+
+    @include tablet {
+      border-left: 1px solid $cloud;
+      padding-left: 2rem;
+    }
   }
 
   &__right {

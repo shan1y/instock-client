@@ -80,7 +80,7 @@ class WarehouseDetails extends Component {
   };
 
   render() {
-    const { city, address, country, contact } = this.state.warehouseDetails;
+    const { city, address, country, contact, id } = this.state.warehouseDetails;
     const { name, position, phone, email } = contact;
 
     const activeInventoryId = this.state.activeInventoryId;
@@ -122,7 +122,10 @@ class WarehouseDetails extends Component {
                     <h2 className="warehouse-details__title">{city}</h2>
                   </div>
 
-                  <Link className="warehouse-details__edit-link" to="/">
+                  <Link
+                    className="warehouse-details__edit-link"
+                    to={`warehouse/edit/${id}`}
+                  >
                     <img
                       src={edit}
                       alt="Edit Warehouse Details"
@@ -181,7 +184,10 @@ class WarehouseDetails extends Component {
                               <h4 className="warehouseCard__list-title">
                                 INVENTORY ITEM
                               </h4>
-                              <Link to={`/inventory/${inventory.id}`}>
+                              <Link
+                                to={`/inventory/${inventory.id}`}
+                                className="warehouseCard__link"
+                              >
                                 <div className="warehouseCard__link-item">
                                   <div className="warehouseCard__link body-medium">
                                     {inventory.itemName}
@@ -221,9 +227,13 @@ class WarehouseDetails extends Component {
                             type="button"
                             className="warehouseCard__button--delete"
                           ></button>
-                          <div className="warehouseCard__button--edit"></div>
+
+                          <Link to={`/inventory/edit/${inventory.id}`}>
+                            <div className="warehouseCard__button--edit"></div>
+                          </Link>
                         </div>
                       </div>
+
                       <div className="warehouseCard--tablet">
                         <Link to={`/inventory/${inventory.id}`}>
                           <div className="warehouseCard__link--tablet body-medium">
@@ -251,7 +261,9 @@ class WarehouseDetails extends Component {
                             type="button"
                             className="warehouseCard__button--delete"
                           ></button>
-                          <div className="warehouseCard__button--edit"></div>
+                          <Link to={`/inventory/edit/${inventory.id}`}>
+                            <div className="warehouseCard__button--edit"></div>
+                          </Link>
                         </div>
                       </div>
                     </div>
