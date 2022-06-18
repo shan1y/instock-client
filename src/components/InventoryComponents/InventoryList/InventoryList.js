@@ -2,7 +2,6 @@ import "./InventoryList.scss";
 import chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import SearchHeader from "../../SearchHeader/SearchHeader";
 import sortIcon from "../../../assets/Icons/sort-24px.svg";
-import { Link } from "react-router-dom";
 
 import DeleteModal from "../../DeleteModal/DeleteModal";
 
@@ -24,6 +23,8 @@ function InventoryList({
     <>
       {isOpen && (
         <DeleteModal
+          title={`Delete ${modalData.itemName} inventory item?`}
+          paragraph={`Please confirm that you'd like to delete ${modalData.itemName} from the inventory list. You won't be able to undo this action`}
           deleteItem={deleteItem}
           closeModal={closeModal}
           isOpen={isOpen}
@@ -153,14 +154,12 @@ function InventoryList({
               <div className="InventoryCard__buttons">
                 <button
                   onClick={() => {
-                    openModal(item.id).window.scrollTo(0, 0);
+                    openModal(item.id);
                   }}
                   type="button"
                   className="InventoryCard__button--delete"
                 ></button>
-                <Link to={`inventory/edit/${item.id}`}>
-                  <div className="InventoryCard__button--edit"></div>
-                </Link>
+                <div className="InventoryCard__button--edit"></div>
               </div>
             </div>
           );

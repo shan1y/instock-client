@@ -24,7 +24,6 @@ class WarehouseDetails extends Component {
     warehouseInventory: [],
     isOpen: false,
     activeInventoryId: null,
-    inventory: "inventory",
   };
 
   componentDidMount() {
@@ -104,7 +103,7 @@ class WarehouseDetails extends Component {
                 isOpen={this.state.isOpen}
                 title={`Delete ${modalData.itemName} inventory item?`}
                 id={this.state.activeInventoryId}
-                paragraph={`Please confirm that you'd like to delete ${modalData.itemName} from the ${this.state.inventory} list. You won't be able to undo this action.`}
+                paragraph={`Please confirm that you'd like to delete ${modalData.itemName} from the inventory list. You won't be able to undo this action.`}
               />
             )}
 
