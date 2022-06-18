@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import backArrow from "../../../assets/Icons/arrow_back-24px.svg";
+import edit from "../../../assets/Icons/edit-24px.svg";
 import DeleteModal from "../../DeleteModal/DeleteModal";
 
 class WarehouseDetails extends Component {
@@ -107,136 +108,157 @@ class WarehouseDetails extends Component {
                 paragraph={`Please confirm that you'd like to delete ${modalData.itemName} from the inventory list. You won't be able to undo this action.`}
               />
             )}
-
-            <div className="new-warehouse__header">
-              <Link className="new-warehouse__link" to="/warehouse">
-                <img
-                  src={backArrow}
-                  alt="Back Arrow to return to warehouse page"
-                  className="new-warehouse__back-icon"
-                />
-              </Link>
-              <h2 className="new-warehouse__title">{city}</h2>
-            </div>
-            <div>
-              <h4>WAREHOUSE ADDRESS</h4>
-              <p>
-                {address}, {city}, {country}
-              </p>
-            </div>
-            <div>
-              <h4>Contact NAME:</h4>
-              <p>{name}</p>
-              <p>{position}</p>
-            </div>
-            <div>
-              <h4>CONTACT INFORMATION:</h4>
-              <p>{phone}</p>
-              <p>{email}</p>
-            </div>
-            <ul className="sorter">
-              <li className="sorter__item">
-                INVENTORY ITEM <button className="sorter__button"></button>
-              </li>
-              <li className="sorter__item sorter__item--address">
-                CATEGORY <button className="sorter__button"></button>
-              </li>
-              <li className="sorter__item sorter__item--contact-name">
-                STATUS<button className="sorter__button"></button>
-              </li>
-              <li className="sorter__item sorter__item--contact">
-                QUANTITY<button className="sorter__button"></button>
-              </li>
-              <li className="sorter__item">
-                Actions<button className="sorter__button"></button>
-              </li>
-            </ul>
-            {this.state.warehouseInventory.map((inventory, index) => {
-              return (
-                <div key={inventory.id}>
-                  <div className="warehouseCard">
-                    <ul className="warehouseCard__content-list">
-                      <ul className="warehouseCard__sub-list">
-                        <li className="warehouseCard__list-details">
-                          <h4 className="warehouseCard__list-title">
-                            INVENTORY ITEM
-                          </h4>
-                          <Link to={`/inventory/${inventory.id}`}>
-                            <div className="warehouseCard__link-item">
-                              <div className="warehouseCard__link body-medium">
-                                {inventory.itemName}
-                              </div>
-                              <img src={chevron} />
-                            </div>
-                          </Link>
-                        </li>
-                        <li className="warehouseCard__list-details">
-                          <h4 className="warehouseCard__list-title">
-                            CATEGORY
-                          </h4>
-                          <p className="warehouseCard__info body-medium">
-                            {inventory.category}
-                          </p>
-                        </li>
-                      </ul>
-                      <ul className="warehouseCard__sub-list">
-                        <li className="warehouseCard__list-details">
-                          <h4 className="warehouseCard__list-title">STATUS</h4>
-                          <p className="warehouseCard__info body-medium">
-                            {this.stockCheck(inventory.quantity)}
-                          </p>
-                        </li>
-                        <li className="warehouseCard__list-details">
-                          <h4 className="warehouseCard__list-title">
-                            Contact Information
-                          </h4>
-                          <p className="warehouseCard__info body-medium">
-                            {inventory.quantity}
-                          </p>
-                        </li>
-                      </ul>
-                    </ul>
-                    <div className="warehouseCard__buttons">
-                      <button
-                        type="button"
-                        className="warehouseCard__button--delete"
-                      ></button>
-                      <div className="warehouseCard__button--edit"></div>
-                    </div>
-                  </div>
-                  <div className="warehouseCard--tablet">
-                    <Link to={`/inventory/${inventory.id}`}>
-                      <div className="warehouseCard__link--tablet body-medium">
-                        {inventory.itemName}
-                        <img src={chevron} alt="chevron" />
-                      </div>
+            <div className="warehouse-details">
+              <div className="warehouse-details__container">
+                <div className="warehouse-details__header">
+                  <div className="warehouse-details__wrapper">
+                    <Link className="warehouse-details__link" to="/warehouse">
+                      <img
+                        src={backArrow}
+                        alt="Back Arrow to return to warehouse page"
+                        className="warehouse-details__back-icon"
+                      />
                     </Link>
-                    <p className="warehouseCard__address--tablet body-medium">
-                      {inventory.category}
-                    </p>
+                    <h2 className="warehouse-details__title">{city}</h2>
+                  </div>
 
-                    <p className="warehouseCard__info--name body-medium">
-                      {this.stockCheck(inventory.quantity)}
+                  <Link className="warehouse-details__edit-link" to="/">
+                    <img
+                      src={edit}
+                      alt="Edit Warehouse Details"
+                      className="warehouse-details__edit"
+                    />
+                  </Link>
+                </div>
+
+                <div className="warehouse-info">
+                  <div className="warehouse-info__container">
+                    <h4 className="warehouse-info__title">WAREHOUSE ADDRESS</h4>
+                    <p className="warehouse-info__content">
+                      {address}, {city}, {country}
                     </p>
-                    <div>
-                      <p className="warehouseCard__info--contact body-medium">
-                        {inventory.quantity}
-                      </p>
+                  </div>
+                  <div className="warehouse-info__wrapper">
+                    <div className="warehouse-info__left">
+                      <h4 className="warehouse-info__title">CONTACT NAME:</h4>
+                      <p className="warehouse-info__content">{name}</p>
+                      <p className="warehouse-info__content">{position}</p>
                     </div>
-                    <div className="warehouseCard__buttons warehouseCard__buttons--tablet">
-                      <button
-                        onClick={() => {
-                          this.openModal(inventory.id);
-                        }}
-                        type="button"
-                        className="warehouseCard__button--delete"
-                      ></button>
-                      <div className="warehouseCard__button--edit"></div>
+                    <div className="warehouse-info__right">
+                      <h4 className="warehouse-info__title">
+                        CONTACT INFORMATION:
+                      </h4>
+                      <p className="warehouse-info__content">{phone}</p>
+                      <p className="warehouse-info__content">{email}</p>
                     </div>
                   </div>
                 </div>
-              );
-            })}
+
+                <ul className="sorter">
+                  <li className="sorter__item">
+                    INVENTORY ITEM <button className="sorter__button"></button>
+                  </li>
+                  <li className="sorter__item sorter__item--address">
+                    CATEGORY <button className="sorter__button"></button>
+                  </li>
+                  <li className="sorter__item sorter__item--contact-name">
+                    STATUS<button className="sorter__button"></button>
+                  </li>
+                  <li className="sorter__item sorter__item--contact">
+                    QUANTITY<button className="sorter__button"></button>
+                  </li>
+                  <li className="sorter__item">
+                    Actions<button className="sorter__button"></button>
+                  </li>
+                </ul>
+                {this.state.warehouseInventory.map((inventory, index) => {
+                  return (
+                    <div className="/" key={inventory.id}>
+                      <div className="warehouseCard">
+                        <ul className="warehouseCard__content-list">
+                          <ul className="warehouseCard__sub-list">
+                            <li className="warehouseCard__list-details">
+                              <h4 className="warehouseCard__list-title">
+                                INVENTORY ITEM
+                              </h4>
+                              <Link to={`/inventory/${inventory.id}`}>
+                                <div className="warehouseCard__link-item">
+                                  <div className="warehouseCard__link body-medium">
+                                    {inventory.itemName}
+                                  </div>
+                                  <img src={chevron} />
+                                </div>
+                              </Link>
+                            </li>
+                            <li className="warehouseCard__list-details">
+                              <h4 className="warehouseCard__list-title">
+                                CATEGORY
+                              </h4>
+                              <p className="warehouseCard__info body-medium">
+                                {inventory.category}
+                              </p>
+                            </li>
+                          </ul>
+                          <ul className="warehouseCard__sub-list">
+                            <li className="warehouseCard__list-details">
+                              <h4 className="warehouseCard__list-title">
+                                STATUS
+                              </h4>
+                              <p className="warehouseCard__info body-medium">
+                                {this.stockCheck(inventory.quantity)}
+                              </p>
+                            </li>
+                            <li className="warehouseCard__list-details">
+                              <h4 className="warehouseCard__list-title">Qty</h4>
+                              <p className="warehouseCard__info body-medium">
+                                {inventory.quantity}
+                              </p>
+                            </li>
+                          </ul>
+                        </ul>
+                        <div className="warehouseCard__buttons">
+                          <button
+                            type="button"
+                            className="warehouseCard__button--delete"
+                          ></button>
+                          <div className="warehouseCard__button--edit"></div>
+                        </div>
+                      </div>
+                      <div className="warehouseCard--tablet">
+                        <Link to={`/inventory/${inventory.id}`}>
+                          <div className="warehouseCard__link--tablet body-medium">
+                            {inventory.itemName}
+                            <img src={chevron} alt="chevron" />
+                          </div>
+                        </Link>
+                        <p className="warehouseCard__address--tablet body-medium">
+                          {inventory.category}
+                        </p>
+
+                        <p className="warehouseCard__info--name body-medium">
+                          {this.stockCheck(inventory.quantity)}
+                        </p>
+                        <div>
+                          <p className="warehouseCard__info--contact body-medium">
+                            {inventory.quantity}
+                          </p>
+                        </div>
+                        <div className="warehouseCard__buttons warehouseCard__buttons--tablet">
+                          <button
+                            onClick={() => {
+                              this.openModal(inventory.id);
+                            }}
+                            type="button"
+                            className="warehouseCard__button--delete"
+                          ></button>
+                          <div className="warehouseCard__button--edit"></div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </>
         ) : (
           <div>Hello</div>
