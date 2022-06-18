@@ -24,12 +24,6 @@ class InventoryAdd extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(event.target.warehouse.value)
-    // console.log(event.target.itemName.value)
-    // console.log(event.target.description.value)
-    // console.log(event.target.category.value)
-    // console.log(event.target.status.value)
-    // console.log(event.target.quantity.value)
 
     axios
       .post("http://localhost:8080/inventory", {

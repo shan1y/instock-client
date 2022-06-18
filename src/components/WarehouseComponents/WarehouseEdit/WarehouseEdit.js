@@ -157,14 +157,24 @@ class WarehouseEdit extends Component {
         address: event.target.address.value,
         city: event.target.city.value,
         country: event.target.country.value,
-        contactName: event.target.contactName.value,
-        position: event.target.position.value,
-        phone: event.target.phone.value,
-        email: event.target.email.value,
-      })
-        .catch((error) => console.log(error));
-      this.props.history.push("/warehouse");
+        contact: {
+          contactName: event.target.contactName.value,
+          position: event.target.position.value,
+          phone: event.target.phone.value,
+          email: event.target.email.value,
+        },
+      });
+      //   .catch((error) => console.log(error));
+      // this.props.history.push("/warehouse");
     }
+    console.log(event.target.warehouseName.value);
+    console.log(event.target.address.value);
+    console.log(event.target.city.value);
+    console.log(event.target.country.value);
+    console.log(event.target.contactName.value);
+    console.log(event.target.position.value);
+    console.log(event.target.phone.value);
+    console.log(event.target.email.value);
   };
 
   render() {
