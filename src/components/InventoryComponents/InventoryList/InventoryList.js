@@ -2,12 +2,13 @@ import "./InventoryList.scss";
 import chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import SearchHeader from "../../SearchHeader/SearchHeader";
 import sortIcon from "../../../assets/Icons/sort-24px.svg";
+import { Link } from "react-router-dom";
 
 function InventoryList({ inventoryList, updateStatus }) {
   return (
     <>
       <div>
-        <SearchHeader title={"Inventory"} urlPath={"/inventory"}/>
+        <SearchHeader title={"Inventory"} urlPath={"/inventory"} />
         <div className="InventoryFilter">
           <div className="InventoryFilter__subsection InventoryFilter__subsection--width">
             <div className="InventoryFilter__tablet">
@@ -130,7 +131,9 @@ function InventoryList({ inventoryList, updateStatus }) {
                   type="button"
                   className="InventoryCard__button--delete"
                 ></button>
-                <div className="InventoryCard__button--edit"></div>
+                <Link to={`inventory/edit/${item.id}`}>
+                  <div className="InventoryCard__button--edit"></div>
+                </Link>
               </div>
             </div>
           );
