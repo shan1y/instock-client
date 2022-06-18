@@ -47,11 +47,11 @@ class WarehouseList extends React.Component {
       return activeWarehouseId === warehouse.id;
     });
 
-    // if (this.state.isOpen) {
-    //   document.body.style.overflow = "hidden";
-    // } else {
-    //   document.body.style.overflow = "unset";
-    // }
+    if (this.state.isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
 
     return (
       <>
