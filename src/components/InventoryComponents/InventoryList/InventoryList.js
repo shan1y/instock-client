@@ -2,12 +2,14 @@ import "./InventoryList.scss";
 import chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import SearchHeader from "../../SearchHeader/SearchHeader";
 import sortIcon from "../../../assets/Icons/sort-24px.svg";
-// import { Link, use } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 import DeleteModal from "../../DeleteModal/DeleteModal";
 
 function InventoryList({
   inventoryList,
   updateStatus,
+  statusStyle,
   openModal,
   closeModal,
   deleteItem,
@@ -17,11 +19,6 @@ function InventoryList({
   let modalData = inventoryList.find((inventory) => {
     return activeInventoryId === inventory.id;
   });
-
-  const handleCLick = (event) => {
-
-  }
-  // const params = useParams();
 
   return (
     <>
@@ -46,57 +43,32 @@ function InventoryList({
                   <div className="InventoryFilter__text">
                     Inventory Item
                   </div>
-                  <img
-                    src={sortIcon}
-                    className="InventoryFilter__icon"
-                    alt="inventory item filter label"
-                  ></img>
+                  <button className="InventoryFilter__button"></button>
                 </div>
               </li>
               <li className="InventoryFilter__list-details InventoryFilter__list-details--margin2">
                 <p className="InventoryFilter__text">Category</p>
-                <img
-                    src={sortIcon}
-                    className="InventoryFilter__icon InventoryFilter__icon--width1"
-                    alt="inventory item filter label"
-                  ></img>
+                <button className="InventoryFilter__button"></button>
               </li>
             </ul>
             <ul className="InventoryFilter__sub-list InventoryFilter__sub-list--margin2">
               <li className="InventoryFilter__list-details InventoryFilter__list-details--margin3">
-                <p className="InventoryFilter__text">Status</p>
-                <img
-                    src={sortIcon}
-                    className="InventoryFilter__icon"
-                    alt="inventory item filter label"
-                  ></img>
+                <p className="InventoryFilter__text InventoryFilter__text--margin">Status</p>
+                <button className="InventoryFilter__button"></button>
               </li>
               <li className="InventoryFilter__list-details InventoryCard__list-details--margin4">
                 <p className="InventoryFilter__text">Qty</p>
-                <img
-                    src={sortIcon}
-                    className="InventoryFilter__icon InventoryFilter__icon--width3"
-                    alt="inventory item filter label"
-                  ></img>
+                <button className="InventoryFilter__button"></button>
               </li>
               <li className="InventoryFilter__list-details InventoryFilter__list-details--margin4">
                 <p className="InventoryFilter__text">Warehouse</p>
-                <img
-                    src={sortIcon}
-                    className="InventoryFilter__icon InventoryFilter__icon--width2"
-                    alt="inventory item filter label"
-                  ></img>
+                <button className="InventoryFilter__button"></button>
               </li>
             </ul>
           </ul>
           <div className="InventoryCard__buttons">
           <p className="InventoryFilter__text">Actions</p>
-                <img
-                    src={sortIcon}
-                    className="InventoryFilter__icon InventoryFilter__icon--width2"
-                    alt="inventory item filter label"
-                  ></img>
-            
+          <button className="InventoryFilter__button"></button>    
           </div>
         </div>
         {inventoryList.map((item) => {
@@ -108,15 +80,17 @@ function InventoryList({
                     <h4 className="InventoryCard__list-title">
                       Inventory Item
                     </h4>
-                    <div className="InventoryCard__link-item InventoryCard__link-item--margin">
-                      <div className="InventoryCard__link body-medium">
-                        {item.itemName}
+                    <Link to={`/inventory/${item.id}`}>
+                      <div className="InventoryCard__link-item InventoryCard__link-item--margin">
+                        <div className="InventoryCard__link body-medium">
+                          {item.itemName}
+                        </div>
+                        <img
+                          src={chevron}
+                          alt="chevron linking to inventory item"
+                        />
                       </div>
-                      <img
-                        src={chevron}
-                        alt="chevron linking to inventory item"
-                      />
-                    </div>
+                    </Link>
                   </li>
                   <li className="InventoryCard__list-details InventoryCard__list-details--margin2">
                     <h4 className="InventoryCard__list-title">Category</h4>
@@ -128,7 +102,7 @@ function InventoryList({
                 <ul className="InventoryCard__sub-list InventoryCard__sub-list--margin2">
                   <li className="InventoryCard__list-details InventoryCard__list-details--margin3">
                     <h4 className="InventoryCard__list-title">Status</h4>
-                    <p className="InventoryCard__info body-medium">
+                    <p className={`InventoryCard__info body-medium ${statusStyle(item.quantity)}`}>
                       {updateStatus(item.quantity)}
                     </p>
                   </li>
@@ -154,7 +128,9 @@ function InventoryList({
                   type="button"
                   className="InventoryCard__button--delete"
                 ></button>
-                <button className="InventoryCard__button--edit"></button>
+                <Link to={`/inventory/edit/${item.id}`}>
+                  <div className="InventoryCard__button--edit"></div>
+                </Link>
               </div>
             </div>
           );

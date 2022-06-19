@@ -6,7 +6,7 @@ import "./WarehousePage.scss";
 class WareHousePage extends React.Component {
   render() {
     return (
-      <div>
+      <div className="WarehouseList__background">
         <div className="WarehouseList__body">
           <WarehouseList />
         </div>

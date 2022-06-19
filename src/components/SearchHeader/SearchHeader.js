@@ -13,7 +13,9 @@ function SearchHeader({ title, urlPath }) {
             placeholder="Search..."
             name="search"
           ></input>
-          <Link to={`${urlPath}`}className="form__button">+ Add New Item</Link>
+          <Link to={`${urlPath}`} className="form__button">
+            + Add New Item
+          </Link>
         </form>
       </div>
     </>

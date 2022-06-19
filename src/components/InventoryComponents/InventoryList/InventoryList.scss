@@ -194,6 +194,7 @@ li {
     &--margin3 {
       @include tablet {
         width: 60%;
+        margin-left: 0.5rem
       }
     }
     &--margin4 {
@@ -216,7 +217,7 @@ li {
     &--margin1 {
       width: 50%;
       @include tablet {
-        width: 40%;
+        width: 39.5%;
       }
     }
     &--margin2 {
@@ -231,11 +232,17 @@ li {
       // width: 100%;
     }
   }
-  
+
   &__text {
     font-size: 14px;
     font-weight: 700;
     margin-right: 0.25rem;
+    &--margin {
+      @include tablet {
+        margin-right: 0;
+        margin-left: 0.75rem;
+      }
+    }
   }
 
   &__text-item {
@@ -250,49 +257,60 @@ li {
       justify-content: flex-end;
     }
   }
+
+  &__button {
+    background-color: transparent;
+
+    border: none;
+    line-height: 100%;
+    cursor: pointer;
+    &::before {
+      content: url("../../../assets/Icons/sort-24px.svg");
+    }
+  }
 }
 
-// .InventoryFilter {
-//   display: none;
-//   @include tablet {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-between;
-//     padding: 1rem 2rem;
-//     background-color: $light-grey;
-//     color: $slate;
-//     text-transform: uppercase;
-//   }
-//   @include desktop {
-//     padding: 1rem 3rem;
-//   }
-//   &__tablet {
-//     @include tablet {
-//       display: flex;
-//       flex-direction: row;
-//     }
-//   }
-//   &__subsection {
-//     &--width {
-//       @include tablet {
-//         width: 85%;
-//       }
-//     }
-//     &--flex {
-//       display: flex;
-//       justify-content: flex-end;
-//     }
-//     @include tablet {
-//       display: flex;
-//       flex-direction: row;
-//       align-items: center;
-//     }
-//   }
-//   &__labels {
-//     @include tablet {
-//       display: flex;
-//       flex-direction: row;
-//       align-items: center;
-//     }
-//   }
-// }
+.in-stock {
+  color: $in-stock-colour;
+  background-color: rgba(21, 132, 99, 0.07);
+  border-radius: 20px;
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+  font-weight: 600;
+  @include tablet {
+    width: 65%;
+  }
+  @include desktop {
+    max-width: 41%;
+  }
+
+  &--big {
+    width: 50%;
+
+    @include tablet {
+      width: 60%;
+    }
+  }
+}
+
+.out-of-stock {
+  color: $error-outline-colour;
+  background-color: rgba(201, 69, 21, 0.07);
+  border-radius: 20px;
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+  font-weight: 600;
+  @include tablet {
+    width: 85%;
+  }
+  @include desktop {
+    max-width: 55%;
+  }
+  &--big {
+    width: 70%;
+
+    @include tablet {
+      width: 90%;
+    }
+  }
+}
