@@ -3,7 +3,7 @@ import "./WarehouseList.scss";
 import chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import DeleteModal from "../../DeleteModal/DeleteModal";
 import axios from "axios";
-import SearchHeaderWarehouse from "../../SearchHeaderWarehouse/SearchHeaderWarehouse";
+import SearchHeader from "../../SearchHeader/SearchHeader";
 import { Link } from "react-router-dom";
 
 class WarehouseList extends React.Component {
@@ -62,7 +62,7 @@ class WarehouseList extends React.Component {
             id={activeWarehouseId}
           />
         )}
-        <SearchHeaderWarehouse title={"Warehouse"} />
+        <SearchHeader title={"Warehouses"} urlPath={"/"} />
         <ul className="sorter">
           <li className="sorter__item">
             Warehouse <button className="sorter__button"></button>
