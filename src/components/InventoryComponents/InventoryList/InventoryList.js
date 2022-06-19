@@ -2,6 +2,7 @@ import "./InventoryList.scss";
 import chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import SearchHeader from "../../SearchHeader/SearchHeader";
 import sortIcon from "../../../assets/Icons/sort-24px.svg";
+import { Link } from "react-router-dom";
 
 import DeleteModal from "../../DeleteModal/DeleteModal";
 
@@ -113,15 +114,17 @@ function InventoryList({
                     <h4 className="InventoryCard__list-title">
                       Inventory Item
                     </h4>
-                    <div className="InventoryCard__link-item InventoryCard__link-item--margin">
-                      <div className="InventoryCard__link body-medium">
-                        {item.itemName}
+                    <Link to={`/inventory/${item.id}`}>
+                      <div className="InventoryCard__link-item InventoryCard__link-item--margin">
+                        <div className="InventoryCard__link body-medium">
+                          {item.itemName}
+                        </div>
+                        <img
+                          src={chevron}
+                          alt="chevron linking to inventory item"
+                        />
                       </div>
-                      <img
-                        src={chevron}
-                        alt="chevron linking to inventory item"
-                      />
-                    </div>
+                    </Link>
                   </li>
                   <li className="InventoryCard__list-details InventoryCard__list-details--margin2">
                     <h4 className="InventoryCard__list-title">Category</h4>
@@ -159,7 +162,9 @@ function InventoryList({
                   type="button"
                   className="InventoryCard__button--delete"
                 ></button>
-                <div className="InventoryCard__button--edit"></div>
+                <Link to={`/inventory/edit/${item.id}`}>
+                  <div className="InventoryCard__button--edit"></div>
+                </Link>
               </div>
             </div>
           );

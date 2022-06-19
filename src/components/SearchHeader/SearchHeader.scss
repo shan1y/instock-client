@@ -38,6 +38,11 @@
     border-radius: 1rem;
     border: 1px solid $cloud;
     padding: 0.25rem 1rem;
+    background-image: url("../../assets/Icons/search-24px.svg");
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 90%;
+
     // &::placeholder {
     //     padding: 1rem;
     // }
@@ -46,7 +51,8 @@
     margin-bottom: 1rem;
     border-radius: 1rem;
     border: none;
-    padding: 0.5rem 1rem;
+    cursor: pointer;
+
     background-color: $button-colour;
     color: $white;
     @include tablet {
