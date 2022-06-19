@@ -64,7 +64,7 @@ class WarehouseList extends React.Component {
         )}
         <SearchHeader title={"Warehouses"} urlPath={"/"} />
         <ul className="sorter">
-          <li className="sorter__item">
+          <li className="sorter__item sorter__item--warehouse">
             Warehouse <button className="sorter__button"></button>
           </li>
           <li className="sorter__item sorter__item--address">

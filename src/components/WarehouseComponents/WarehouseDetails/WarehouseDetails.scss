@@ -131,6 +131,8 @@
 
 .sorter {
   display: none;
+  color: $slate;
+  font-weight: 600;
   @include tablet {
     display: flex;
     justify-content: space-around;
@@ -143,22 +145,27 @@
     text-transform: uppercase;
     font-size: 0.75rem;
     line-height: 1.125rem;
-    width: 6rem;
+    min-width: 8rem;
     align-items: center;
     display: flex;
     &--address {
-      width: 7rem;
-    }
-
-    &--contact-name {
       width: 8rem;
-    }
+      @include desktop {
+        width: 13rem;
+      }
 
-    &--contact {
-      width: 10rem;
+      &--contact-name {
+        width: 8rem;
+      }
+
+      &--contact {
+        width: 8rem;
+      }
+      &--warehouse {
+        width: 8rem;
+      }
     }
   }
-
   &__button {
     background-color: transparent;
 
