@@ -9,13 +9,13 @@ import DeleteModal from "../../DeleteModal/DeleteModal";
 function InventoryList({
   inventoryList,
   updateStatus,
+  statusStyle,
   openModal,
   closeModal,
   deleteItem,
   activeInventoryId,
   isOpen,
 }) {
-  console.log(inventoryList);
   let modalData = inventoryList.find((inventory) => {
     return activeInventoryId === inventory.id;
   });
@@ -34,75 +34,41 @@ function InventoryList({
         />
       )}
       <div>
-        <SearchHeader title={"Inventory"} urlPath={"/inventory"} />
+        <SearchHeader title={"Inventory"} urlPath={"/inventory/add"} />
         <div className="InventoryFilter">
-          <div className="InventoryFilter__subsection InventoryFilter__subsection--width">
-            <div className="InventoryFilter__tablet">
-              <div className="InventoryFilter__tablet--width">
-                <div className="InventoryFilter__labels">
-                  <h4 className="InventoryFilter__labels-text">
-                    Inventory item
-                  </h4>
-                  <img
-                    src={sortIcon}
-                    className="InventoryFilter__labels-icon"
-                    alt="inventory item filter label"
-                  ></img>
+          <ul className="InventoryFilter__content-list">
+            <ul className="InventoryFilter__sub-list InventoryFilter__sub-list--margin1">
+              <li className="InventoryFilter__list-details InventoryFilter__list-details--margin1">
+                <div className="InventoryFilter__text-item InventoryFilter__text-item--margin">
+                  <div className="InventoryFilter__text">
+                    Inventory Item
+                  </div>
+                  <button className="InventoryFilter__button"></button>
                 </div>
-              </div>
-              <div className="InventoryFilter__tablet--width">
-                <div className="InventoryFilter__labels">
-                  <h4 className="InventoryFilter__labels-text">Category</h4>
-                  <img
-                    src={sortIcon}
-                    className="InventoryFilter__labels-icon"
-                    alt="category filter label"
-                  ></img>
-                </div>
-              </div>
-            </div>
-            <div className="InventoryFilter__tablet">
-              <div className="InventoryFilter__tablet--width">
-                <div className="InventoryFilter__labels">
-                  <h4 className="InventoryFilter__labels-text">Status</h4>
-                  <img
-                    src={sortIcon}
-                    className="InventoryFilter__labels-icon"
-                    alt="status filter label"
-                  ></img>
-                </div>
-              </div>
-              <div className="InventoryFilter__tablet--width">
-                <div className="InventoryFilter__labels">
-                  <h4 className="InventoryFilter__labels-text">Qty</h4>
-                  <img
-                    src={sortIcon}
-                    className="InventoryFilter__labels-icon"
-                    alt="quantity filter label"
-                  ></img>
-                </div>
-              </div>
-              <div className="InventoryFilter__tablet--width">
-                <div className="InventoryFilter__labels">
-                  <h4 className="InventoryFilter__labels-text">Warehouse</h4>
-                  <img
-                    src={sortIcon}
-                    className="InventoryFilter__labels-icon"
-                    alt="warehouse filter label"
-                  ></img>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="InventoryFilter__subsection InventoryFilter__subsection--flex">
-            <div className="InventoryFilter__labels">
-              <h4 className="InventoryFilter__labels-text">Actions</h4>
-              <img
-                src={sortIcon}
-                className="InventoryFilter__labels-icon"
-                alt="actions label"
-              ></img>
-            </div>
+              </li>
+              <li className="InventoryFilter__list-details InventoryFilter__list-details--margin2">
+                <p className="InventoryFilter__text">Category</p>
+                <button className="InventoryFilter__button"></button>
+              </li>
+            </ul>
+            <ul className="InventoryFilter__sub-list InventoryFilter__sub-list--margin2">
+              <li className="InventoryFilter__list-details InventoryFilter__list-details--margin3">
+                <p className="InventoryFilter__text InventoryFilter__text--margin">Status</p>
+                <button className="InventoryFilter__button"></button>
+              </li>
+              <li className="InventoryFilter__list-details InventoryCard__list-details--margin4">
+                <p className="InventoryFilter__text">Qty</p>
+                <button className="InventoryFilter__button"></button>
+              </li>
+              <li className="InventoryFilter__list-details InventoryFilter__list-details--margin4">
+                <p className="InventoryFilter__text">Warehouse</p>
+                <button className="InventoryFilter__button"></button>
+              </li>
+            </ul>
+          </ul>
+          <div className="InventoryCard__buttons">
+          <p className="InventoryFilter__text">Actions</p>
+          <button className="InventoryFilter__button"></button>    
           </div>
         </div>
         {inventoryList.map((item) => {
@@ -136,7 +102,7 @@ function InventoryList({
                 <ul className="InventoryCard__sub-list InventoryCard__sub-list--margin2">
                   <li className="InventoryCard__list-details InventoryCard__list-details--margin3">
                     <h4 className="InventoryCard__list-title">Status</h4>
-                    <p className="InventoryCard__info body-medium">
+                    <p className={`InventoryCard__info body-medium ${statusStyle(item.quantity)}`}>
                       {updateStatus(item.quantity)}
                     </p>
                   </li>
