@@ -10,18 +10,14 @@ li {
 .InventoryCard {
   border-bottom: 1px solid $cloud;
   padding: 1rem;
-  background-color: white;
-  &:hover {
-    background-color: $list-container;
-  }
   @include tablet {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 1rem 2rem;
+    justify-content: space-around;
+    padding: 1rem 1rem;
   }
   @include desktop {
-    padding: 1rem 3rem;
+    background-color: white;
   }
   &__content-list {
     display: flex;
@@ -105,16 +101,10 @@ li {
   }
 
   &__link-item {
-    cursor: pointer;
-    &:hover {
-      text-decoration: underline;
-      text-decoration-color: $button-colour;
-    }
     display: flex;
   }
 
   &__buttons {
-    cursor: pointer;
     display: flex;
     justify-content: space-between;
     @include tablet {
@@ -124,7 +114,6 @@ li {
   }
 
   &__button--delete {
-    cursor: pointer;
     background-color: transparent;
     border: none;
     &::before {
@@ -147,43 +136,181 @@ li {
   @include tablet {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 1rem 2rem;
+    justify-content: space-around;
+    padding: 0.25rem 1rem;
     background-color: $light-grey;
     color: $slate;
     text-transform: uppercase;
   }
-  @include desktop {
-    padding: 1rem 3rem;
-  }
-  &__tablet {
+  &__content-list {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 4rem;
+    margin-bottom: 1rem;
+    width: 100%;
     @include tablet {
-      display: flex;
-      flex-direction: row;
+      margin-bottom: 0;
+      align-items: center;
+      width: 85%;
+      justify-content: flex-start;
     }
   }
-  &__subsection {
-    &--width {
+  &__icon {
+    width: 15%;
+    &--width1 {
+      width: 26%;
+    }
+    &--width2 {
+      width: 18%;
+    }
+    &--width3 {
+      width: 18%;
+    }
+  }
+  &__list-title {
+    text-transform: uppercase;
+    color: $header-colour;
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__list-details {
+    padding: 0.5rem 0 0.5rem 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &--margin1 {
       @include tablet {
-        width: 85%;
+        width: 65%;
       }
     }
-    &--flex {
-      display: flex;
-      justify-content: flex-end;
+    &--margin2 {
+      @include tablet {
+        width: 25%;
+      }
+    }
+    &--margin3 {
+      @include tablet {
+        width: 60%;
+        margin-left: 0.5rem
+      }
+    }
+    &--margin4 {
+      @include tablet {
+        width: 38%;
+      }
+    }
+    &--margin4 {
+      @include tablet {
+        width: 50%;
+      }
     }
     @include tablet {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+      // width: 10rem;
     }
   }
-  &__labels {
+
+  &__sub-list {
+    // margin-right: 2rem;
+    &--margin1 {
+      width: 50%;
+      @include tablet {
+        width: 39.5%;
+      }
+    }
+    &--margin2 {
+      width: 60%;
+      @include tablet {
+        width: 50%;
+      }
+    }
     @include tablet {
-      cursor: pointer;
       display: flex;
       flex-direction: row;
+      // width: 100%;
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 0.25rem;
+    &--margin {
+      @include tablet {
+        margin-right: 0;
+        margin-left: 0.75rem;
+      }
+    }
+  }
+
+  &__text-item {
+    display: flex;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    @include tablet {
       align-items: center;
+      justify-content: flex-end;
+    }
+  }
+
+  &__button {
+    background-color: transparent;
+
+    border: none;
+    line-height: 100%;
+    cursor: pointer;
+    &::before {
+      content: url("../../../assets/Icons/sort-24px.svg");
+    }
+  }
+}
+
+.in-stock {
+  color: $in-stock-colour;
+  background-color: rgba(21, 132, 99, 0.07);
+  border-radius: 20px;
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+  font-weight: 600;
+  @include tablet {
+    width: 65%;
+  }
+  @include desktop {
+    max-width: 41%;
+  }
+
+  &--big {
+    width: 50%;
+
+    @include tablet {
+      width: 60%;
+    }
+  }
+}
+
+.out-of-stock {
+  color: $error-outline-colour;
+  background-color: rgba(201, 69, 21, 0.07);
+  border-radius: 20px;
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+  font-weight: 600;
+  @include tablet {
+    width: 85%;
+  }
+  @include desktop {
+    max-width: 55%;
+  }
+  &--big {
+    width: 70%;
+
+    @include tablet {
+      width: 90%;
     }
   }
 }
