@@ -61,22 +61,14 @@ class WarehouseDetails extends Component {
     axios.delete(`http://localhost:8080/inventory/${id}`);
 
     axios
-      .get(`http://localhost:8080/warehouse/${this.props.match.params.id}`)
-      .then((warehouseDetails) => {
-        return warehouseDetails.data;
-      })
-      .then((warehouseDetails) => {
-        return axios
-          .get(
-            `http://localhost:8080/warehouse/${this.props.match.params.id}/inventory`
-          )
-          .then((response) => {
-            this.setState({
-              warehouseDetails,
-              warehouseInventory: response.data,
-              isOpen: false,
-            });
-          });
+      .get(
+        `http://localhost:8080/warehouse/${this.props.match.params.id}/inventory`
+      )
+      .then((response) => {
+        this.setState({
+          warehouseInventory: response.data,
+          isOpen: false,
+        });
       });
   };
 
@@ -259,8 +251,8 @@ class WarehouseDetails extends Component {
                           <p
                             className={
                               inventory.quantity === 0
-                                ? "out-of-stock  body-small"
-                                : "in-stock  body-small"
+                                ? "out-of-stock out-of-stock--warehouse body-small"
+                                : "in-stock out-of-stock--warehouse body-small"
                             }
                           >
                             {this.stockCheck(inventory.quantity)}
