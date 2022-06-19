@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import backArrow from "../../../assets/Icons/arrow_back-24px.svg";
+import editHead from "../../../assets/Icons/edit_second-24px.svg";
 import edit from "../../../assets/Icons/edit-24px.svg";
 import DeleteModal from "../../DeleteModal/DeleteModal";
 
@@ -92,7 +93,6 @@ class WarehouseDetails extends Component {
     } else {
       document.body.style.overflow = "unset";
     }
-    console.log(this.state.warehouseInventory);
 
     return (
       <>
@@ -124,10 +124,10 @@ class WarehouseDetails extends Component {
 
                   <Link
                     className="warehouse-details__edit-link"
-                    to={`warehouse/edit/${id}`}
+                    to={`/warehouse/${id}/edit`}
                   >
                     <img
-                      src={edit}
+                      src={editHead}
                       alt="Edit Warehouse Details"
                       className="warehouse-details__edit"
                     />
@@ -174,7 +174,7 @@ class WarehouseDetails extends Component {
                     Actions<button className="sorter__button"></button>
                   </li>
                 </ul>
-                {this.state.warehouseInventory.map((inventory, index) => {
+                {this.state.warehouseInventory.map((inventory) => {
                   return (
                     <div className="/" key={inventory.id}>
                       <div className="inventory-card">
@@ -291,7 +291,7 @@ class WarehouseDetails extends Component {
             </div>
           </>
         ) : (
-          <div>Hello</div>
+          <div>Loading..</div>
         )}
       </>
     );
