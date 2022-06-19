@@ -13,7 +13,7 @@ li {
     justify-content: space-around;
     width: 100%;
     background-color: $light-grey;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
   }
 
   &__item {
@@ -38,8 +38,10 @@ li {
 
   &__button {
     background-color: transparent;
+
     border: none;
     line-height: 100%;
+    cursor: pointer;
     &::before {
       content: url("../../../assets/Icons/sort-24px.svg");
     }
@@ -47,20 +49,22 @@ li {
 }
 
 .warehouseCard {
-  border-top: 1px solid $cloud;
   border-bottom: 1px solid $cloud;
   padding: 1rem;
+  &:hover {
+    background-color: $list-container;
+  }
 
   @include tablet {
     display: none;
   }
   &--tablet {
     display: none;
+    @extend .warehouseCard;
     @include tablet {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      padding: 1rem;
     }
   }
 
@@ -86,11 +90,17 @@ li {
   &__link {
     color: $button-colour;
     font-weight: 600;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+      text-decoration-color: $button-colour;
+    }
 
     &--tablet {
+      @extend .warehouseCard__link;
+
       @include tablet {
         width: 6rem;
-        color: $button-colour;
         display: flex;
         align-items: center;
       }
@@ -115,6 +125,7 @@ li {
   }
 
   &__buttons {
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
 
@@ -128,6 +139,7 @@ li {
   &__button--delete {
     background-color: transparent;
     border: none;
+    cursor: pointer;
     &::before {
       content: url("../../../assets/Icons/delete_outline-24px.svg");
     }

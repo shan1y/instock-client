@@ -10,6 +10,10 @@ li {
 .InventoryCard {
   border-bottom: 1px solid $cloud;
   padding: 1rem;
+  background-color: white;
+  &:hover {
+    background-color: $list-container;
+  }
   @include tablet {
     display: flex;
     flex-direction: row;
@@ -18,7 +22,6 @@ li {
   }
   @include desktop {
     padding: 1rem 3rem;
-    background-color: white;
   }
   &__content-list {
     display: flex;
@@ -102,10 +105,16 @@ li {
   }
 
   &__link-item {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+      text-decoration-color: $button-colour;
+    }
     display: flex;
   }
 
   &__buttons {
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
     @include tablet {
@@ -115,6 +124,7 @@ li {
   }
 
   &__button--delete {
+    cursor: pointer;
     background-color: transparent;
     border: none;
     &::before {
@@ -170,6 +180,7 @@ li {
   }
   &__labels {
     @include tablet {
+      cursor: pointer;
       display: flex;
       flex-direction: row;
       align-items: center;

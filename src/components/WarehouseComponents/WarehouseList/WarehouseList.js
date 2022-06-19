@@ -4,6 +4,7 @@ import chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import DeleteModal from "../../DeleteModal/DeleteModal";
 import axios from "axios";
 import SearchHeaderWarehouse from "../../SearchHeaderWarehouse/SearchHeaderWarehouse";
+import { Link } from "react-router-dom";
 
 class WarehouseList extends React.Component {
   state = {
@@ -87,12 +88,15 @@ class WarehouseList extends React.Component {
                   <ul className="warehouseCard__sub-list">
                     <li className="warehouseCard__list-details">
                       <h4 className="warehouseCard__list-title">Warehouse</h4>
-                      <div className="warehouseCard__link-item">
-                        <div className="warehouseCard__link body-medium">
-                          {warehouse.name}
+
+                      <Link to={`/warehouse/${warehouse.id}/inventory`}>
+                        <div className="warehouseCard__link-item">
+                          <div className="warehouseCard__link body-medium">
+                            {warehouse.name}
+                          </div>
+                          <img src={chevron} />
                         </div>
-                        <img src={chevron} />
-                      </div>
+                      </Link>
                     </li>
                     <li className="warehouseCard__list-details">
                       <h4 className="warehouseCard__list-title">Address</h4>
@@ -138,10 +142,12 @@ class WarehouseList extends React.Component {
                 </div>
               </div>
               <div className="warehouseCard--tablet">
-                <div className="warehouseCard__link--tablet body-medium">
-                  {warehouse.name}
-                  <img src={chevron} alt="chevron" />
-                </div>
+                <Link to={`/warehouse/${warehouse.id}/inventory`}>
+                  <div className="warehouseCard__link--tablet body-medium">
+                    {warehouse.name}
+                    <img src={chevron} alt="chevron" />
+                  </div>
+                </Link>
                 <p className="warehouseCard__address--tablet body-medium">
                   {warehouse.address}, {warehouse.city}, {warehouse.country}
                 </p>
