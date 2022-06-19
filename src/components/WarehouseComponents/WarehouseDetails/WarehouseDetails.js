@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import backArrow from "../../../assets/Icons/arrow_back-24px.svg";
+import editHead from "../../../assets/Icons/edit_second-24px.svg";
 import edit from "../../../assets/Icons/edit-24px.svg";
 import DeleteModal from "../../DeleteModal/DeleteModal";
 
@@ -92,7 +93,6 @@ class WarehouseDetails extends Component {
     } else {
       document.body.style.overflow = "unset";
     }
-    console.log(this.state.warehouseInventory);
 
     return (
       <>
@@ -124,13 +124,14 @@ class WarehouseDetails extends Component {
 
                   <Link
                     className="warehouse-details__edit-link"
-                    to={`warehouse/edit/${id}`}
+                    to={`/warehouse/${id}/edit`}
                   >
                     <img
-                      src={edit}
+                      src={editHead}
                       alt="Edit Warehouse Details"
                       className="warehouse-details__edit"
                     />
+                    <p className="warehouse-details__text">Edit</p>
                   </Link>
                 </div>
 
@@ -174,95 +175,113 @@ class WarehouseDetails extends Component {
                     Actions<button className="sorter__button"></button>
                   </li>
                 </ul>
-                {this.state.warehouseInventory.map((inventory, index) => {
+                {this.state.warehouseInventory.map((inventory) => {
                   return (
                     <div className="/" key={inventory.id}>
-                      <div className="warehouseCard">
-                        <ul className="warehouseCard__content-list">
-                          <ul className="warehouseCard__sub-list">
-                            <li className="warehouseCard__list-details">
-                              <h4 className="warehouseCard__list-title">
+                      <div className="inventory-card">
+                        <ul className="inventory-card__content-list">
+                          <ul className="inventory-card__sub-list">
+                            <li className="inventory-card__list-details">
+                              <h4 className="inventory-card__list-title">
                                 INVENTORY ITEM
                               </h4>
                               <Link
                                 to={`/inventory/${inventory.id}`}
-                                className="warehouseCard__link"
+                                className="inventory-card__link"
                               >
-                                <div className="warehouseCard__link-item">
-                                  <div className="warehouseCard__link body-medium">
+                                <div className="inventory-card__link-item">
+                                  <div className="inventory-card__link body-medium">
                                     {inventory.itemName}
                                   </div>
                                   <img src={chevron} />
                                 </div>
                               </Link>
                             </li>
-                            <li className="warehouseCard__list-details">
-                              <h4 className="warehouseCard__list-title">
+                            <li className="inventory-card__list-details">
+                              <h4 className="inventory-card__list-title">
                                 CATEGORY
                               </h4>
-                              <p className="warehouseCard__info body-medium">
+                              <p className="inventory-card__info body-medium">
                                 {inventory.category}
                               </p>
                             </li>
                           </ul>
-                          <ul className="warehouseCard__sub-list">
-                            <li className="warehouseCard__list-details">
-                              <h4 className="warehouseCard__list-title">
+                          <ul className="inventory-card__sub-list">
+                            <li className="inventory-card__list-details">
+                              <h4 className="inventory-card__list-title">
                                 STATUS
                               </h4>
-                              <p className="warehouseCard__info body-medium">
+
+                              <p
+                                className={
+                                  inventory.quantity === 0
+                                    ? "out-of-stock inventory-card__info body-small "
+                                    : "in-stock inventory-card__info body-small"
+                                }
+                              >
                                 {this.stockCheck(inventory.quantity)}
                               </p>
                             </li>
-                            <li className="warehouseCard__list-details">
-                              <h4 className="warehouseCard__list-title">Qty</h4>
-                              <p className="warehouseCard__info body-medium">
+                            <li className="inventory-card__list-details">
+                              <h4 className="inventory-card__list-title">
+                                Qty
+                              </h4>
+                              <p className="inventory-card__info body-medium">
                                 {inventory.quantity}
                               </p>
                             </li>
                           </ul>
                         </ul>
-                        <div className="warehouseCard__buttons">
+                        <div className="inventory-card__buttons">
                           <button
                             type="button"
-                            className="warehouseCard__button--delete"
+                            className="inventory-card__button--delete"
                           ></button>
 
                           <Link to={`/inventory/edit/${inventory.id}`}>
-                            <div className="warehouseCard__button--edit"></div>
+                            <div className="inventory-card__button--edit"></div>
                           </Link>
                         </div>
                       </div>
 
-                      <div className="warehouseCard--tablet">
+                      <div className="inventory-card--tablet">
                         <Link to={`/inventory/${inventory.id}`}>
-                          <div className="warehouseCard__link--tablet body-medium">
+                          <div className="inventory-card__link--tablet body-medium">
                             {inventory.itemName}
                             <img src={chevron} alt="chevron" />
                           </div>
                         </Link>
-                        <p className="warehouseCard__address--tablet body-medium">
+                        <p className="inventory-card__address--tablet body-medium">
                           {inventory.category}
                         </p>
 
-                        <p className="warehouseCard__info--name body-medium">
-                          {this.stockCheck(inventory.quantity)}
-                        </p>
+                        <div className="inventory-card__info--name">
+                          <p
+                            className={
+                              inventory.quantity === 0
+                                ? "out-of-stock  body-small"
+                                : "in-stock  body-small"
+                            }
+                          >
+                            {this.stockCheck(inventory.quantity)}
+                          </p>
+                        </div>
+
                         <div>
-                          <p className="warehouseCard__info--contact body-medium">
+                          <p className="inventory-card__info--contact body-medium">
                             {inventory.quantity}
                           </p>
                         </div>
-                        <div className="warehouseCard__buttons warehouseCard__buttons--tablet">
+                        <div className="inventory-card__buttons inventory-card__buttons--tablet">
                           <button
                             onClick={() => {
                               this.openModal(inventory.id);
                             }}
                             type="button"
-                            className="warehouseCard__button--delete"
+                            className="inventory-card__button--delete"
                           ></button>
                           <Link to={`/inventory/edit/${inventory.id}`}>
-                            <div className="warehouseCard__button--edit"></div>
+                            <div className="inventory-card__button--edit"></div>
                           </Link>
                         </div>
                       </div>
@@ -273,7 +292,7 @@ class WarehouseDetails extends Component {
             </div>
           </>
         ) : (
-          <div>Hello</div>
+          <div>Loading..</div>
         )}
       </>
     );

@@ -18,6 +18,10 @@ class WarehouseAdd extends Component {
     emailCheck: false,
   };
 
+  redirectHome = () => {
+    this.props.history.push("/");
+  };
+
   handleWarehouseName = (event) => {
     const inputValue = event.target.value;
 
@@ -369,7 +373,9 @@ class WarehouseAdd extends Component {
 
             <div className="buttons">
               <div className="buttons__container">
-                <button className="button">Cancel</button>
+                <button onClick={this.redirectHome} className="button">
+                  Cancel
+                </button>
 
                 <button className="button button--special" type="submit">
                   + Add Warehouse

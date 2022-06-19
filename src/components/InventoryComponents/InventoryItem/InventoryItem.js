@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 import backArrow from "../../../assets/Icons/arrow_back-24px.svg";
-import edit from "../../../assets/Icons/edit-24px.svg";
+import editHead from "../../../assets/Icons/edit_second-24px.svg";
 
 class InventoryItem extends Component {
   state = {
@@ -29,7 +29,7 @@ class InventoryItem extends Component {
   stockCheck = (stock) => (stock === 0 ? "OUT OF STOCK" : "IN STOCK");
 
   render() {
-    const { warehouseName, itemName, description, category, quantity } =
+    const { warehouseName, itemName, description, category, quantity, id } =
       this.state.inventoryItem;
 
     return (
@@ -37,22 +37,26 @@ class InventoryItem extends Component {
         <div className="inventory-item__container">
           <div className="inventory-item__header">
             <div className="inventory-item__wrapper">
-              <Link className="inventory-item__link" to="/inventory">
+              <Link className="inventory-item__link" to="/warehouse">
                 <img
                   src={backArrow}
-                  alt="Back Arrow to return to inventory page"
+                  alt="Back Arrow to return to warehouse page"
                   className="inventory-item__back-icon"
                 />
               </Link>
               <h2 className="inventory-item__title">{itemName}</h2>
             </div>
 
-            <Link className="inventory-item__edit-link" to="/">
+            <Link
+              className="inventory-item__edit-link"
+              to={`/inventory/edit/${id}`}
+            >
               <img
-                src={edit}
-                alt="Edit inventory item"
+                src={editHead}
+                alt="Edit Warehouse Details"
                 className="inventory-item__edit"
               />
+              <p className="inventory-item__text">Edit</p>
             </Link>
           </div>
 
@@ -77,9 +81,18 @@ class InventoryItem extends Component {
               <div className="item-detail__wrapper">
                 <div className="item-detail__container item-detail__description--center ">
                   <h4 className="item-detail__title">STATUS:</h4>
-                  <p className="item-detail__description body-small">
-                    {this.stockCheck(quantity)}
-                  </p>
+
+                  <div className="item-detail__description">
+                    <p
+                      className={
+                        quantity === 0
+                          ? "out-of-stock out-of-stock--big body-small"
+                          : "in-stock in-stock--big body-small"
+                      }
+                    >
+                      {this.stockCheck(quantity)}
+                    </p>
+                  </div>
                 </div>
 
                 <div className="item-detail__container item-detail__description--center">
