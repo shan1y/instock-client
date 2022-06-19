@@ -13,11 +13,10 @@ li {
   @include tablet {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 1rem 2rem;
+    justify-content: space-around;
+    padding: 1rem 1rem;
   }
   @include desktop {
-    padding: 1rem 3rem;
     background-color: white;
   }
   &__content-list {
@@ -137,42 +136,163 @@ li {
   @include tablet {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 1rem 2rem;
+    justify-content: space-around;
+    padding: 0.25rem 1rem;
     background-color: $light-grey;
     color: $slate;
     text-transform: uppercase;
   }
-  @include desktop {
-    padding: 1rem 3rem;
-  }
-  &__tablet {
+  &__content-list {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 4rem;
+    margin-bottom: 1rem;
+    width: 100%;
     @include tablet {
-      display: flex;
-      flex-direction: row;
+      margin-bottom: 0;
+      align-items: center;
+      width: 85%;
+      justify-content: flex-start;
     }
   }
-  &__subsection {
-    &--width {
+  &__icon {
+    width: 15%;
+    &--width1 {
+      width: 26%;
+    }
+    &--width2 {
+      width: 18%;
+    }
+    &--width3 {
+      width: 18%;
+    }
+  }
+  &__list-title {
+    text-transform: uppercase;
+    color: $header-colour;
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__list-details {
+    padding: 0.5rem 0 0.5rem 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &--margin1 {
       @include tablet {
-        width: 85%;
+        width: 65%;
       }
     }
-    &--flex {
-      display: flex;
-      justify-content: flex-end;
+    &--margin2 {
+      @include tablet {
+        width: 25%;
+      }
+    }
+    &--margin3 {
+      @include tablet {
+        width: 60%;
+      }
+    }
+    &--margin4 {
+      @include tablet {
+        width: 38%;
+      }
+    }
+    &--margin4 {
+      @include tablet {
+        width: 50%;
+      }
     }
     @include tablet {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+      // width: 10rem;
     }
   }
-  &__labels {
+
+  &__sub-list {
+    // margin-right: 2rem;
+    &--margin1 {
+      width: 50%;
+      @include tablet {
+        width: 40%;
+      }
+    }
+    &--margin2 {
+      width: 60%;
+      @include tablet {
+        width: 50%;
+      }
+    }
     @include tablet {
       display: flex;
       flex-direction: row;
+      // width: 100%;
+    }
+  }
+  
+  &__text {
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 0.25rem;
+  }
+
+  &__text-item {
+    display: flex;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    @include tablet {
       align-items: center;
+      justify-content: flex-end;
     }
   }
 }
+
+// .InventoryFilter {
+//   display: none;
+//   @include tablet {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     padding: 1rem 2rem;
+//     background-color: $light-grey;
+//     color: $slate;
+//     text-transform: uppercase;
+//   }
+//   @include desktop {
+//     padding: 1rem 3rem;
+//   }
+//   &__tablet {
+//     @include tablet {
+//       display: flex;
+//       flex-direction: row;
+//     }
+//   }
+//   &__subsection {
+//     &--width {
+//       @include tablet {
+//         width: 85%;
+//       }
+//     }
+//     &--flex {
+//       display: flex;
+//       justify-content: flex-end;
+//     }
+//     @include tablet {
+//       display: flex;
+//       flex-direction: row;
+//       align-items: center;
+//     }
+//   }
+//   &__labels {
+//     @include tablet {
+//       display: flex;
+//       flex-direction: row;
+//       align-items: center;
+//     }
+//   }
+// }

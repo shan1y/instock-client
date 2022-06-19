@@ -2,7 +2,7 @@ import "./InventoryList.scss";
 import chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import SearchHeader from "../../SearchHeader/SearchHeader";
 import sortIcon from "../../../assets/Icons/sort-24px.svg";
-
+// import { Link, use } from "react-router-dom";
 import DeleteModal from "../../DeleteModal/DeleteModal";
 
 function InventoryList({
@@ -18,6 +18,11 @@ function InventoryList({
     return activeInventoryId === inventory.id;
   });
 
+  const handleCLick = (event) => {
+
+  }
+  // const params = useParams();
+
   return (
     <>
       {isOpen && (
@@ -32,75 +37,66 @@ function InventoryList({
         />
       )}
       <div>
-        <SearchHeader title={"Inventory"} urlPath={"/inventory"} />
+        <SearchHeader title={"Inventory"} urlPath={"/inventory/add"} />
         <div className="InventoryFilter">
-          <div className="InventoryFilter__subsection InventoryFilter__subsection--width">
-            <div className="InventoryFilter__tablet">
-              <div className="InventoryFilter__tablet--width">
-                <div className="InventoryFilter__labels">
-                  <h4 className="InventoryFilter__labels-text">
-                    Inventory item
-                  </h4>
+          <ul className="InventoryFilter__content-list">
+            <ul className="InventoryFilter__sub-list InventoryFilter__sub-list--margin1">
+              <li className="InventoryFilter__list-details InventoryFilter__list-details--margin1">
+                <div className="InventoryFilter__text-item InventoryFilter__text-item--margin">
+                  <div className="InventoryFilter__text">
+                    Inventory Item
+                  </div>
                   <img
                     src={sortIcon}
-                    className="InventoryFilter__labels-icon"
+                    className="InventoryFilter__icon"
                     alt="inventory item filter label"
                   ></img>
                 </div>
-              </div>
-              <div className="InventoryFilter__tablet--width">
-                <div className="InventoryFilter__labels">
-                  <h4 className="InventoryFilter__labels-text">Category</h4>
-                  <img
+              </li>
+              <li className="InventoryFilter__list-details InventoryFilter__list-details--margin2">
+                <p className="InventoryFilter__text">Category</p>
+                <img
                     src={sortIcon}
-                    className="InventoryFilter__labels-icon"
-                    alt="category filter label"
+                    className="InventoryFilter__icon InventoryFilter__icon--width1"
+                    alt="inventory item filter label"
                   ></img>
-                </div>
-              </div>
-            </div>
-            <div className="InventoryFilter__tablet">
-              <div className="InventoryFilter__tablet--width">
-                <div className="InventoryFilter__labels">
-                  <h4 className="InventoryFilter__labels-text">Status</h4>
-                  <img
+              </li>
+            </ul>
+            <ul className="InventoryFilter__sub-list InventoryFilter__sub-list--margin2">
+              <li className="InventoryFilter__list-details InventoryFilter__list-details--margin3">
+                <p className="InventoryFilter__text">Status</p>
+                <img
                     src={sortIcon}
-                    className="InventoryFilter__labels-icon"
-                    alt="status filter label"
+                    className="InventoryFilter__icon"
+                    alt="inventory item filter label"
                   ></img>
-                </div>
-              </div>
-              <div className="InventoryFilter__tablet--width">
-                <div className="InventoryFilter__labels">
-                  <h4 className="InventoryFilter__labels-text">Qty</h4>
-                  <img
+              </li>
+              <li className="InventoryFilter__list-details InventoryCard__list-details--margin4">
+                <p className="InventoryFilter__text">Qty</p>
+                <img
                     src={sortIcon}
-                    className="InventoryFilter__labels-icon"
-                    alt="quantity filter label"
+                    className="InventoryFilter__icon InventoryFilter__icon--width3"
+                    alt="inventory item filter label"
                   ></img>
-                </div>
-              </div>
-              <div className="InventoryFilter__tablet--width">
-                <div className="InventoryFilter__labels">
-                  <h4 className="InventoryFilter__labels-text">Warehouse</h4>
-                  <img
+              </li>
+              <li className="InventoryFilter__list-details InventoryFilter__list-details--margin4">
+                <p className="InventoryFilter__text">Warehouse</p>
+                <img
                     src={sortIcon}
-                    className="InventoryFilter__labels-icon"
-                    alt="warehouse filter label"
+                    className="InventoryFilter__icon InventoryFilter__icon--width2"
+                    alt="inventory item filter label"
                   ></img>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="InventoryFilter__subsection InventoryFilter__subsection--flex">
-            <div className="InventoryFilter__labels">
-              <h4 className="InventoryFilter__labels-text">Actions</h4>
-              <img
-                src={sortIcon}
-                className="InventoryFilter__labels-icon"
-                alt="actions label"
-              ></img>
-            </div>
+              </li>
+            </ul>
+          </ul>
+          <div className="InventoryCard__buttons">
+          <p className="InventoryFilter__text">Actions</p>
+                <img
+                    src={sortIcon}
+                    className="InventoryFilter__icon InventoryFilter__icon--width2"
+                    alt="inventory item filter label"
+                  ></img>
+            
           </div>
         </div>
         {inventoryList.map((item) => {
@@ -158,7 +154,7 @@ function InventoryList({
                   type="button"
                   className="InventoryCard__button--delete"
                 ></button>
-                <div className="InventoryCard__button--edit"></div>
+                <button className="InventoryCard__button--edit"></button>
               </div>
             </div>
           );
