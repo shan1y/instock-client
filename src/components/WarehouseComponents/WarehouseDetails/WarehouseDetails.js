@@ -61,7 +61,9 @@ class WarehouseDetails extends Component {
     axios.delete(`http://localhost:8080/inventory/${id}`);
 
     axios
-      .get(`http://localhost:8080/warehouse/${this.props.match.params.id}`)
+      .get(
+        `http://localhost:8080/warehouse/${this.props.match.params.id}/inventory`
+      )
       .then((response) => {
         this.setState({
           warehouseInventory: response.data,
