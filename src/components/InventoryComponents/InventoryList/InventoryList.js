@@ -14,7 +14,6 @@ function InventoryList({
   activeInventoryId,
   isOpen,
 }) {
-  console.log(inventoryList);
   let modalData = inventoryList.find((inventory) => {
     return activeInventoryId === inventory.id;
   });
