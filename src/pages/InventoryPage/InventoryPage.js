@@ -35,9 +35,9 @@ class InventoryPage extends React.Component {
 
   statusStyleToggle = (qty) => {
     if (qty === 0) {
-      return "out-of-stock";
+      return "outOfStock";
     } else {
-      return "in-stock";
+      return "inStock";
     }
   };
 
