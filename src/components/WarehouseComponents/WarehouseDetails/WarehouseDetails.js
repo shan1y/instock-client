@@ -215,8 +215,8 @@ class WarehouseDetails extends Component {
                               <p
                                 className={
                                   inventory.quantity === 0
-                                    ? "out-of-stock inventory-card__info body-medium "
-                                    : "in-stock inventory-card__info body-medium"
+                                    ? "out-of-stock inventory-card__info body-small "
+                                    : "in-stock inventory-card__info body-small"
                                 }
                               >
                                 {this.stockCheck(inventory.quantity)}

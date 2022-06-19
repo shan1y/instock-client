@@ -286,10 +286,18 @@
   background-color: rgba(21, 132, 99, 0.07);
   border-radius: 20px;
   padding: 0.25rem 0.5rem;
-  width: 70%;
+  width: 60%;
 
   @include tablet {
     width: 50%;
+  }
+
+  &--big {
+    width: 50%;
+
+    @include tablet {
+      width: 60%;
+    }
   }
 }
 
@@ -298,8 +306,17 @@
   background-color: rgba(201, 69, 21, 0.07);
   border-radius: 20px;
   padding: 0.25rem 0.5rem;
+  width: 85%;
 
   @include tablet {
     width: 75%;
+  }
+
+  &--big {
+    width: 70%;
+
+    @include tablet {
+      width: 90%;
+    }
   }
 }
