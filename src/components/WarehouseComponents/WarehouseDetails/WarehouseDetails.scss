@@ -55,12 +55,32 @@
   &__edit-link {
     background-color: $instock-indigo;
     border-radius: 20px;
+
+    @include tablet {
+      display: flex;
+      width: 5.2rem;
+    }
   }
 
   &__edit {
     padding-top: 0.35rem;
     height: 1.7rem;
     width: 2rem;
+
+    @include tablet {
+      height: 1.5rem;
+      padding: 0.3rem 0 0 0.3rem;
+    }
+  }
+
+  &__text {
+    display: none;
+    color: $white;
+
+    @include tablet {
+      display: inline;
+      padding: 0.3rem 0 0 0.3rem;
+    }
   }
 }
 

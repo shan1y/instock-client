@@ -131,6 +131,7 @@ class WarehouseDetails extends Component {
                       alt="Edit Warehouse Details"
                       className="warehouse-details__edit"
                     />
+                    <p className="warehouse-details__text">Edit</p>
                   </Link>
                 </div>
 
