@@ -13,6 +13,11 @@ class InventoryAdd extends React.Component {
     invalidQuantity: false,
     inventoryStatus: null,
   };
+
+  redirectHome = () => {
+    this.props.history.push("/inventory");
+  };
+
   componentDidMount() {
     axios
       .get("http://localhost:8080/warehouse")
@@ -232,9 +237,13 @@ class InventoryAdd extends React.Component {
 
                 <div className="buttons">
                   <div className="buttons__container">
-                    <Link to="/inventory" className="button button--cancel">
+                    <button
+                      to="/inventory"
+                      onClick={this.redirectHome}
+                      className="button button--cancel"
+                    >
                       Cancel
-                    </Link>
+                    </button>
                     <button className="button button--special" type="submit">
                       + Add Item
                     </button>
