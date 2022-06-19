@@ -49,7 +49,8 @@ label {
   }
 }
 
-.body-medium {
+.body-medium,
+p {
   font-size: 13px;
   line-height: 20px;
   @include tablet {
