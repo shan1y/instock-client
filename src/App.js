@@ -22,13 +22,14 @@ class App extends React.Component {
           <Route path="/" exact component={WareHousePage} />
           <Route path="/warehouse" exact component={WareHousePage} />
           <Route path="/warehouse/add" component={WarehouseAdd} />
-          <Route path="/warehouse/edit/:id" component={WarehouseEdit} />
+          <Route path="/warehouse/edit" component={WarehouseEdit} />
+          <Route path="/warehouse/:id/edit" component={WarehouseEdit} />
           <Route path="/warehouse/:id/inventory" component={WarehouseDetails} />
 
           <Route path="/inventory" exact component={InventoryPage} />
           <Route path="/inventory/add" exact component={InventoryAdd} />
           <Route path="/inventory/:id" exact component={InventoryItem} />
-          <Route path="/inventory/edit/:id" exact component={InventoryEdit} />
+          <Route path="/inventory/:id/edit" exact component={InventoryEdit} />
         </Switch>
         <FooterSection />
       </BrowserRouter>
