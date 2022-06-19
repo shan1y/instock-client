@@ -171,8 +171,10 @@ class WarehouseList extends React.Component {
                     type="button"
                     className="warehouseCard__button--delete"
                   ></button>
-                  <div className="warehouseCard__button--edit"></div>
-                  {/* <Link to={`/${this.props.match.params.id}/edit`} className="warehouseCard__button--edit"></Link> */}
+                  <Link
+                    to={`/warehouse/${warehouse.id}/edit`}
+                    className="warehouseCard__button--edit"
+                  ></Link>
                 </div>
               </div>
             </>
