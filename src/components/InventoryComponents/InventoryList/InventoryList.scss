@@ -15,6 +15,7 @@ li {
     flex-direction: row;
     justify-content: space-around;
     padding: 1rem 1rem;
+    background-color: $white;
   }
   @include desktop {
     background-color: white;
@@ -137,7 +138,7 @@ li {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding: 0.25rem 1rem;
+    padding: 0.5rem 1rem;
     background-color: $light-grey;
     color: $slate;
     text-transform: uppercase;
@@ -155,6 +156,11 @@ li {
       width: 85%;
       justify-content: flex-start;
     }
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
   }
   &__icon {
     width: 15%;
@@ -177,7 +183,6 @@ li {
   }
 
   &__list-details {
-    padding: 0.5rem 0 0.5rem 0;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -194,7 +199,7 @@ li {
     &--margin3 {
       @include tablet {
         width: 60%;
-        margin-left: 0.5rem
+        margin-left: 0.5rem;
       }
     }
     &--margin4 {
@@ -234,8 +239,8 @@ li {
   }
 
   &__text {
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 600;
     margin-right: 0.25rem;
     &--margin {
       @include tablet {
