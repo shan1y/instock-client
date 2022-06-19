@@ -86,8 +86,8 @@ class InventoryItem extends Component {
                     <p
                       className={
                         quantity === 0
-                          ? "out-of-stock out-of-stock--big body-small"
-                          : "in-stock in-stock--big body-small"
+                          ? "out-of-stock-inv  body-small"
+                          : "in-stock-inv  body-small"
                       }
                     >
                       {this.stockCheck(quantity)}
