@@ -57,6 +57,7 @@
     cursor: pointer;
     &:hover {
       background-color: $instock-black;
+      color: white;
     }
     @include tablet {
       min-width: 8rem;
