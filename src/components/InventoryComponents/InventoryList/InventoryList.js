@@ -1,6 +1,5 @@
 import "./InventoryList.scss";
 import chevron from "../../../assets/Icons/chevron_right-24px.svg";
-import SearchHeader from "../../SearchHeader/SearchHeader";
 import sortIcon from "../../../assets/Icons/sort-24px.svg";
 import { Link } from "react-router-dom";
 
@@ -34,15 +33,12 @@ function InventoryList({
         />
       )}
       <div>
-        <SearchHeader title={"Inventory"} urlPath={"/inventory/add"} />
         <div className="InventoryFilter">
           <ul className="InventoryFilter__content-list">
             <ul className="InventoryFilter__sub-list InventoryFilter__sub-list--margin1">
               <li className="InventoryFilter__list-details InventoryFilter__list-details--margin1">
                 <div className="InventoryFilter__text-item InventoryFilter__text-item--margin">
-                  <div className="InventoryFilter__text">
-                    Inventory Item
-                  </div>
+                  <div className="InventoryFilter__text">Inventory Item</div>
                   <button className="InventoryFilter__button"></button>
                 </div>
               </li>
@@ -53,7 +49,9 @@ function InventoryList({
             </ul>
             <ul className="InventoryFilter__sub-list InventoryFilter__sub-list--margin2">
               <li className="InventoryFilter__list-details InventoryFilter__list-details--margin3">
-                <p className="InventoryFilter__text InventoryFilter__text--margin">Status</p>
+                <p className="InventoryFilter__text InventoryFilter__text--margin">
+                  Status
+                </p>
                 <button className="InventoryFilter__button"></button>
               </li>
               <li className="InventoryFilter__list-details InventoryCard__list-details--margin4">
@@ -67,8 +65,8 @@ function InventoryList({
             </ul>
           </ul>
           <div className="InventoryCard__buttons">
-          <p className="InventoryFilter__text">Actions</p>
-          <button className="InventoryFilter__button"></button>    
+            <p className="InventoryFilter__text">Actions</p>
+            <button className="InventoryFilter__button"></button>
           </div>
         </div>
         {inventoryList.map((item) => {
@@ -102,7 +100,11 @@ function InventoryList({
                 <ul className="InventoryCard__sub-list InventoryCard__sub-list--margin2">
                   <li className="InventoryCard__list-details InventoryCard__list-details--margin3">
                     <h4 className="InventoryCard__list-title">Status</h4>
-                    <p className={`InventoryCard__info body-medium ${statusStyle(item.quantity)}`}>
+                    <p
+                      className={`InventoryCard__info body-medium ${statusStyle(
+                        item.quantity
+                      )}`}
+                    >
                       {updateStatus(item.quantity)}
                     </p>
                   </li>
