@@ -210,7 +210,14 @@ class WarehouseDetails extends Component {
                               <h4 className="inventory-card__list-title">
                                 STATUS
                               </h4>
-                              <p className="inventory-card__info body-medium">
+
+                              <p
+                                className={
+                                  inventory.quantity === 0
+                                    ? "out-of-stock inventory-card__info body-medium "
+                                    : "in-stock inventory-card__info body-medium"
+                                }
+                              >
                                 {this.stockCheck(inventory.quantity)}
                               </p>
                             </li>
@@ -247,9 +254,18 @@ class WarehouseDetails extends Component {
                           {inventory.category}
                         </p>
 
-                        <p className="inventory-card__info--name body-medium">
-                          {this.stockCheck(inventory.quantity)}
-                        </p>
+                        <div className="inventory-card__info--name">
+                          <p
+                            className={
+                              inventory.quantity === 0
+                                ? "out-of-stock  body-small"
+                                : "in-stock  body-small"
+                            }
+                          >
+                            {this.stockCheck(inventory.quantity)}
+                          </p>
+                        </div>
+
                         <div>
                           <p className="inventory-card__info--contact body-medium">
                             {inventory.quantity}

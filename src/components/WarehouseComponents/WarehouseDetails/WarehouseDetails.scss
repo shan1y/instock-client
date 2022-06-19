@@ -55,11 +55,13 @@
 
 .warehouse-info {
   padding: 1rem;
+  border-bottom: 1px solid $cloud;
 
   @include tablet {
     padding: 2rem;
     display: flex;
     justify-content: space-between;
+    border: none;
   }
 
   &__title {
@@ -175,6 +177,7 @@
 
   &__sub-list {
     padding-right: 1rem;
+    width: 50%;
   }
 
   &__link {
@@ -245,4 +248,27 @@
 .inventory-card__address--tablet {
   width: 7rem;
   justify-content: flex-start;
+}
+
+.in-stock {
+  color: $in-stock-colour;
+  background-color: rgba(21, 132, 99, 0.07);
+  border-radius: 20px;
+  padding: 0.25rem 0.5rem;
+  width: 70%;
+
+  @include tablet {
+    width: 50%;
+  }
+}
+
+.out-of-stock {
+  color: $error-outline-colour;
+  background-color: rgba(201, 69, 21, 0.07);
+  border-radius: 20px;
+  padding: 0.25rem 0.5rem;
+
+  @include tablet {
+    width: 75%;
+  }
 }
