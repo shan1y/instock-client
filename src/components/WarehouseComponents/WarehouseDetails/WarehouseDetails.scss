@@ -305,6 +305,10 @@
     @include tablet {
       width: 60%;
     }
+
+    @include desktop {
+      width: 40%;
+    }
   }
 }
 
@@ -324,6 +328,10 @@
 
     @include tablet {
       width: 90%;
+    }
+
+    @include desktop {
+      width: 57%;
     }
   }
 }

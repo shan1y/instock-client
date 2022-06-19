@@ -20,6 +20,10 @@ class WarehouseEdit extends Component {
     warehouseContact: null,
   };
 
+  redirectHome = () => {
+    this.props.history.push("/warehouse");
+  };
+
   componentDidMount() {
     axios
       .get(`http://localhost:8080/warehouse/${this.props.match.params.id}`)
@@ -398,7 +402,9 @@ class WarehouseEdit extends Component {
 
                 <div className="buttons">
                   <div className="buttons__container">
-                    <button className="button">Cancel</button>
+                    <button onClick={this.redirectHome} className="button">
+                      Cancel
+                    </button>
 
                     <button className="button button--special" type="submit">
                       Save
