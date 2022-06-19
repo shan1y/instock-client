@@ -273,8 +273,10 @@ class InventoryEdit extends React.Component {
 
                   <div className="buttons">
                     <div className="buttons__container">
-                      <Link to="/inventory" className="button button--cancel">
-                        Cancel
+                      <Link to="/inventory" className="buttons__link">
+                        <button className="button button--cancel">
+                          Cancel
+                        </button>
                       </Link>
                       <button className="button button--special" type="submit">
                         Save
