@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./WarehouseList.scss";
 import chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import DeleteModal from "../../DeleteModal/DeleteModal";
@@ -94,7 +94,7 @@ class WarehouseList extends React.Component {
                           <div className="warehouseCard__link body-medium">
                             {warehouse.name}
                           </div>
-                          <img src={chevron} />
+                          <img src={chevron} alt="chevron icon" />
                         </div>
                       </Link>
                     </li>

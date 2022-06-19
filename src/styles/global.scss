@@ -1,4 +1,5 @@
 @use "./partials/typography" as *;
+@use "./partials/fonts" as *;
 
 * {
   box-sizing: border-box;
@@ -8,12 +9,10 @@
   scroll-behavior: smooth;
 }
 
-
 a,
 a:hover,
 a:focus,
 a:active {
   text-decoration: none;
   color: inherit;
-
 }
