@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./WarehouseList.scss";
 import chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import DeleteModal from "../../DeleteModal/DeleteModal";
@@ -64,7 +64,7 @@ class WarehouseList extends React.Component {
         )}
         <SearchHeaderWarehouse title={"Warehouse"} />
         <ul className="sorter">
-          <li className="sorter__item">
+          <li className="sorter__item sorter__item--warehouse">
             Warehouse <button className="sorter__button"></button>
           </li>
           <li className="sorter__item sorter__item--address">
@@ -94,7 +94,7 @@ class WarehouseList extends React.Component {
                           <div className="warehouseCard__link body-medium">
                             {warehouse.name}
                           </div>
-                          <img src={chevron} />
+                          <img src={chevron} alt="chevron icon" />
                         </div>
                       </Link>
                     </li>
@@ -171,8 +171,10 @@ class WarehouseList extends React.Component {
                     type="button"
                     className="warehouseCard__button--delete"
                   ></button>
-                  <div className="warehouseCard__button--edit"></div>
-                  {/* <Link to={`/${this.props.match.params.id}/edit`} className="warehouseCard__button--edit"></Link> */}
+                  <Link
+                    to={`/warehouse/${warehouse.id}/edit`}
+                    className="warehouseCard__button--edit"
+                  ></Link>
                 </div>
               </div>
             </>

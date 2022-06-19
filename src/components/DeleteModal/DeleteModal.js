@@ -1,23 +1,15 @@
 import React from "react";
-import { Modal, Button, ModalDialog } from "react-bootstrap";
-import { propTypes } from "react-bootstrap/esm/Image";
 import "./DeleteModal.scss";
 import ReactDOM from "react-dom";
 
 function DeleteModal({
   deleteItem,
   closeModal,
-  warehouseName,
+
   id,
   title,
   paragraph,
 }) {
-  // const handleDelete = () => {
-  //   const item = props.id;
-  //   props.deleteItem(item);
-  //   props.closeModal();
-  // };
-
   return ReactDOM.createPortal(
     <>
       <div className="modal">

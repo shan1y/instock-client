@@ -47,17 +47,25 @@
   &__links {
     text-decoration: none;
     text-align: center;
-    color: #bdc5d5;
+    color: $cloud;
     font-size: 11px;
     line-height: 20px;
     margin: 0;
     padding: 0.35rem 2.5rem;
     display: flex;
     justify-content: center;
+    &:hover:not(.nav__links--active) {
+      color: $light-grey;
+      text-decoration: underline;
+    }
     &--active {
       background-color: $instock-black;
       color: $white;
       border-radius: 1rem;
+      &:hover {
+        color: $light-grey;
+      }
+
       @include tablet {
         justify-content: center;
         padding: 0.5rem 1rem 0.5rem 1rem;

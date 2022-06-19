@@ -33,6 +33,14 @@ class InventoryPage extends React.Component {
     }
   };
 
+  statusStyleToggle = (qty) => {
+    if (qty === 0) {
+      return "out-of-stock";
+    } else {
+      return "in-stock";
+    }
+  };
+
   openModal = (id) => {
     this.setState({ isOpen: true, activeInventoryId: id });
     // window.scrollTo(0, 0);
@@ -56,6 +64,7 @@ class InventoryPage extends React.Component {
       <div className="InventoryList__body">
         <InventoryList
           updateStatus={this.statusToggle}
+          statusStyle={this.statusStyleToggle}
           inventoryList={this.state.inventory}
           activeInventoryId={this.state.activeInventoryId}
           isOpen={this.state.isOpen}
