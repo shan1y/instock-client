@@ -1,25 +1,9 @@
 import "./HeaderSection.scss";
 import InStockLogo from "../../assets/Logo/InStock-Logo.svg";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from "react";
 
 class HeaderSection extends React.Component {
-  inventorySelected = (endpoint) => {
-    if (endpoint === "/inventory") {
-      return "nav__links--active";
-    } else {
-      return "nav__links--tablet";
-    }
-  };
-  warehouseSelected = (endpoint) => {
-    if (endpoint === "/warehouse") {
-      return "nav__links--active";
-    } else if (endpoint === "/") {
-      return "nav__links--active";
-    } else {
-      return "nav__links--tablet";
-    }
-  };
 
   render() {
     return (
@@ -35,17 +19,13 @@ class HeaderSection extends React.Component {
           <div className="nav__directory">
             <Link
               to="/"
-              className={`nav__links ${this.warehouseSelected(
-                window.location.pathname
-              )}`}
+              className={`nav__links nav__links--active`}
             >
               Warehouses
             </Link>
             <Link
               to="/inventory"
-              className={`nav__links ${this.inventorySelected(
-                window.location.pathname
-              )}`}
+              className={`nav__links`}
             >
               Inventory
             </Link>
