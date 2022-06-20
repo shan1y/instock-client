@@ -86,6 +86,7 @@
     background-color: $delete-icon-colour;
     border: none;
     color: white;
+    font-weight: 600;
 
     cursor: pointer;
     &:hover {
@@ -100,10 +101,11 @@
     border: 1px solid #bdc5d5;
     background-color: #fff;
     color: $slate;
+    font-weight: 600;
     cursor: pointer;
     &:hover {
-      background-color: $slate;
-      color: white;
+      border: 1px solid $button-colour;
+      color: $button-colour;
     }
     @include tablet {
       padding: 0 2rem;

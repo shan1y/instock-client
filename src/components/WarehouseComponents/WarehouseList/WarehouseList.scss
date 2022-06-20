@@ -23,6 +23,9 @@ li {
     width: 8rem;
     align-items: center;
     display: flex;
+    &--address {
+      width: 7rem;
+    }
 
     &--contact-name {
       width: 8rem;
@@ -30,17 +33,6 @@ li {
 
     &--contact {
       width: 10rem;
-    }
-
-    &--address {
-      width: 8rem;
-      @include desktop {
-        width: 13rem;
-      }
-    }
-
-    &--warehouse {
-      width: 8rem;
     }
   }
 
@@ -69,10 +61,11 @@ li {
 
   &__address--tablet {
     @include tablet {
-      width: 8rem;
+      padding-right: 1rem;
+      width: 12rem;
     }
     @include desktop {
-      width: 13rem;
+      width: 12rem;
     }
   }
   &--tablet {
@@ -167,4 +160,9 @@ li {
       content: url("../../../assets/Icons/edit-24px.svg");
     }
   }
+}
+
+.warehouseCard__address--tablet {
+  width: 12rem;
+  justify-content: flex-start;
 }

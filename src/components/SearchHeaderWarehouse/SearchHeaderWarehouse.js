@@ -1,11 +1,12 @@
-import "./SearchHeader.scss";
+import "./SearchHeaderWarehouse.scss";
 import { Link } from "react-router-dom";
 
-function SearchHeader({ title, urlPath, item }) {
+function SearchHeaderWarehouse({ title }) {
+  const nameChange = (name) => name;
   return (
     <>
       <div className="search">
-        <h1 className="search__title">{title}</h1>
+        <h1 className="search__title">{nameChange(title)}</h1>
         <form className="search__form form">
           <label className="form__label" htmlFor="search"></label>
           <input
@@ -13,8 +14,8 @@ function SearchHeader({ title, urlPath, item }) {
             placeholder="Search..."
             name="search"
           ></input>
-          <Link to={`${urlPath}`} className="form__button">
-            {`+ Add New ${item}`}
+          <Link className="search__link" to="/warehouse/add">
+            <button className="form__button">+ Add New Item</button>
           </Link>
         </form>
       </div>
@@ -22,4 +23,4 @@ function SearchHeader({ title, urlPath, item }) {
   );
 }
 
-export default SearchHeader;
+export default SearchHeaderWarehouse;
