@@ -34,7 +34,7 @@ function InventoryList({
         />
       )}
       <div>
-        <SearchHeader title={"Inventory"} urlPath={"/inventory/add"} />
+        <SearchHeader title={"Inventory"} urlPath={"/inventory/add"} buttonText="+Add Item"/>
         <div className="InventoryFilter">
           <ul className="InventoryFilter__content-list">
             <ul className="InventoryFilter__sub-list InventoryFilter__sub-list--margin1">

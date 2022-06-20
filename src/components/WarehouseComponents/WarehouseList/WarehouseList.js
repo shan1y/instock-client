@@ -11,6 +11,7 @@ class WarehouseList extends React.Component {
     warehouseList: [],
     isOpen: false,
     activeWarehouseId: null,
+    warehouseContact: null,
   };
 
   componentDidMount() {
@@ -22,6 +23,7 @@ class WarehouseList extends React.Component {
       .then((warehouseData) => {
         this.setState({
           warehouseList: warehouseData,
+          warehouseContact: warehouseData.contact,
         });
       });
   }
@@ -62,7 +64,7 @@ class WarehouseList extends React.Component {
             id={activeWarehouseId}
           />
         )}
-        <SearchHeader title={"Warehouses"} urlPath={"/warehouse/add"} />
+        <SearchHeader title={"Warehouses"} urlPath={"/warehouse/add"} buttonText="+Add New Warehouse"/>
         <ul className="sorter">
           <li className="sorter__item sorter__item--warehouse">
             Warehouse <button className="sorter__button"></button>
@@ -125,7 +127,7 @@ class WarehouseList extends React.Component {
                         {warehouse.contact.phone}
                       </p>
                       <p className="warehouseCard__info body-medium">
-                        athomas@instock.com
+                        {warehouse.contact.email}
                       </p>
                     </li>
                   </ul>
@@ -160,7 +162,7 @@ class WarehouseList extends React.Component {
                     {warehouse.contact.phone}
                   </p>
                   <p className="warehouseCard__info--contact body-medium">
-                    athomas@instock.com
+                 {warehouse.contact.email}
                   </p>
                 </div>
                 <div className="warehouseCard__buttons warehouseCard__buttons--tablet">

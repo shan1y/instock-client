@@ -2,6 +2,7 @@
 @use "../../styles/partials/colours" as *;
 .WarehouseList {
   &__background {
+    height: 90vh;
     background-color: $light-grey;
   }
   &__body {

@@ -55,10 +55,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    &:hover {
-      background-color: $instock-black;
-    }
     @include tablet {
       min-width: 8rem;
       padding: 0rem 1rem;

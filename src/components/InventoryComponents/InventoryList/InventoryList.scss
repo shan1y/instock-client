@@ -10,6 +10,9 @@ li {
 .InventoryCard {
   border-bottom: 1px solid $cloud;
   padding: 1rem;
+  &:hover {
+    background-color: $list-container;
+  }
   @include tablet {
     display: flex;
     flex-direction: row;
@@ -70,13 +73,9 @@ li {
         width: 50%;
       }
     }
-    @include tablet {
-      // width: 10rem;
-    }
   }
 
   &__sub-list {
-    // margin-right: 2rem;
     &--margin1 {
       width: 50%;
       @include tablet {
@@ -92,13 +91,15 @@ li {
     @include tablet {
       display: flex;
       flex-direction: row;
-      // width: 100%;
     }
   }
 
   &__link {
     color: $button-colour;
     font-weight: 600;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &__link-item {
