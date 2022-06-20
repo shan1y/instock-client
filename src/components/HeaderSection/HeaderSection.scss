@@ -71,19 +71,7 @@
         padding: 0.5rem 1rem 0.5rem 1rem;
       }
     }
-    &--active2 {
-      background-color: $instock-black;
-      color: $white;
-      border-radius: 1rem;
-      &:hover {
-        color: $light-grey;
-      }
 
-      @include tablet {
-        justify-content: center;
-        padding: 0.5rem 1rem 0.5rem 1rem;
-      }
-    }
     &--tablet {
       @include tablet {
         padding: 0.5rem 0 0.5rem 0.7125rem;

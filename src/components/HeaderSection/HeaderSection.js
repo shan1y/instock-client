@@ -17,7 +17,7 @@ class HeaderSection extends React.Component {
           </NavLink>
           <div className="nav__directory">
             <NavLink
-              to="/"
+              to="/warehouse"
               className="nav__links"
               activeClassName="nav__links--active"
             >
