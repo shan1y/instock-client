@@ -7,6 +7,7 @@ import backArrow from "../../../assets/Icons/arrow_back-24px.svg";
 import editHead from "../../../assets/Icons/edit_second-24px.svg";
 import edit from "../../../assets/Icons/edit-24px.svg";
 import DeleteModal from "../../DeleteModal/DeleteModal";
+import InventoryList from "../../InventoryComponents/InventoryList/InventoryList";
 
 class WarehouseDetails extends Component {
   state = {
@@ -48,7 +49,12 @@ class WarehouseDetails extends Component {
       });
   }
 
-  stockCheck = (stock) => (stock === 0 ? "OUT OF STOCK" : "IN STOCK");
+  statusToggle = (stock) => (stock === 0 ? "OUT OF STOCK" : "IN STOCK");
+
+  statusStyleToggle = (stock) =>
+    stock === 0
+      ? "out-of-stock inventory-card__info body-small "
+      : "in-stock inventory-card__info body-small";
 
   openModal = (id) => {
     this.setState({ isOpen: true, activeInventoryId: id });
@@ -90,16 +96,6 @@ class WarehouseDetails extends Component {
       <>
         {this.state?.warehouseDetails && this.state?.warehouseInventory ? (
           <>
-            {this.state.isOpen && (
-              <DeleteModal
-                deleteItem={this.deleteItem}
-                closeModal={this.closeModal}
-                isOpen={this.state.isOpen}
-                title={`Delete ${modalData.itemName} inventory item?`}
-                id={this.state.activeInventoryId}
-                paragraph={`Please confirm that you'd like to delete ${modalData.itemName} from the inventory list. You won't be able to undo this action.`}
-              />
-            )}
             <div className="warehouse-details">
               <div className="warehouse-details__container">
                 <div className="warehouse-details__header">
@@ -150,136 +146,16 @@ class WarehouseDetails extends Component {
                   </div>
                 </div>
 
-                <ul className="sorter">
-                  <li className="sorter__item">
-                    INVENTORY ITEM <button className="sorter__button"></button>
-                  </li>
-                  <li className="sorter__item sorter__item--address">
-                    CATEGORY <button className="sorter__button"></button>
-                  </li>
-                  <li className="sorter__item sorter__item--contact-name">
-                    STATUS<button className="sorter__button"></button>
-                  </li>
-                  <li className="sorter__item sorter__item--contact">
-                    QUANTITY<button className="sorter__button"></button>
-                  </li>
-                  <li className="sorter__item">
-                    Actions<button className="sorter__button"></button>
-                  </li>
-                </ul>
-                {this.state.warehouseInventory.map((inventory) => {
-                  return (
-                    <div className="/" key={inventory.id}>
-                      <div className="inventory-card">
-                        <ul className="inventory-card__content-list">
-                          <ul className="inventory-card__sub-list">
-                            <li className="inventory-card__list-details">
-                              <h4 className="inventory-card__list-title">
-                                INVENTORY ITEM
-                              </h4>
-                              <Link
-                                to={`/inventory/${inventory.id}`}
-                                className="inventory-card__link"
-                              >
-                                <div className="inventory-card__link-item">
-                                  <div className="inventory-card__link body-medium">
-                                    {inventory.itemName}
-                                  </div>
-                                  <img src={chevron} />
-                                </div>
-                              </Link>
-                            </li>
-                            <li className="inventory-card__list-details">
-                              <h4 className="inventory-card__list-title">
-                                CATEGORY
-                              </h4>
-                              <p className="inventory-card__info body-medium">
-                                {inventory.category}
-                              </p>
-                            </li>
-                          </ul>
-                          <ul className="inventory-card__sub-list">
-                            <li className="inventory-card__list-details">
-                              <h4 className="inventory-card__list-title">
-                                STATUS
-                              </h4>
-
-                              <p
-                                className={
-                                  inventory.quantity === 0
-                                    ? "out-of-stock inventory-card__info body-small "
-                                    : "in-stock inventory-card__info body-small"
-                                }
-                              >
-                                {this.stockCheck(inventory.quantity)}
-                              </p>
-                            </li>
-                            <li className="inventory-card__list-details">
-                              <h4 className="inventory-card__list-title">
-                                Qty
-                              </h4>
-                              <p className="inventory-card__info body-medium">
-                                {inventory.quantity}
-                              </p>
-                            </li>
-                          </ul>
-                        </ul>
-                        <div className="inventory-card__buttons">
-                          <button
-                            type="button"
-                            className="inventory-card__button--delete"
-                          ></button>
-
-                          <Link to={`/inventory/edit/${inventory.id}`}>
-                            <div className="inventory-card__button--edit"></div>
-                          </Link>
-                        </div>
-                      </div>
-
-                      <div className="inventory-card--tablet">
-                        <Link to={`/inventory/${inventory.id}`}>
-                          <div className="inventory-card__link--tablet body-medium">
-                            {inventory.itemName}
-                            <img src={chevron} alt="chevron" />
-                          </div>
-                        </Link>
-                        <p className="inventory-card__address--tablet body-medium">
-                          {inventory.category}
-                        </p>
-
-                        <div className="inventory-card__info--name">
-                          <p
-                            className={
-                              inventory.quantity === 0
-                                ? "out-of-stock out-of-stock--warehouse body-small"
-                                : "in-stock out-of-stock--warehouse body-small"
-                            }
-                          >
-                            {this.stockCheck(inventory.quantity)}
-                          </p>
-                        </div>
-
-                        <div>
-                          <p className="inventory-card__info--contact body-medium">
-                            {inventory.quantity}
-                          </p>
-                        </div>
-                        <div className="inventory-card__buttons inventory-card__buttons--tablet">
-                          <button
-                            onClick={() => {
-                              this.openModal(inventory.id);
-                            }}
-                            type="button"
-                            className="inventory-card__button--delete"
-                          ></button>
-                          <Link to={`/inventory/edit/${inventory.id}`}>
-                            <div className="inventory-card__button--edit"></div>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
+                <InventoryList
+                  updateStatus={this.statusToggle}
+                  statusStyle={this.statusStyleToggle}
+                  isOpen={this.state.isOpen}
+                  openModal={this.openModal}
+                  closeModal={this.closeModal}
+                  deleteItem={this.deleteItem}
+                  activeInventoryId={this.state.activeInventoryId}
+                  inventoryList={this.state.warehouseInventory}
+                />
               </div>
             </div>
           </>
