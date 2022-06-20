@@ -1,9 +1,11 @@
 import "./HeaderSection.scss";
 import InStockLogo from "../../assets/Logo/InStock-Logo.svg";
-import { Link, useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import React from "react";
 
 class HeaderSection extends React.Component {
+<<<<<<< HEAD
+=======
   state = {
     inventoryClass: "",
     warehouseClass: "button__inventory--active",
@@ -40,18 +42,35 @@ class HeaderSection extends React.Component {
     });
   };
 
+>>>>>>> develop
   render() {
     return (
       <header>
         <nav className="nav">
-          <Link to="/" className="nav__logo-div">
+          <NavLink to="/" className="nav__logo-div">
             <img
               className="nav__logo"
               src={InStockLogo}
               alt="InStock Logo"
             ></img>
-          </Link>
+          </NavLink>
           <div className="nav__directory">
+<<<<<<< HEAD
+            <NavLink
+              to="/warehouse"
+              className="nav__links"
+              activeClassName="nav__links--active"
+            >
+              Warehouses
+            </NavLink>
+            <NavLink
+              to="/inventory"
+              className="nav__links"
+              activeClassName="nav__links--active"
+            >
+              Inventory
+            </NavLink>
+=======
             <Link to="/" className="nav__links">
               <button
                 onClick={this.activeWarehousePageHandler}
@@ -69,6 +88,7 @@ class HeaderSection extends React.Component {
                 Inventory
               </button>
             </Link>
+>>>>>>> develop
           </div>
         </nav>
       </header>

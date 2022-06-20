@@ -20,10 +20,6 @@ class WarehouseEdit extends Component {
     warehouseContact: null,
   };
 
-  // redirectHome = () => {
-  //   this.props.history.push("/warehouse");
-  // };
-
   componentDidMount() {
     axios
       .get(`http://localhost:8080/warehouse/${this.props.match.params.id}`)
@@ -37,21 +33,6 @@ class WarehouseEdit extends Component {
         });
       });
   }
-
-  // componentDidUpdate(_prevProps, prevState) {
-  //   const prevList = prevState.warehouseList;
-  //   const currentList = this.state.warehouseList;
-
-  //   if (prevList !== currentList) {
-  //     axios
-  //       .get(`http://localhost:8080/warehouse/${this.props.match.params.id}`)
-  //       .then((response) => {
-  //         this.setState({
-  //           warehouseList: response.data,
-  //         });
-  //       });
-  //   }
-  // }
 
   handleWarehouseName = (event) => {
     const inputValue = event.target.value;
