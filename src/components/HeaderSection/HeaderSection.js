@@ -1,34 +1,35 @@
 import "./HeaderSection.scss";
 import InStockLogo from "../../assets/Logo/InStock-Logo.svg";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import React from "react";
 
 class HeaderSection extends React.Component {
-
   render() {
     return (
       <header>
         <nav className="nav">
-          <Link to="/" className="nav__logo-div">
+          <NavLink to="/" className="nav__logo-div">
             <img
               className="nav__logo"
               src={InStockLogo}
               alt="InStock Logo"
             ></img>
-          </Link>
+          </NavLink>
           <div className="nav__directory">
-            <Link
+            <NavLink
               to="/"
-              className={`nav__links nav__links--active`}
+              className="nav__links"
+              activeClassName="nav__links--active"
             >
               Warehouses
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/inventory"
-              className={`nav__links`}
+              className="nav__links"
+              activeClassName="nav__links--active"
             >
               Inventory
-            </Link>
+            </NavLink>
           </div>
         </nav>
       </header>
