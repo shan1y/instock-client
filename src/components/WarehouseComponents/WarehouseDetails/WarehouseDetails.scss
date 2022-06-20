@@ -294,9 +294,14 @@
   border-radius: 20px;
   padding: 0.25rem 0.5rem;
   width: 60%;
+  text-align: center;
 
   @include tablet {
-    width: 50%;
+    width: 62%;
+  }
+
+  @include desktop {
+    width: 55%;
   }
 
   &--big {
@@ -318,9 +323,14 @@
   border-radius: 20px;
   padding: 0.25rem 0.5rem;
   width: 85%;
+  text-align: center;
 
   @include tablet {
-    width: 75%;
+    width: 90%;
+  }
+
+  @include desktop {
+    width: 65%;
   }
 
   &--big {

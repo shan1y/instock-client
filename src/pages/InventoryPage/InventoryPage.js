@@ -2,6 +2,7 @@ import "./InventoryPage.scss";
 import React from "react";
 import axios from "axios";
 import InventoryList from "../../components/InventoryComponents/InventoryList/InventoryList";
+import SearchHeader from "../../components/SearchHeader/SearchHeader";
 
 class InventoryPage extends React.Component {
   state = {
@@ -62,6 +63,7 @@ class InventoryPage extends React.Component {
     }
     return (
       <div className="InventoryList__body">
+        <SearchHeader title={"Inventory"} urlPath={"/inventory/add"} />
         <InventoryList
           updateStatus={this.statusToggle}
           statusStyle={this.statusStyleToggle}
