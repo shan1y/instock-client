@@ -64,7 +64,9 @@ class WarehouseList extends React.Component {
             id={activeWarehouseId}
           />
         )}
-        <SearchHeader title={"Warehouses"} urlPath={"/warehouse/add"} buttonText="+Add New Warehouse"/>
+
+        <SearchHeader title={"Warehouses"} urlPath={"/"} item={"Warehouse"} />
+
         <ul className="sorter">
           <li className="sorter__item sorter__item--warehouse">
             Warehouse <button className="sorter__button"></button>
@@ -140,7 +142,9 @@ class WarehouseList extends React.Component {
                     type="button"
                     className="warehouseCard__button--delete"
                   ></button>
-                  <div className="warehouseCard__button--edit"></div>
+                  <Link to={`/warehouse/${warehouse.id}/edit`}>
+                    <div className="warehouseCard__button--edit"></div>
+                  </Link>
                 </div>
               </div>
               <div className="warehouseCard--tablet">
@@ -162,7 +166,7 @@ class WarehouseList extends React.Component {
                     {warehouse.contact.phone}
                   </p>
                   <p className="warehouseCard__info--contact body-medium">
-                 {warehouse.contact.email}
+                    {warehouse.contact.email}
                   </p>
                 </div>
                 <div className="warehouseCard__buttons warehouseCard__buttons--tablet">
