@@ -1,6 +1,5 @@
 import "./InventoryList.scss";
 import chevron from "../../../assets/Icons/chevron_right-24px.svg";
-import SearchHeader from "../../SearchHeader/SearchHeader";
 import sortIcon from "../../../assets/Icons/sort-24px.svg";
 import { Link } from "react-router-dom";
 
@@ -34,11 +33,6 @@ function InventoryList({
         />
       )}
       <div>
-        <SearchHeader
-          title={"Inventory"}
-          urlPath={"/inventory/add"}
-          item={"Item"}
-        />
         <div className="InventoryFilter">
           <ul className="InventoryFilter__content-list">
             <ul className="InventoryFilter__sub-list InventoryFilter__sub-list--margin1">
