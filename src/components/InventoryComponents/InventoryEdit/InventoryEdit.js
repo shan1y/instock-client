@@ -37,8 +37,7 @@ class InventoryEdit extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state?.warehouseList);
-    console.log(event.target.warehouse.value);
+
     const selectedWarehouse = this.state?.warehouseList.find((item) => {
       return item.name === event.target.warehouse.value;
     });
@@ -62,14 +61,6 @@ class InventoryEdit extends React.Component {
     } else {
       this.setState({ quantityCheck: false });
     }
-
-    console.log(this.props.match.params);
-    console.log(event.target.warehouse.value);
-    console.log(event.target.itemName.value);
-    console.log(event.target.description.value);
-    console.log(event.target.category.value);
-    console.log(event.target.status.value);
-    console.log(event.target.quantity.value);
 
     if (
       !this.state.itemNameCheck &&
