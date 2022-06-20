@@ -56,7 +56,8 @@
     justify-content: center;
     &:hover:not(.nav__links--active) {
       color: $light-grey;
-      text-decoration: underline;
+      cursor: pointer;
+      // text-decoration: underline;
     }
     &--active {
       background-color: $instock-black;
