@@ -35,7 +35,6 @@ class WarehouseList extends React.Component {
   closeModal = () => this.setState({ isOpen: false });
 
   deleteItem = (id) => {
-    console.log(id);
     axios.delete(`http://localhost:8080/warehouse/${id}`).then((response) => {
       this.setState({ warehouseList: response.data, isOpen: false });
     });
@@ -65,7 +64,11 @@ class WarehouseList extends React.Component {
           />
         )}
 
-        <SearchHeader title={"Warehouses"} urlPath={"/"} item={"Warehouse"} />
+        <SearchHeader
+          title={"Warehouses"}
+          urlPath={"/warehouse/add"}
+          item={"Warehouse"}
+        />
 
         <ul className="sorter">
           <li className="sorter__item sorter__item--warehouse">
@@ -86,8 +89,8 @@ class WarehouseList extends React.Component {
         </ul>
         {this.state.warehouseList.map((warehouse) => {
           return (
-            <>
-              <div className="warehouseCard" key={warehouse.id}>
+            <div key={warehouse.id}>
+              <div className="warehouseCard">
                 <ul className="warehouseCard__content-list">
                   <ul className="warehouseCard__sub-list">
                     <li className="warehouseCard__list-details">
@@ -183,7 +186,7 @@ class WarehouseList extends React.Component {
                   ></Link>
                 </div>
               </div>
-            </>
+            </div>
           );
         })}
       </>
