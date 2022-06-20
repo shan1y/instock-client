@@ -63,7 +63,11 @@ class InventoryPage extends React.Component {
     }
     return (
       <div className="InventoryList__body">
-        <SearchHeader title={"Inventory"} urlPath={"/inventory/add"} />
+        <SearchHeader
+          title={"Inventory"}
+          urlPath={"/inventory/add"}
+          item="Item"
+        />
         <InventoryList
           updateStatus={this.statusToggle}
           statusStyle={this.statusStyleToggle}
