@@ -42,10 +42,6 @@
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: 90%;
-
-    // &::placeholder {
-    //     padding: 1rem;
-    // }
   }
   &__button {
     margin-bottom: 1rem;
@@ -54,11 +50,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    &:hover {
-      background-color: $instock-black;
-      color: white;
-    }
     @include tablet {
       min-width: 8rem;
       padding: 0rem 1rem;

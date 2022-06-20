@@ -11,6 +11,7 @@ class WarehouseList extends React.Component {
     warehouseList: [],
     isOpen: false,
     activeWarehouseId: null,
+    warehouseContact: null,
   };
 
   componentDidMount() {
@@ -22,6 +23,7 @@ class WarehouseList extends React.Component {
       .then((warehouseData) => {
         this.setState({
           warehouseList: warehouseData,
+          warehouseContact: warehouseData.contact,
         });
       });
   }

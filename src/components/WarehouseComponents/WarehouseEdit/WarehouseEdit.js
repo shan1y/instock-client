@@ -20,9 +20,9 @@ class WarehouseEdit extends Component {
     warehouseContact: null,
   };
 
-  redirectHome = () => {
-    this.props.history.push("/warehouse");
-  };
+  // redirectHome = () => {
+  //   this.props.history.push("/warehouse");
+  // };
 
   componentDidMount() {
     axios
@@ -37,6 +37,21 @@ class WarehouseEdit extends Component {
         });
       });
   }
+
+  // componentDidUpdate(_prevProps, prevState) {
+  //   const prevList = prevState.warehouseList;
+  //   const currentList = this.state.warehouseList;
+
+  //   if (prevList !== currentList) {
+  //     axios
+  //       .get(`http://localhost:8080/warehouse/${this.props.match.params.id}`)
+  //       .then((response) => {
+  //         this.setState({
+  //           warehouseList: response.data,
+  //         });
+  //       });
+  //   }
+  // }
 
   handleWarehouseName = (event) => {
     const inputValue = event.target.value;
@@ -172,22 +187,23 @@ class WarehouseEdit extends Component {
       event.target.phone.value &&
       event.target.email.value
     ) {
-      //   .catch((error) => console.log(error));
-      // this.props.history.push("/warehouse");
-      axios.put(
-        `http://localhost:8080/warehouse/${this.props.match.params.id}/edit`,
-        {
-          id: this.props.match.params.id,
-          warehouseName: event.target.warehouseName.value,
-          address: event.target.address.value,
-          city: event.target.city.value,
-          country: event.target.country.value,
-          contactName: event.target.contactName.value,
-          position: event.target.position.value,
-          phone: event.target.phone.value,
-          email: event.target.email.value,
-        }
-      );
+      axios
+        .put(
+          `http://localhost:8080/warehouse/${this.props.match.params.id}/edit`,
+          {
+            id: this.props.match.params.id,
+            warehouseName: event.target.warehouseName.value,
+            address: event.target.address.value,
+            city: event.target.city.value,
+            country: event.target.country.value,
+            contactName: event.target.contactName.value,
+            position: event.target.position.value,
+            phone: event.target.phone.value,
+            email: event.target.email.value,
+          }
+        )
+        .catch((error) => console.log(error));
+      this.props.history.push("/warehouse");
     }
   };
 
