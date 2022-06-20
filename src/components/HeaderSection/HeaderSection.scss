@@ -40,24 +40,18 @@
       width: 20%;
       justify-content: flex-end;
     }
-    @include desktop {
-      width: 30%;
-    }
   }
   &__links {
     text-decoration: none;
+    width: 100%;
     text-align: center;
     color: $cloud;
     font-size: 11px;
     line-height: 20px;
     margin: 0;
-    padding: 0.35rem 2.5rem;
     display: flex;
     justify-content: center;
-    &:hover:not(.nav__links--active) {
-      color: $light-grey;
-      text-decoration: underline;
-    }
+
     &--active {
       background-color: $instock-black;
       color: $white;
@@ -85,5 +79,37 @@
       line-height: 22px;
       margin-left: 1rem;
     }
+  }
+}
+
+.button__inventory {
+  background-color: transparent;
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+}
+
+.button__warehouse {
+  background-color: transparent;
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+}
+
+.button__inventory--active {
+  background-color: $instock-black;
+}
+
+.button__warehouse--active {
+  background-color: $instock-black;
+}
+
+.button__inventory,
+.button__warehouse {
+  &:hover:not(.button__inventory--active, .button__warehouse--active) {
+    color: $light-grey;
+    text-decoration: underline;
   }
 }

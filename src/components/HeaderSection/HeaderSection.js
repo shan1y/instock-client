@@ -4,6 +4,11 @@ import { Link, useParams } from "react-router-dom";
 import React from "react";
 
 class HeaderSection extends React.Component {
+  state = {
+    inventoryClass: "",
+    warehouseClass: "button__inventory--active",
+  };
+
   inventorySelected = (endpoint) => {
     if (endpoint === "/inventory") {
       return "nav__links--active";
@@ -21,6 +26,20 @@ class HeaderSection extends React.Component {
     }
   };
 
+  activeInventoryPageHandler = () => {
+    this.setState({
+      inventoryClass: "button__inventory--active",
+      warehouseClass: "",
+    });
+  };
+
+  activeWarehousePageHandler = () => {
+    this.setState({
+      inventoryClass: "",
+      warehouseClass: "button__warehouse--active",
+    });
+  };
+
   render() {
     return (
       <header>
@@ -33,21 +52,22 @@ class HeaderSection extends React.Component {
             ></img>
           </Link>
           <div className="nav__directory">
-            <Link
-              to="/"
-              className={`nav__links ${this.warehouseSelected(
-                window.location.pathname
-              )}`}
-            >
-              Warehouses
+            <Link to="/" className="nav__links">
+              <button
+                onClick={this.activeWarehousePageHandler}
+                className={`button__warehouse ${this.state.warehouseClass} `}
+              >
+                {" "}
+                Warehouses
+              </button>
             </Link>
-            <Link
-              to="/inventory"
-              className={`nav__links ${this.inventorySelected(
-                window.location.pathname
-              )}`}
-            >
-              Inventory
+            <Link to="/inventory" className="nav__links ">
+              <button
+                onClick={this.activeInventoryPageHandler}
+                className={`button__inventory ${this.state.inventoryClass} `}
+              >
+                Inventory
+              </button>
             </Link>
           </div>
         </nav>
